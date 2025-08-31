@@ -968,6 +968,11 @@ footer {
 
 /* Mobile Section Backgrounds */
 @media (max-width: 768px) {
+    /* Single unified background for the entire page on mobile */
+    body {
+        background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
+    }
+
     /* Hero section - subtle gradient background */
     .hero {
         background: linear-gradient(135deg, rgba(26, 35, 68, 0.3) 0%, rgba(11, 16, 32, 0.1) 100%);
