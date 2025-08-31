@@ -28,8 +28,8 @@ body {
     margin: 0;
     font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial;
     color: var(--text);
-    background: radial-gradient(1200px 800px at 80% -10%, #1a2344 0%, transparent 60%),
-                radial-gradient(1000px 800px at -20% 10%, rgba(233,109,70,.25) 0%, transparent 60%), 
+    background: radial-gradient(1200px 3000px at center, #1a2344 0%, transparent 60%),
+                radial-gradient(1000px 3000px at -30% 50%, rgba(233,109,70,.25) 0%, transparent 60%),
                 var(--bg);
 }
 
@@ -999,10 +999,6 @@ footer {
     .menu {
         margin-right: 24px; /* Push menu items more to the left */
         gap: 12px; /* Reduce gap for mobile */
-    }
-    /* Single unified background for the entire page on mobile */
-    body {
-        background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
     }
 
     /* Hero section */
