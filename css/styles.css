@@ -1005,11 +1005,11 @@ footer {
         background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
     }
 
-    /* Hero section - subtle gradient background */
+    /* Hero section */
     .hero {
-        background: linear-gradient(135deg, rgba(26, 35, 68, 0.3) 0%, rgba(11, 16, 32, 0.1) 100%);
         position: relative;
         margin: 0;
+        background: transparent;
     }
 
     .hero::before {
@@ -1024,11 +1024,11 @@ footer {
         z-index: -1;
     }
 
-    /* Services section - card-like background */
+    /* Services section */
     #services {
-        background: linear-gradient(180deg, rgba(17, 24, 45, 0.4) 0%, rgba(11, 16, 32, 0.2) 100%);
         position: relative;
         margin: 0;
+        background: transparent;
     }
 
     #services::before {
@@ -1043,11 +1043,11 @@ footer {
         z-index: -1;
     }
 
-    /* Trusted by section - subtle accent background */
+    /* Trusted by section */
     #clients {
-        background: linear-gradient(135deg, rgba(233, 109, 70, 0.05) 0%, rgba(11, 16, 32, 0.1) 100%);
         position: relative;
         margin: 0;
+        background: transparent;
     }
 
     #clients::before {
@@ -1062,11 +1062,11 @@ footer {
         z-index: -1;
     }
 
-    /* Process section - structured background */
+    /* Process section */
     #process {
-        background: linear-gradient(180deg, rgba(17, 24, 45, 0.3) 0%, rgba(11, 16, 32, 0.1) 100%);
         position: relative;
         margin: 0;
+        background: transparent;
     }
 
     #process::before {
@@ -1083,11 +1083,11 @@ footer {
         z-index: -1;
     }
 
-    /* Contact section - prominent background */
+    /* Contact section */
     #contact {
-        background: linear-gradient(135deg, rgba(17, 24, 45, 0.5) 0%, rgba(11, 16, 32, 0.3) 100%);
         position: relative;
         margin: 0;
+        background: transparent;
     }
 
     #contact::before {
@@ -1117,24 +1117,12 @@ footer {
 
 /* Enhanced mobile backgrounds for smaller screens */
 @media (max-width: 480px) {
-    .hero {
-        background: linear-gradient(135deg, rgba(26, 35, 68, 0.4) 0%, rgba(11, 16, 32, 0.15) 100%);
-    }
-
-    #services {
-        background: linear-gradient(180deg, rgba(17, 24, 45, 0.5) 0%, rgba(11, 16, 32, 0.25) 100%);
-    }
-
-    #clients {
-        background: linear-gradient(135deg, rgba(233, 109, 70, 0.08) 0%, rgba(11, 16, 32, 0.15) 100%);
-    }
-
-    #process {
-        background: linear-gradient(135deg, rgba(17, 24, 45, 0.4) 0%, rgba(11, 16, 32, 0.2) 100%);
-    }
-
+    .hero,
+    #services,
+    #clients,
+    #process,
     #contact {
-        background: linear-gradient(135deg, rgba(17, 24, 45, 0.6) 0%, rgba(11, 16, 32, 0.4) 100%);
+        background: transparent;
     }
 }
 
