@@ -575,10 +575,17 @@ footer {
     
     .container {
         padding: 0 16px;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     
     .nav {
         padding: 12px 0;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    
+    /* Fix horizontal scrolling on body */
+    body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     
     .brand h1 {
@@ -968,6 +975,24 @@ footer {
 
 /* Mobile Section Backgrounds */
 @media (max-width: 768px) {
+    /* Ensure language dropdown background matches page gradient */
+    .lang-menu {
+        background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
+        border: 1px solid rgba(255,255,255,.15);
+        backdrop-filter: blur(10px);
+    }
+    
+    /* Mobile-specific language dropdown positioning */
+    .lang-toggle {
+        min-width: 70px; /* Ensure toggle button fits on mobile */
+        padding: 6px 10px; /* Smaller padding for mobile */
+        font-size: 12px; /* Smaller font for mobile */
+    }
+    
+    .lang-menu {
+        min-width: 100px; /* Smaller width for mobile */
+        right: -10px; /* Adjust positioning for mobile */
+    }
     /* Single unified background for the entire page on mobile */
     body {
         background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
@@ -1131,4 +1156,28 @@ footer {
             radial-gradient(900px 250px at 20% 30%, rgba(233, 109, 70, 0.04) 0%, transparent 70%),
             radial-gradient(700px 200px at 80% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
     }
+}
+
+/* Ensure language dropdown background matches page gradient */
+.lang-menu {
+    background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
+    border: 1px solid rgba(255,255,255,.15);
+    backdrop-filter: blur(10px);
+}
+
+/* Mobile-specific language dropdown positioning */
+.lang-dropdown {
+    position: relative;
+    z-index: 100;
+}
+
+.lang-toggle {
+    min-width: 70px; /* Ensure toggle button fits on mobile */
+    padding: 6px 10px; /* Smaller padding for mobile */
+    font-size: 12px; /* Smaller font for mobile */
+}
+
+.lang-menu {
+    min-width: 100px; /* Smaller width for mobile */
+    right: -10px; /* Adjust positioning for mobile */
 }
