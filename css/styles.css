@@ -574,6 +574,7 @@ footer {
 
     .container {
         padding: 0 16px;
+        overflow: visible;
     }
 
     .nav {
@@ -1065,6 +1066,5 @@ footer {
 }
 
 .lang-menu {
-    min-width: 100px; /* Smaller width for mobile */
-    right: -10px; /* Adjust positioning for mobile */
+    min-width: 80px; /* Smaller width for mobile */
 }
