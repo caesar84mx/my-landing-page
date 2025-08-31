@@ -55,10 +55,26 @@
             <a class="hide-sm" href="#process" data-i18n="nav.process">Process</a>
             <a href="#contact" class="btn" data-i18n="nav.cta">Discuss a project</a>
             <div class="lang" aria-label="Language switcher">
-                <button type="button" data-lang="en" class="active" aria-label="Switch to English">EN</button>
-                <button type="button" data-lang="es" aria-label="Cambiar a Español">ES</button>
-                <button type="button" data-lang="pt" aria-label="Mudar para Português">PT</button>
-                <button type="button" data-lang="ru" aria-label="Переключить на русский">RU</button>
+                <div class="lang-dropdown">
+                    <button type="button" class="lang-toggle" aria-label="Select language" aria-expanded="false">
+                        <span class="lang-current">EN</span>
+                        <svg class="lang-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="lang-menu" role="menu">
+                        <button type="button" data-lang="en" class="lang-option active" role="menuitem" aria-label="Switch to English">EN</button>
+                        <button type="button" data-lang="es" class="lang-option" role="menuitem" aria-label="Cambiar a Español">ES</button>
+                        <button type="button" data-lang="pt" class="lang-option" role="menuitem" aria-label="Mudar para Português">PT</button>
+                        <button type="button" data-lang="ru" class="lang-option" role="menuitem" aria-label="Переключить на русский">RU</button>
+                    </div>
+                </div>
+                <div class="lang-buttons">
+                    <button type="button" data-lang="en" class="active" aria-label="Switch to English">EN</button>
+                    <button type="button" data-lang="es" aria-label="Cambiar a Español">ES</button>
+                    <button type="button" data-lang="pt" aria-label="Mudar para Português">PT</button>
+                    <button type="button" data-lang="ru" aria-label="Переключить на русский">RU</button>
+                </div>
             </div>
         </nav>
     </div>

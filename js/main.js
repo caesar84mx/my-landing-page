@@ -119,7 +119,17 @@ function applyI18n(lang) {
     });
     
     // Update language button states
-    $$('.lang button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    $$('.lang button[data-lang]').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    
+    // Update dropdown current language display
+    $$('.lang-current').forEach(span => {
+        span.textContent = lang.toUpperCase();
+    });
+    
+    // Update dropdown option states
+    $$('.lang-option').forEach(option => {
+        option.classList.toggle('active', option.dataset.lang === lang);
+    });
     
     // Update hero stack note
     const helper = document.querySelector('.hero-card .helper');
@@ -130,7 +140,8 @@ function applyI18n(lang) {
 
 // Initialize language switching
 function initializeLanguageSwitching() {
-    $$('.lang button').forEach(b => {
+    // Handle both dropdown options and button clicks
+    $$('.lang button[data-lang]').forEach(b => {
         b.addEventListener('click', () => {
             const lang = b.dataset.lang;
             localStorage.setItem('lang', lang);
@@ -138,7 +149,43 @@ function initializeLanguageSwitching() {
             url.searchParams.set('lang', lang);
             history.replaceState({}, '', url);
             applyI18n(lang);
+            
+            // Close dropdown if it's open
+            const dropdown = b.closest('.lang-dropdown');
+            if (dropdown) {
+                const toggle = dropdown.querySelector('.lang-toggle');
+                const menu = dropdown.querySelector('.lang-menu');
+                if (toggle && menu) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    menu.setAttribute('aria-hidden', 'true');
+                }
+            }
         });
+    });
+    
+    // Handle dropdown toggle
+    $$('.lang-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const menu = toggle.nextElementSibling;
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            
+            toggle.setAttribute('aria-expanded', !isExpanded);
+            menu.setAttribute('aria-hidden', isExpanded);
+        });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.lang-dropdown')) {
+            $$('.lang-dropdown').forEach(dropdown => {
+                const toggle = dropdown.querySelector('.lang-toggle');
+                const menu = dropdown.querySelector('.lang-menu');
+                if (toggle && menu) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    menu.setAttribute('aria-hidden', 'true');
+                }
+            });
+        }
     });
 }
 
