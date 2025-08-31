@@ -68,8 +68,8 @@ header {
 }
 
 .logo {
-    width: 36px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
     border-radius: 10px;
     background: linear-gradient(135deg, var(--accent), #ff9b50);
     box-shadow: 0 8px 18px rgba(233, 109, 70, .35);
@@ -586,8 +586,8 @@ footer {
     }
 
     .logo {
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
         font-size: 12px;
     }
 
@@ -596,7 +596,7 @@ footer {
     }
 
     .h1 {
-        font-size: 32px;
+        font-size: 42px;
         line-height: 1.2;
     }
 
@@ -743,11 +743,11 @@ footer {
     }
 
     .h1 {
-        font-size: 30px;
+        font-size: 40px;
     }
 
     .logo-title {
-        width: 250px;
+        width: 160px;
     }
 
     .hero {
@@ -785,8 +785,8 @@ footer {
     }
 
     .logo {
-        width: 28px;
-        height: 28px;
+        width: 46px;
+        height: 46px;
         font-size: 11px;
     }
 
@@ -795,7 +795,7 @@ footer {
     }
 
     .h1 {
-        font-size: 28px;
+        font-size: 38px;
         margin: 16px 0 8px;
     }
 
@@ -918,7 +918,7 @@ footer {
     }
 
     .h1 {
-        font-size: 32px;
+        font-size: 36px;
     }
 
     .hero-kpis {
@@ -985,7 +985,6 @@ footer {
 
     .lang-menu {
         min-width: 100px; /* Smaller width for mobile */
-        right: -10px; /* Adjust positioning for mobile */
     }
 
     /* Shift discus button and languages more to the left on mobile */
