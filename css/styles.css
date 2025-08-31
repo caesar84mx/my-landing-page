@@ -575,17 +575,10 @@ footer {
     
     .container {
         padding: 0 16px;
-        overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     
     .nav {
         padding: 12px 0;
-        overflow-x: hidden; /* Prevent horizontal scrolling */
-    }
-    
-    /* Fix horizontal scrolling on body */
-    body {
-        overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     
     .brand h1 {
