@@ -169,10 +169,11 @@ function initializeRouter() {
             form.appendChild(next);
         }
         
-        // If running from file:// use hash thanks to avoid invalid absolute URL
+        // For Vercel deployment, use hash-based thanks page
         let thanksUrl = '#/thanks';
         try {
-            if (location.protocol !== 'file:') {
+            // Only use absolute URL if we're on a domain that supports it
+            if (location.protocol !== 'file:' && !location.hostname.includes('vercel.app')) {
                 thanksUrl = new URL('/thanks', location.origin).toString();
             }
         } catch {}
