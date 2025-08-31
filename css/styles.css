@@ -987,7 +987,7 @@ footer {
         min-width: 70px; /* Ensure toggle button fits on mobile */
         padding: 6px 10px; /* Smaller padding for mobile */
         font-size: 12px; /* Smaller font for mobile */
-        margin-right: 8px; /* Push to the left */
+        margin-right: 16px; /* Push more to the left */
     }
     
     .lang-menu {
@@ -995,9 +995,9 @@ footer {
         right: -10px; /* Adjust positioning for mobile */
     }
     
-    /* Shift discus button and languages to the left on mobile */
+    /* Shift discus button and languages more to the left on mobile */
     .menu {
-        margin-right: auto; /* Push menu items to the left */
+        margin-right: 24px; /* Push menu items more to the left */
         gap: 12px; /* Reduce gap for mobile */
     }
     /* Single unified background for the entire page on mobile */
