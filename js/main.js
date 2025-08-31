@@ -3,7 +3,7 @@
 // i18n dictionaries
 const I18N = {
     en: {
-        nav: { services: 'Services', clients: 'Trusted by', process: 'Process', cta: 'Discuss a project' },
+        nav: { services: 'Services', clients: 'Trusted by', process: 'Process', cta: 'Discuss' },
         hero: { title: 'Mobile apps, end‑to‑end — Android, iOS & backend', lead: 'I design the architecture, write clean code, and ship to the App Store and Google Play. Cross‑platform with Compose/KMM/React Native, or native with Kotlin & Swift — based on your goals and budget.', ctaPrimary: 'Get a quote', ctaSecondary: 'See services' },
         kpi: { years: 'years of pro experience', releases: 'production releases', timezones: 'time zones & clients' },
         heroStackNote: 'I pick the stack for your product goals: time‑to‑market, performance, maintenance cost.',
