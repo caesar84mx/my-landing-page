@@ -8,8 +8,8 @@
     --accent-2: #ffd9cd;
     --ok: #1f9d55;
     --error: #e55353;
-    --ring: rgba(233,109,70,.35);
-    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --ring: rgba(233, 109, 70, .35);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
     --radius: 16px;
     --radius-lg: 22px;
     --maxw: 1120px;
@@ -29,8 +29,8 @@ body {
     font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial;
     color: var(--text);
     background: radial-gradient(1200px 3000px at center, #1a2344 0%, transparent 60%),
-                radial-gradient(1000px 3000px at -30% 50%, rgba(233,109,70,.25) 0%, transparent 60%),
-                var(--bg);
+    radial-gradient(1000px 3000px at -30% 50%, rgba(233, 109, 70, .25) 0%, transparent 60%),
+    var(--bg);
 }
 
 a {
@@ -49,8 +49,8 @@ header {
     position: sticky;
     top: 0;
     backdrop-filter: saturate(1.2) blur(10px);
-    background: rgba(11,16,32,.75);
-    border-bottom: 1px solid rgba(255,255,255,.06);
+    background: rgba(11, 16, 32, .75);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
     z-index: 50;
 }
 
@@ -72,7 +72,7 @@ header {
     height: 36px;
     border-radius: 10px;
     background: linear-gradient(135deg, var(--accent), #ff9b50);
-    box-shadow: 0 8px 18px rgba(233,109,70,.35);
+    box-shadow: 0 8px 18px rgba(233, 109, 70, .35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,25 +116,25 @@ header {
     border-radius: 12px;
     background: var(--accent);
     color: #190c07;
-    border: 1px solid rgba(0,0,0,.1);
-    box-shadow: 0 8px 20px rgba(233,109,70,.35);
+    border: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: 0 8px 20px rgba(233, 109, 70, .35);
     transition: transform .1s ease, box-shadow .2s ease;
 }
 
 .btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 12px 26px rgba(233,109,70,.45);
+    box-shadow: 0 12px 26px rgba(233, 109, 70, .45);
 }
 
 .btn.ghost {
     background: transparent;
     color: var(--text);
-    border: 1px solid rgba(255,255,255,.14);
+    border: 1px solid rgba(255, 255, 255, .14);
     box-shadow: none;
 }
 
 .btn.ghost:hover {
-    border-color: rgba(255,255,255,.3);
+    border-color: rgba(255, 255, 255, .3);
 }
 
 /* Language Switcher */
@@ -153,7 +153,7 @@ header {
 .lang-buttons button {
     background: transparent;
     color: var(--text);
-    border: 1px solid rgba(255,255,255,.14);
+    border: 1px solid rgba(255, 255, 255, .14);
     border-radius: 999px;
     padding: 6px 10px;
     font-weight: 700;
@@ -178,7 +178,7 @@ header {
     gap: 8px;
     background: transparent;
     color: var(--text);
-    border: 1px solid rgba(255,255,255,.14);
+    border: 1px solid rgba(255, 255, 255, .14);
     border-radius: 999px;
     padding: 8px 12px;
     font-weight: 700;
@@ -189,7 +189,7 @@ header {
 }
 
 .lang-toggle:hover {
-    border-color: rgba(255,255,255,.3);
+    border-color: rgba(255, 255, 255, .3);
 }
 
 .lang-toggle[aria-expanded="true"] {
@@ -215,7 +215,7 @@ header {
     right: 0;
     margin-top: 4px;
     background: var(--card);
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255, 255, 255, .1);
     border-radius: 12px;
     padding: 8px;
     box-shadow: var(--shadow);
@@ -249,11 +249,11 @@ header {
 }
 
 .lang-option:hover {
-    background: rgba(255,255,255,.05);
+    background: rgba(255, 255, 255, .05);
 }
 
 .lang-option.active {
-    background: rgba(233,109,70,.15);
+    background: rgba(233, 109, 70, .15);
     color: var(--accent-2);
 }
 
@@ -275,8 +275,8 @@ header {
     text-transform: uppercase;
     letter-spacing: .18em;
     color: var(--accent-2);
-    background: rgba(233,109,70,.15);
-    border: 1px solid rgba(233,109,70,.35);
+    background: rgba(233, 109, 70, .15);
+    border: 1px solid rgba(233, 109, 70, .35);
     padding: 6px 10px;
     border-radius: 999px;
 }
@@ -302,7 +302,7 @@ header {
 
 .hero-card {
     background: var(--card);
-    border: 1px solid rgba(255,255,255,.06);
+    border: 1px solid rgba(255, 255, 255, .06);
     border-radius: var(--radius-lg);
     padding: 22px;
     box-shadow: var(--shadow);
@@ -310,14 +310,14 @@ header {
 
 .hero-kpis {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
     margin-top: 16px;
 }
 
 .kpi {
-    background: rgba(255,255,255,.03);
-    border: 1px solid rgba(255,255,255,.06);
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .06);
     padding: 14px;
     border-radius: 14px;
     text-align: center;
@@ -356,17 +356,17 @@ section {
 }
 
 .grid.cols-3 {
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .grid.cols-2 {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 /* Cards */
 .card {
     background: var(--card);
-    border: 1px solid rgba(255,255,255,.07);
+    border: 1px solid rgba(255, 255, 255, .07);
     border-radius: var(--radius);
     padding: 18px;
     box-shadow: var(--shadow);
@@ -387,7 +387,7 @@ section {
     font-size: 12px;
     padding: 6px 10px;
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,.1);
+    border: 1px solid rgba(255, 255, 255, .1);
     color: var(--muted);
 }
 
@@ -401,7 +401,7 @@ section {
 /* Trust Section */
 .trust {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0,1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -412,8 +412,8 @@ section {
     gap: 12px;
     padding: 12px;
     border-radius: 12px;
-    background: rgba(255,255,255,.035);
-    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255, 255, 255, .035);
+    border: 1px solid rgba(255, 255, 255, .08);
     font-weight: 700;
     letter-spacing: .3px;
     text-align: center;
@@ -423,20 +423,20 @@ section {
     width: 48px;
     height: 48px;
     border-radius: 8px;
-    background: rgba(255,255,255,.05);
+    background: rgba(255, 255, 255, .05);
     object-fit: contain;
 }
 
 /* Process Steps */
 .steps {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
 }
 
 .step {
-    background: rgba(255,255,255,.03);
-    border: 1px solid rgba(255,255,255,.07);
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .07);
     padding: 16px;
     border-radius: 16px;
 }
@@ -445,8 +445,8 @@ section {
     display: inline-block;
     font-size: 12px;
     color: var(--accent-2);
-    background: rgba(233,109,70,.15);
-    border: 1px solid rgba(233,109,70,.35);
+    background: rgba(233, 109, 70, .15);
+    border: 1px solid rgba(233, 109, 70, .35);
     padding: 4px 8px;
     border-radius: 999px;
     margin-bottom: 8px;
@@ -471,7 +471,7 @@ section {
 
 form {
     background: var(--card);
-    border: 1px solid rgba(255,255,255,.07);
+    border: 1px solid rgba(255, 255, 255, .07);
     border-radius: var(--radius);
     padding: 18px;
     box-shadow: var(--shadow);
@@ -490,8 +490,8 @@ label {
 }
 
 input, textarea, select {
-    background: rgba(255,255,255,.03);
-    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255, 255, 255, .03);
+    border: 1px solid rgba(255, 255, 255, .14);
     color: var(--text);
     padding: 12px 12px;
     border-radius: 10px;
@@ -536,9 +536,8 @@ textarea {
 footer {
     padding: 26px 0 40px;
     color: var(--muted);
-    border-top: 1px solid rgba(255,255,255,.06);
+    border-top: 1px solid rgba(255, 255, 255, .06);
 }
-
 
 
 /* Responsive Design */
@@ -546,15 +545,15 @@ footer {
     .hero-grid, .contact {
         grid-template-columns: 1fr;
     }
-    
+
     .steps {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .grid.cols-3 {
         grid-template-columns: 1fr 1fr;
     }
-    
+
     .trust {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -564,172 +563,172 @@ footer {
     .menu .hide-sm {
         display: none;
     }
-    
+
     .lang-buttons {
         display: none;
     }
-    
+
     .lang-dropdown {
         display: block;
     }
-    
+
     .container {
         padding: 0 16px;
     }
-    
+
     .nav {
         padding: 12px 0;
     }
-    
+
     .brand h1 {
         font-size: 16px;
     }
-    
+
     .logo {
         width: 32px;
         height: 32px;
         font-size: 12px;
     }
-    
+
     .hero {
         padding: 60px 0 40px;
     }
-    
+
     .h1 {
         font-size: 32px;
         line-height: 1.2;
     }
-    
+
     .lead {
         font-size: 16px;
         line-height: 1.6;
     }
-    
+
     .cta {
         flex-direction: column;
         gap: 12px;
     }
-    
+
     .btn {
         width: 100%;
         padding: 14px 20px;
         font-size: 16px;
     }
-    
+
     .hero-kpis {
         grid-template-columns: 1fr;
         gap: 16px;
         margin-top: 24px;
     }
-    
+
     .kpi {
         padding: 18px;
         text-align: left;
     }
-    
+
     .kpi b {
         font-size: 24px;
         display: block;
         margin-bottom: 4px;
     }
-    
+
     .hero-card {
         padding: 20px;
     }
-    
+
     .stack {
         gap: 10px;
     }
-    
+
     .pill {
         font-size: 13px;
         padding: 8px 12px;
     }
-    
+
     section {
         padding: 48px 0;
     }
-    
+
     .section-title {
         font-size: 24px;
         margin-bottom: 16px;
     }
-    
+
     .section-sub {
         margin-bottom: 24px;
     }
-    
+
     .card {
         padding: 20px;
     }
-    
+
     .card h3 {
         font-size: 18px;
         margin-bottom: 8px;
     }
-    
+
     .trust {
         grid-template-columns: 1fr 1fr;
         gap: 16px;
     }
-    
+
     .trust a {
         flex-direction: column;
         text-align: center;
         padding: 16px;
         gap: 8px;
     }
-    
+
     .trust .logo-img {
         width: 40px;
         height: 40px;
     }
-    
+
     .steps {
         grid-template-columns: 1fr;
         gap: 16px;
     }
-    
+
     .step {
         padding: 20px;
     }
-    
+
     .step h4 {
         font-size: 18px;
         margin-bottom: 8px;
     }
-    
+
     .contact {
         gap: 24px;
     }
-    
+
     form {
         padding: 20px;
     }
-    
+
     .field {
         margin-bottom: 18px;
     }
-    
+
     input, textarea, select {
         padding: 14px 16px;
         font-size: 16px; /* Prevents zoom on iOS */
     }
-    
+
     textarea {
         min-height: 120px;
     }
-    
+
     .grid.cols-2 {
         grid-template-columns: 1fr;
         gap: 0;
     }
-    
+
     footer {
         padding: 20px 0 32px;
         text-align: center;
     }
-    
+
     footer .container {
         flex-direction: column;
         gap: 16px;
@@ -741,7 +740,7 @@ footer {
         margin: 0 auto;
         justify-content: center;
     }
-    
+
     .h1 {
         font-size: 30px;
     }
@@ -749,23 +748,23 @@ footer {
     .logo-title {
         width: 250px;
     }
-    
+
     .hero {
         padding: 48px 0 32px;
     }
-    
+
     .steps {
         grid-template-columns: 1fr;
     }
-    
+
     .grid.cols-3 {
         grid-template-columns: 1fr;
     }
-    
+
     .grid.cols-2 {
         grid-template-columns: 1fr;
     }
-    
+
     .trust {
         grid-template-columns: 1fr 1fr;
     }
@@ -775,105 +774,105 @@ footer {
     .container {
         padding: 0 12px;
     }
-    
+
     .nav {
         padding: 10px 0;
     }
-    
+
     .brand h1 {
         font-size: 14px;
     }
-    
+
     .logo {
         width: 28px;
         height: 28px;
         font-size: 11px;
     }
-    
+
     .hero {
         padding: 48px 0 32px;
     }
-    
+
     .h1 {
         font-size: 28px;
         margin: 16px 0 8px;
     }
-    
+
     .lead {
         font-size: 15px;
     }
-    
+
     .eyebrow {
         font-size: 11px;
         padding: 5px 8px;
     }
-    
+
     .hero-card {
         padding: 16px;
     }
-    
+
     .stack {
         gap: 8px;
     }
-    
+
     .pill {
         font-size: 12px;
         padding: 6px 10px;
     }
-    
+
     section {
         padding: 40px 0;
     }
-    
+
     .section-title {
         font-size: 22px;
     }
-    
+
     .card {
         padding: 16px;
     }
-    
+
     .trust {
         grid-template-columns: 1fr;
         gap: 12px;
     }
-    
+
     .trust a {
         padding: 12px;
     }
-    
+
     .trust .logo-img {
         width: 36px;
         height: 36px;
     }
-    
+
     .step {
         padding: 16px;
     }
-    
+
     .step h4 {
         font-size: 16px;
     }
-    
+
     form {
         padding: 16px;
     }
-    
+
     .btn {
         padding: 16px 20px;
         font-size: 16px;
     }
-    
+
     .lang-toggle {
         padding: 6px 10px;
         font-size: 13px;
         min-width: 70px;
     }
-    
+
     .lang-menu {
         min-width: 100px;
     }
-    
+
     .lang-option {
         padding: 6px 10px;
         font-size: 13px;
@@ -885,27 +884,27 @@ footer {
     .btn {
         min-height: 44px; /* iOS recommended touch target */
     }
-    
+
     .menu a {
         min-height: 44px;
         display: flex;
         align-items: center;
     }
-    
+
     .lang-toggle {
         min-height: 44px;
     }
-    
+
     .lang-option {
         min-height: 44px;
         display: flex;
         align-items: center;
     }
-    
+
     .trust a {
         min-height: 60px;
     }
-    
+
     .step {
         min-height: 80px;
     }
@@ -916,16 +915,16 @@ footer {
     .hero {
         padding: 40px 0 32px;
     }
-    
+
     .h1 {
         font-size: 32px;
     }
-    
+
     .hero-kpis {
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
     }
-    
+
     .steps {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -934,15 +933,15 @@ footer {
 /* High DPI mobile devices */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .logo {
-        box-shadow: 0 4px 9px rgba(233,109,70,.35);
+        box-shadow: 0 4px 9px rgba(233, 109, 70, .35);
     }
-    
+
     .btn {
-        box-shadow: 0 4px 10px rgba(233,109,70,.35);
+        box-shadow: 0 4px 10px rgba(233, 109, 70, .35);
     }
-    
+
     .btn:hover {
-        box-shadow: 0 6px 13px rgba(233,109,70,.45);
+        box-shadow: 0 6px 13px rgba(233, 109, 70, .45);
     }
 }
 
@@ -956,11 +955,11 @@ footer {
     .btn {
         transition: none;
     }
-    
+
     .lang-arrow {
         transition: none;
     }
-    
+
     .lang-menu {
         transition: none;
     }
@@ -971,10 +970,10 @@ footer {
     /* Ensure language dropdown background matches page gradient */
     .lang-menu {
         background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
-        border: 1px solid rgba(255,255,255,.15);
+        border: 1px solid rgba(255, 255, 255, .15);
         backdrop-filter: blur(10px);
     }
-    
+
     /* Mobile-specific language dropdown positioning */
     .lang-toggle {
         min-width: 70px; /* Ensure toggle button fits on mobile */
@@ -982,12 +981,12 @@ footer {
         font-size: 12px; /* Smaller font for mobile */
         margin-right: 16px; /* Push more to the left */
     }
-    
+
     .lang-menu {
         min-width: 100px; /* Smaller width for mobile */
         right: -10px; /* Adjust positioning for mobile */
     }
-    
+
     /* Shift discus button and languages more to the left on mobile */
     .menu {
         margin-right: 24px; /* Push menu items more to the left */
@@ -1049,7 +1048,7 @@ footer {
 /* Ensure language dropdown background matches page gradient */
 .lang-menu {
     background: linear-gradient(135deg, #1a2344 0%, #162238 20%, #0f1a2e 40%, #0b1020 60%, #0d1424 80%, #11182d 100%);
-    border: 1px solid rgba(255,255,255,.15);
+    border: 1px solid rgba(255, 255, 255, .15);
     backdrop-filter: blur(10px);
 }
 
