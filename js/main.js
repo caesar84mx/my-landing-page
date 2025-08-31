@@ -160,6 +160,9 @@ function initializeLanguageSwitching() {
                     menu.setAttribute('aria-hidden', 'true');
                 }
             }
+            
+            // Close mobile menu if it's open
+            closeMobileMenu();
         });
     });
     
@@ -187,6 +190,60 @@ function initializeLanguageSwitching() {
             });
         }
     });
+}
+
+// Mobile menu functionality
+function initializeMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    if (!mobileToggle || !mobileNav) return;
+    
+    // Toggle mobile menu
+    mobileToggle.addEventListener('click', () => {
+        const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+        mobileToggle.setAttribute('aria-expanded', !isExpanded);
+        mobileNav.setAttribute('aria-hidden', isExpanded);
+        
+        // Prevent body scroll when menu is open
+        if (!isExpanded) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close mobile menu when clicking on navigation links
+    mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.mobile-nav') && !e.target.closest('.mobile-menu-toggle')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+}
+
+function closeMobileMenu() {
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    if (mobileToggle && mobileNav) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
 }
 
 // Get initial language

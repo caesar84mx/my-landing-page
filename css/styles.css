@@ -539,6 +539,8 @@ footer {
     border-top: 1px solid rgba(255,255,255,.06);
 }
 
+
+
 /* Responsive Design */
 @media (max-width: 960px) {
     .hero-grid, .contact {
@@ -558,7 +560,7 @@ footer {
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
     .menu .hide-sm {
         display: none;
     }
@@ -570,7 +572,171 @@ footer {
     .lang-dropdown {
         display: block;
     }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    .nav {
+        padding: 12px 0;
+    }
+    
+    .brand h1 {
+        font-size: 16px;
+    }
+    
+    .logo {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .hero {
+        padding: 60px 0 40px;
+    }
+    
+    .h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+    
+    .lead {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    .cta {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+    
+    .hero-kpis {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+    }
+    
+    .kpi {
+        padding: 18px;
+        text-align: left;
+    }
+    
+    .kpi b {
+        font-size: 24px;
+        display: block;
+        margin-bottom: 4px;
+    }
+    
+    .hero-card {
+        padding: 20px;
+    }
+    
+    .stack {
+        gap: 10px;
+    }
+    
+    .pill {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    
+    section {
+        padding: 48px 0;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .section-sub {
+        margin-bottom: 24px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .trust {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    
+    .trust a {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+        gap: 8px;
+    }
+    
+    .trust .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .steps {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .step {
+        padding: 20px;
+    }
+    
+    .step h4 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .contact {
+        gap: 24px;
+    }
+    
+    form {
+        padding: 20px;
+    }
+    
+    .field {
+        margin-bottom: 18px;
+    }
+    
+    input, textarea, select {
+        padding: 14px 16px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    textarea {
+        min-height: 120px;
+    }
+    
+    .grid.cols-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    footer {
+        padding: 20px 0 32px;
+        text-align: center;
+    }
+    
+    footer .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
 
+@media (max-width: 680px) {
     .btn {
         margin: 0 auto;
         justify-content: center;
@@ -602,5 +768,200 @@ footer {
     
     .trust {
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .nav {
+        padding: 10px 0;
+    }
+    
+    .brand h1 {
+        font-size: 14px;
+    }
+    
+    .logo {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+    
+    .hero {
+        padding: 48px 0 32px;
+    }
+    
+    .h1 {
+        font-size: 28px;
+        margin: 16px 0 8px;
+    }
+    
+    .lead {
+        font-size: 15px;
+    }
+    
+    .eyebrow {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+    
+    .hero-card {
+        padding: 16px;
+    }
+    
+    .stack {
+        gap: 8px;
+    }
+    
+    .pill {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    .card {
+        padding: 16px;
+    }
+    
+    .trust {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .trust a {
+        padding: 12px;
+    }
+    
+    .trust .logo-img {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .step {
+        padding: 16px;
+    }
+    
+    .step h4 {
+        font-size: 16px;
+    }
+    
+    form {
+        padding: 16px;
+    }
+    
+    .btn {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+    
+    .lang-toggle {
+        padding: 6px 10px;
+        font-size: 13px;
+        min-width: 70px;
+    }
+    
+    .lang-menu {
+        min-width: 100px;
+    }
+    
+    .lang-option {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px; /* iOS recommended touch target */
+    }
+    
+    .menu a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .lang-toggle {
+        min-height: 44px;
+    }
+    
+    .lang-option {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .trust a {
+        min-height: 60px;
+    }
+    
+    .step {
+        min-height: 80px;
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 40px 0 32px;
+    }
+    
+    .h1 {
+        font-size: 28px;
+    }
+    
+    .hero-kpis {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+    
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* High DPI mobile devices */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo {
+        box-shadow: 0 4px 9px rgba(233,109,70,.35);
+    }
+    
+    .btn {
+        box-shadow: 0 4px 10px rgba(233,109,70,.35);
+    }
+    
+    .btn:hover {
+        box-shadow: 0 6px 13px rgba(233,109,70,.45);
+    }
+}
+
+/* Dark mode support for mobile */
+@media (prefers-color-scheme: dark) {
+    /* Already dark by default, but ensure consistency */
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none;
+    }
+    
+    .lang-arrow {
+        transition: none;
+    }
+    
+    .lang-menu {
+        transition: none;
     }
 }
