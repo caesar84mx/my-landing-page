@@ -19,7 +19,7 @@ const I18N = {
         footer:{contact:'Contact'}
     },
     es: {
-        nav: { services: 'Servicios', clients: 'Clientes', process: 'Proceso', cta: 'Hablemos del proyecto' },
+        nav: { services: 'Servicios', clients: 'Clientes', process: 'Proceso', cta: 'Hablemos' },
         hero: { title: 'Apps móviles de punta a punta — Android, iOS y backend', lead: 'Diseño la arquitectura, escribo código limpio y publico en App Store y Google Play. Multiplataforma con Compose/KMM/React Native, o nativo con Kotlin y Swift — según objetivos y presupuesto.', ctaPrimary: 'Pedir estimación', ctaSecondary: 'Ver servicios' },
         kpi: { years: 'años de experiencia', releases: 'lanzamientos en producción', timezones: 'zonas horarias y clientes' },
         heroStackNote: 'Elijo el stack según los objetivos del producto: velocidad de salida al mercado, rendimiento, costo de mantenimiento.',
@@ -35,7 +35,7 @@ const I18N = {
         footer:{contact:'Contacto'}
     },
     pt: {
-        nav: { services: 'Serviços', clients: 'Clientes', process: 'Processo', cta: 'Discutir projeto' },
+        nav: { services: 'Serviços', clients: 'Clientes', process: 'Processo', cta: 'Falemos' },
         hero: { title: 'Apps móveis ponta a ponta — Android, iOS e backend', lead: 'Desenho a arquitetura, escrevo código limpo e publico na App Store e Google Play. Multiplataforma com Compose/KMM/React Native, ou nativo com Kotlin e Swift — conforme objetivos e orçamento.', ctaPrimary: 'Solicitar orçamento', ctaSecondary: 'Ver serviços' },
         kpi: { years: 'anos de experiência', releases: 'lançamentos em produção', timezones: 'fusos e clientes' },
         heroStackNote: 'Escolho o stack conforme os objetivos do produto: time‑to‑market, performance, custo de manutenção.',
@@ -51,7 +51,7 @@ const I18N = {
         footer:{contact:'Contato'}
     },
     ru: {
-        nav: { services: 'Услуги', clients: 'Клиенты', process: 'Как работаю', cta: 'Обсудить проект' },
+        nav: { services: 'Услуги', clients: 'Клиенты', process: 'Как работаю', cta: 'Обсудим' },
         hero: { title: 'Мобильные приложения под ключ — Android, iOS и backend', lead: 'Проектирую архитектуру, пишу чистый код и довожу до релиза в App Store и Google Play. Кроссплатформенно на Compose/KMM/React Native или нативно на Kotlin и Swift — под задачу и бюджет.', ctaPrimary: 'Оценить проект', ctaSecondary: 'Посмотреть услуги' },
         kpi: { years: 'лет профессионального опыта', releases: 'продакшен‑релизов', timezones: 'таймзоны и клиенты' },
         heroStackNote: 'Подбираю стек под задачи продукта: скорость вывода на рынок, производительность, стоимость поддержки.',
