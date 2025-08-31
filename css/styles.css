@@ -574,7 +574,7 @@ footer {
     /* Center align and reduce width of Discuss project button on mobile */
     .menu .btn {
         margin: 0 auto;
-        width: 200px;
+        width: 150px;
         justify-content: center;
     }
     
