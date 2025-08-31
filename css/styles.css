@@ -614,6 +614,7 @@ footer {
         width: 100%;
         padding: 14px 20px;
         font-size: 16px;
+        max-height: 50px;
     }
 
     .hero-kpis {
@@ -980,7 +981,6 @@ footer {
         min-width: 70px; /* Ensure toggle button fits on mobile */
         padding: 6px 10px; /* Smaller padding for mobile */
         font-size: 12px; /* Smaller font for mobile */
-        margin-right: 16px; /* Push more to the left */
     }
 
     .lang-menu {
