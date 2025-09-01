@@ -40,54 +40,47 @@
     <link rel="stylesheet" href="css/styles.css"/>
 
     <!-- Schema.org structured data -->
-    <script type="application/ld+json">{
+    <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Max Dymnoff",
+  "jobTitle":"Full-stack Mobile Developer",
+  "url":"https://www.mdymnoff-mobile.dev/",
+  "worksFor":{"@type":"Organization","name":"Independent"},
+  "knowsAbout":["Android","iOS","Kotlin","KMM","Compose Multiplatform","Ktor","Spring Boot","React Native"]
+}
+</script>
+
+<script type="application/ld+json">
+    {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Max Dymnoff",
-        "jobTitle": "Full‑stack Mobile Developer",
-        "url": "/",
-        "knowsAbout": [
-            "Android",
-            "iOS",
-            "Kotlin",
-            "Swift",
-            "KMM",
-            "Compose Multiplatform",
-            "React Native",
-            "Backend",
-            "Ktor",
-            "Spring Boot"
-        ],
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Independent"
-        }
-    }</script>
-    <script type="application/ld+json">{
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Max Dymnoff — Mobile Development",
-        "areaServed": [
-            "US",
-            "LATAM",
-            "EU"
-        ],
-        "serviceType": [
-            "End-to-end mobile app development",
-            "Cross-platform (Compose/KMM/React Native)",
-            "Native Android & iOS",
-            "Backend APIs"
+        "@type": "OfferCatalog",
+        "name": "Mobile Development Services",
+        "url": "https://www.mdymnoff-mobile.dev/",
+        "itemListElement": [
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Android/iOS MVP"
+                }
+            },
+            {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Kotlin/KMP Consulting"
+                }
+            }
         ],
         "provider": {
             "@type": "Person",
-            "name": "Max Dymnoff"
-        },
-        "availableChannel": {
-            "@type": "ServiceChannel",
-            "serviceUrl": "/#contact"
-        },
-        "url": "/"
-    }</script>
+            "name": "Max Dymnoff",
+            "url": "https://www.mdymnoff-mobile.dev/#contact"
+        }
+    }
+</script>
 </head>
 <body>
 <header>
