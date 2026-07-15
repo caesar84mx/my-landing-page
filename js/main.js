@@ -36,15 +36,18 @@ const I18N = {
             lead: 'I work where product decisions meet platform constraints—turning ambiguous mobile problems into systems that can ship, scale, and survive the next release.',
             modernize: {
                 title: 'Modernize without stopping the product',
-                text: 'Native migrations, modularization, performance work, architecture cleanup, and technical-debt reduction—with production continuity in mind.'
+                text: 'Native migrations, modularization, performance work, architecture cleanup, and technical-debt reduction—with production continuity in mind.',
+                chip1: 'Production continuity', chip2: 'Measured progress', chip3: 'Lower change risk'
             },
             platform: {
                 title: 'Solve the platform-heavy features',
-                text: 'Identity SDKs, camera and scanning, BLE, media playback, Health Connect, maps, geofencing, and reliable background execution.'
+                text: 'Camera and scanning, BLE device integrations, media playback, maps, geofencing, and reliable behavior under OS constraints.',
+                chip1: 'Real-device behavior', chip2: 'Failure-aware flows', chip3: 'OS constraints'
             },
             own: {
                 title: 'Own the whole delivery path',
-                text: 'Mobile, shared code, backend, authentication, infrastructure, messaging, store policy, analytics, and launch—one accountable product view.'
+                text: 'Mobile, shared code, backend, authentication, messaging, store policy, analytics, and launch—plus the judgment to bring in specialists when deeper DevOps work is needed.',
+                chip1: 'One accountable owner', chip2: 'Fewer handoffs', chip3: 'Launch-ready'
             }
         },
         work: {
@@ -73,7 +76,7 @@ const I18N = {
             hailme: {
                 type: 'Founder · Solo product engineer', label: 'Product ownership without the handoffs',
                 title: 'A real product is more than its app.',
-                text: 'I built and launched the mobile apps and backend, then handled geofencing, maps, authentication, push/SMS/WhatsApp, infrastructure, store review, and messaging compliance.',
+                text: 'I built and launched the mobile apps and backend, then handled geofencing, maps, authentication, push/SMS/WhatsApp, store review, vendor coordination, and messaging compliance.',
                 link: 'Visit HailMe'
             }
         },
@@ -134,15 +137,18 @@ const I18N = {
             lead: 'Trabajo donde las decisiones de producto se encuentran con las restricciones de plataforma, convirtiendo problemas mobile ambiguos en sistemas capaces de publicarse, escalar y sobrevivir al siguiente release.',
             modernize: {
                 title: 'Modernizar sin detener el producto',
-                text: 'Migraciones nativas, modularización, rendimiento, saneamiento de arquitectura y reducción de deuda técnica, sin perder continuidad en producción.'
+                text: 'Migraciones nativas, modularización, rendimiento, saneamiento de arquitectura y reducción de deuda técnica, sin perder continuidad en producción.',
+                chip1: 'Continuidad en producción', chip2: 'Progreso medible', chip3: 'Menor riesgo de cambio'
             },
             platform: {
                 title: 'Resolver lo complejo de la plataforma',
-                text: 'SDKs de identidad, cámara y escaneo, BLE, reproducción multimedia, Health Connect, mapas, geofencing y ejecución confiable en segundo plano.'
+                text: 'Cámara y escaneo, integraciones con dispositivos BLE, reproducción multimedia, mapas, geofencing y comportamiento confiable bajo las restricciones del sistema operativo.',
+                chip1: 'Comportamiento real', chip2: 'Flujos tolerantes a fallos', chip3: 'Restricciones del SO'
             },
             own: {
                 title: 'Asumir todo el camino hasta producción',
-                text: 'Mobile, código compartido, backend, autenticación, infraestructura, mensajería, políticas de stores, analítica y lanzamiento: una única visión responsable del producto.'
+                text: 'Mobile, código compartido, backend, autenticación, mensajería, políticas de stores, analítica y lanzamiento, con el criterio para sumar especialistas cuando hace falta trabajo DevOps más profundo.',
+                chip1: 'Un responsable', chip2: 'Menos handoffs', chip3: 'Listo para lanzar'
             }
         },
         work: {
@@ -171,7 +177,7 @@ const I18N = {
             hailme: {
                 type: 'Fundador · Único ingeniero de producto', label: 'Ownership sin handoffs',
                 title: 'Un producto real es mucho más que su app.',
-                text: 'Construí y lancé las apps y el backend; además resolví geofencing, mapas, autenticación, push/SMS/WhatsApp, infraestructura, revisión de stores y cumplimiento de mensajería.',
+                text: 'Construí y lancé las apps y el backend; además resolví geofencing, mapas, autenticación, push/SMS/WhatsApp, revisión de stores, coordinación de proveedores y cumplimiento de mensajería.',
                 link: 'Visitar HailMe'
             }
         },
@@ -232,15 +238,18 @@ const I18N = {
             lead: 'Trabalho onde decisões de produto encontram restrições de plataforma, transformando problemas mobile ambíguos em sistemas que podem ser lançados, escalar e sobreviver ao próximo release.',
             modernize: {
                 title: 'Modernizar sem parar o produto',
-                text: 'Migrações nativas, modularização, performance, saneamento de arquitetura e redução de dívida técnica, preservando a continuidade em produção.'
+                text: 'Migrações nativas, modularização, performance, saneamento de arquitetura e redução de dívida técnica, preservando a continuidade em produção.',
+                chip1: 'Continuidade em produção', chip2: 'Progresso mensurável', chip3: 'Menor risco de mudança'
             },
             platform: {
                 title: 'Resolver os recursos pesados de plataforma',
-                text: 'SDKs de identidade, câmera e leitura, BLE, reprodução de mídia, Health Connect, mapas, geofencing e execução confiável em segundo plano.'
+                text: 'Câmera e leitura, integrações com dispositivos BLE, reprodução de mídia, mapas, geofencing e comportamento confiável sob as restrições do sistema operacional.',
+                chip1: 'Comportamento real', chip2: 'Fluxos resilientes', chip3: 'Restrições do SO'
             },
             own: {
                 title: 'Assumir todo o caminho até a entrega',
-                text: 'Mobile, código compartilhado, backend, autenticação, infraestrutura, mensageria, políticas das lojas, analytics e lançamento: uma visão responsável do produto.'
+                text: 'Mobile, código compartilhado, backend, autenticação, mensageria, políticas das lojas, analytics e lançamento, com o critério para envolver especialistas quando é necessário um trabalho DevOps mais profundo.',
+                chip1: 'Um responsável', chip2: 'Menos handoffs', chip3: 'Pronto para lançar'
             }
         },
         work: {
@@ -269,7 +278,7 @@ const I18N = {
             hailme: {
                 type: 'Fundador · Único engenheiro de produto', label: 'Ownership sem handoffs',
                 title: 'Um produto real é muito mais do que seu app.',
-                text: 'Construí e lancei os apps e o backend; também cuidei de geofencing, mapas, autenticação, push/SMS/WhatsApp, infraestrutura, revisão nas lojas e conformidade de mensageria.',
+                text: 'Construí e lancei os apps e o backend; também cuidei de geofencing, mapas, autenticação, push/SMS/WhatsApp, revisão nas lojas, coordenação de fornecedores e conformidade de mensageria.',
                 link: 'Visitar o HailMe'
             }
         },
@@ -330,15 +339,18 @@ const I18N = {
             lead: 'Работаю там, где продуктовые решения сталкиваются с ограничениями платформы, и превращаю неоднозначные mobile-задачи в системы, которые можно выпустить, масштабировать и развивать.',
             modernize: {
                 title: 'Модернизировать, не останавливая продукт',
-                text: 'Нативные миграции, модуляризация, производительность, оздоровление архитектуры и сокращение технического долга с сохранением production-ритма.'
+                text: 'Нативные миграции, модуляризация, производительность, оздоровление архитектуры и сокращение технического долга с сохранением production-ритма.',
+                chip1: 'Без остановки production', chip2: 'Измеримый прогресс', chip3: 'Ниже риск изменений'
             },
             platform: {
                 title: 'Решить платформенно сложные фичи',
-                text: 'Identity SDK, камера и сканирование, BLE, воспроизведение медиа, Health Connect, карты, geofencing и надёжная фоновая работа.'
+                text: 'Камера и сканирование, интеграции с BLE-устройствами, воспроизведение медиа, карты, geofencing и надёжная работа в условиях ограничений ОС.',
+                chip1: 'Поведение на устройствах', chip2: 'Устойчивые сценарии', chip3: 'Ограничения ОС'
             },
             own: {
                 title: 'Взять на себя весь путь до релиза',
-                text: 'Mobile, общий код, backend, аутентификация, инфраструктура, messaging, правила сторов, аналитика и запуск — единая ответственная картина продукта.'
+                text: 'Mobile, общий код, backend, аутентификация, messaging, правила сторов, аналитика и запуск, а для глубоких DevOps-задач — умение вовремя подключить профильных специалистов.',
+                chip1: 'Единая ответственность', chip2: 'Меньше handoff', chip3: 'Готово к запуску'
             }
         },
         work: {
@@ -367,7 +379,7 @@ const I18N = {
             hailme: {
                 type: 'Основатель · Единственный product engineer', label: 'Ownership без handoff',
                 title: 'Настоящий продукт — это намного больше, чем приложение.',
-                text: 'Создал и запустил приложения и backend, а также отвечал за geofencing, карты, аутентификацию, push/SMS/WhatsApp, инфраструктуру, review в сторах и messaging compliance.',
+                text: 'Создал и запустил приложения и backend, а также отвечал за geofencing, карты, аутентификацию, push/SMS/WhatsApp, review в сторах, координацию подрядчиков и messaging compliance.',
                 link: 'Открыть HailMe'
             }
         },
