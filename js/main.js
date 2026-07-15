@@ -1,683 +1,575 @@
-// Main JavaScript file for Max Dymnoff landing page
+document.documentElement.classList.add('js');
 
-// i18n dictionaries
 const I18N = {
     en: {
-        nav: {services: 'Services', clients: 'Trusted by', process: 'Process', cta: 'Discuss'},
+        meta: {
+            title: 'Senior Mobile Engineer for Complex Products — Max Dymnoff',
+            description: 'Senior Android and full-stack mobile engineer who modernizes complex products, builds platform-heavy features, and owns delivery from architecture to launch.',
+            socialTitle: 'I make hard mobile products feel easy.',
+            socialDescription: 'Senior Android and full-stack mobile engineering—from architecture and platform integrations to backend, release, and modernization.'
+        },
+        a11y: {skip: 'Skip to content', language: 'Language'},
+        brand: {role: 'Senior mobile engineer'},
+        nav: {proof: 'Proof', expertise: 'Expertise', work: 'Selected work', cta: 'Let’s talk'},
         hero: {
-            title: 'Mobile apps, end‑to‑end — Android, iOS & backend',
-            lead: 'I design the architecture, write clean code, and ship to the App Store and Google Play. Cross‑platform with Compose/KMM/React Native, or native with Kotlin & Swift — based on your goals and budget.',
-            ctaPrimary: 'Get a quote',
-            ctaSecondary: 'See services'
+            eyebrow: 'Available for select remote projects · UTC−3',
+            title: 'I make <em>hard</em> mobile products feel easy.',
+            lead: 'From legacy rescue and platform-heavy features to launch-ready apps, I own the path from architecture to store delivery—Android first, full-stack when the product needs it.',
+            ctaPrimary: 'Start a conversation',
+            ctaSecondary: 'See the proof',
+            trustLabel: 'Engineering experience across'
         },
-        kpi: {years: 'years of pro experience', releases: 'production releases', timezones: 'time zones & clients'},
-        heroStackNote: 'I pick the stack for your product goals: time‑to‑market, performance, maintenance cost.',
-        services: {
-            title: 'Services', sub: 'Clear scope, timelines, deliverables. No surprises.',
-            full: {
-                title: 'End‑to‑end development',
-                text: 'Mobile app plus backend: architecture, development, testing, release, monitoring. Documentation & hand‑off.'
+        visual: {
+            live: 'Delivery system live', core: 'Owned end to end', native: 'Native UX', platform: 'Platform depth',
+            backend: 'Backend', release: 'Release', footer: 'Architecture → delivery → launch',
+            ai: 'AI-powered workflow', builder: 'Founder-level ownership'
+        },
+        impact: {
+            years: 'years shipping production software',
+            performance: 'performance improvement on iFIT modernization',
+            duplication: 'code duplication on a cross-platform product',
+            languages: 'languages for global collaboration'
+        },
+        expertise: {
+            kicker: 'Bring me the hard part',
+            title: 'The value is not more code. It’s less uncertainty.',
+            lead: 'I work where product decisions meet platform constraints—turning ambiguous mobile problems into systems that can ship, scale, and survive the next release.',
+            modernize: {
+                title: 'Modernize without stopping the product',
+                text: 'Native migrations, modularization, performance work, architecture cleanup, and technical-debt reduction—with production continuity in mind.'
             },
-            cross: {
-                title: 'Cross‑platform',
-                text: 'Compose Multiplatform / KMM or React Native for shared code and unified features. Trade‑offs discussed upfront.'
+            platform: {
+                title: 'Solve the platform-heavy features',
+                text: 'Identity SDKs, camera and scanning, BLE, media playback, Health Connect, maps, geofencing, and reliable background execution.'
             },
-            native: {
-                title: 'Native Android & iOS',
-                text: 'Deep system integrations, offline, maps & payments. Performance and UX first.'
+            own: {
+                title: 'Own the whole delivery path',
+                text: 'Mobile, shared code, backend, authentication, infrastructure, messaging, store policy, analytics, and launch—one accountable product view.'
             }
         },
-        clients: {title: 'Trusted by', sub: 'Experience in fintech, lifestyle, and infrastructure SDKs.'},
-        process: {
-            title: 'How I work',
-            step1: {
-                badge: 'Step 1',
-                title: 'Discovery & prioritization',
-                text: 'Clarify business goals, risks, constraints. Roadmap & KPIs.'
+        work: {
+            kicker: 'Selected work', title: 'Proof, not promises.',
+            lead: 'Mature products, greenfield builds, public SDKs, and founder-led delivery. Different contexts; the same bias toward clarity and outcomes.'
+        },
+        cases: {
+            ifit: {
+                type: 'Native modernization', label: 'Connected fitness · Android',
+                title: 'Moving a mature fitness platform from Xamarin toward modern native Android.',
+                text: 'Material engineering contribution across performance, media playback, captions, BLE-connected equipment, Health Connect, reviews, and release support.',
+                metric1: 'performance improvement', metric2: 'technical-debt reduction'
             },
-            step2: {
-                badge: 'Step 2',
-                title: 'Architecture & stack',
-                text: 'Propose options (cross‑platform / native), estimate TCO and complexity.'
+            clear: {
+                type: 'Identity · SDK', label: 'Public SDK → flagship app',
+                title: 'Authentication infrastructure first. High-stakes consumer flows next.',
+                text: 'Worked on CLEAR’s public authentication SDK before joining the flagship app, improving camera and scanning flows while helping modernize the codebase.',
+                metric: 'technical-debt reduction'
             },
-            step3: {
-                badge: 'Step 3',
-                title: 'Delivery & QA',
-                text: '1–2 week iterations, CI/CD, tests. Stability metrics as DoD.'
+            surfcast: {
+                type: 'Zero-to-one · Cross-platform', label: 'Android + iOS from scratch',
+                title: 'A product built across platforms, seasons, and architecture changes.',
+                text: 'Built Android and iOS apps with Kotlin Multiplatform, then helped evolve the product toward React Native/Expo while mentoring a junior engineer.',
+                metric1: 'faster feature delivery', metric2: 'code duplication', metric3: 'first-season revenue'
             },
-            step4: {
-                badge: 'Step 4',
-                title: 'Launch & support',
-                text: 'Store release, analytics, alerts. Continuous improvement.'
+            hailme: {
+                type: 'Founder · Solo product engineer', label: 'Product ownership without the handoffs',
+                title: 'A real product is more than its app.',
+                text: 'I built and launched the mobile apps and backend, then handled geofencing, maps, authentication, push/SMS/WhatsApp, infrastructure, store review, and messaging compliance.',
+                link: 'Visit HailMe'
             }
+        },
+        approach: {
+            kicker: 'How I work', title: 'Senior judgment.<br/><em>Founder urgency.</em>',
+            lead: 'I bring the discipline of large production teams and the practical ownership of someone who has shipped his own product through code, vendors, policies, and stores.',
+            ai: 'My workflow is AI-powered for faster codebase analysis, planning, debugging, and documentation—while engineering decisions stay accountable and human.',
+            p1: {title: 'Clarity before code', text: 'Make the risk, trade-offs, and definition of success visible first.'},
+            p2: {title: 'Ship in useful slices', text: 'Reduce feedback time without compromising the system underneath.'},
+            p3: {title: 'Leave it stronger', text: 'Better architecture, clearer docs, lower operational risk, and a team that can continue.'}
         },
         contact: {
-            title: 'Tell me about your project',
-            sub: 'I usually reply within a business day (UTC‑3). The more details, the more accurate the estimate.',
-            tip1: 'Links to designs/repos/references are welcome.',
-            tip2: 'Need an NDA? Send yours or use my standard template.'
+            kicker: 'Have a difficult mobile problem?', title: 'Let’s turn it into<br/><em>a product advantage.</em>',
+            lead: 'Tell me what you’re building, modernizing, or trying to unblock. I’ll reply with useful questions—not a generic sales pitch.',
+            calendar: 'Book a 30-minute call', availability: 'Remote worldwide · B2B/C2C through a Uruguayan company'
         },
         form: {
-            nameLabel: 'Name *',
-            emailLabel: 'Email *',
-            aboutLabel: 'Project brief *',
-            aboutPh: 'Goal, platform(s), key features, timeline',
-            budgetLabel: 'Budget',
-            budget0: 'Not decided',
-            timelineLabel: 'Timeline',
-            timeline0: 'Flexible',
-            timeline1: 'Up to 1 month',
-            timeline2: '1–3 months',
-            timeline3: '3–6 months',
-            timeline4: '6+ months',
-            submit: 'Send',
-            note: 'By clicking "Send", you agree to the processing of your data to answer your request.'
+            name: 'Your name', namePlaceholder: 'How should I address you?', email: 'Work email',
+            company: 'Company / product', companyPlaceholder: 'Optional, but helpful',
+            brief: 'What is the hard part?', briefPlaceholder: 'The product, challenge, timeline, and where you need senior ownership',
+            submit: 'Send the brief', note: 'Usually replies within one business day.', sending: 'Sending…',
+            success: 'Thanks—your message is in. I’ll reply shortly.'
         },
-        footer: {contact: 'Contact'}
+        footer: {tagline: 'Complex mobile. Clear outcomes.'}
     },
     es: {
-        nav: {services: 'Servicios', clients: 'Clientes', process: 'Proceso', cta: 'Hablemos'},
+        meta: {
+            title: 'Ingeniero Mobile Senior para productos complejos — Max Dymnoff',
+            description: 'Ingeniero Android y mobile full-stack senior que moderniza productos complejos y se encarga de la entrega desde la arquitectura hasta el lanzamiento.',
+            socialTitle: 'Hago que los productos mobile difíciles parezcan simples.',
+            socialDescription: 'Ingeniería Android y mobile full-stack: arquitectura, integraciones, backend, publicación y modernización.'
+        },
+        a11y: {skip: 'Ir al contenido', language: 'Idioma'},
+        brand: {role: 'Ingeniero mobile senior'},
+        nav: {proof: 'Resultados', expertise: 'Especialidad', work: 'Proyectos', cta: 'Hablemos'},
         hero: {
-            title: 'Apps móviles de punta a punta — Android, iOS y backend',
-            lead: 'Diseño la arquitectura, escribo código limpio y publico en App Store y Google Play. Multiplataforma con Compose/KMM/React Native, o nativo con Kotlin y Swift — según objetivos y presupuesto.',
-            ctaPrimary: 'Pedir estimación',
-            ctaSecondary: 'Ver servicios'
+            eyebrow: 'Disponible para proyectos remotos seleccionados · UTC−3',
+            title: 'Hago que los productos mobile <em>difíciles</em> parezcan simples.',
+            lead: 'Desde rescatar código legacy y resolver integraciones complejas hasta lanzar apps listas para producción: me encargo del camino completo, de la arquitectura a las tiendas. Android como núcleo; full-stack cuando el producto lo requiere.',
+            ctaPrimary: 'Iniciar una conversación',
+            ctaSecondary: 'Ver resultados',
+            trustLabel: 'Experiencia de ingeniería en'
         },
-        kpi: {
-            years: 'años de experiencia',
-            releases: 'lanzamientos en producción',
-            timezones: 'zonas horarias y clientes'
+        visual: {
+            live: 'Sistema de entrega activo', core: 'Responsabilidad integral', native: 'UX nativa', platform: 'Profundidad de plataforma',
+            backend: 'Backend', release: 'Publicación', footer: 'Arquitectura → entrega → lanzamiento',
+            ai: 'Flujo potenciado por IA', builder: 'Ownership de fundador'
         },
-        heroStackNote: 'Elijo el stack según los objetivos del producto: velocidad de salida al mercado, rendimiento, costo de mantenimiento.',
-        services: {
-            title: 'Servicios', sub: 'Alcance, plazos y entregables claros. Sin sorpresas.',
-            full: {
-                title: 'Desarrollo llave en mano',
-                text: 'App móvil con backend: arquitectura, desarrollo, pruebas, publicación, monitoreo. Documentación y hand‑off.'
+        impact: {
+            years: 'años publicando software en producción',
+            performance: 'de mejora de rendimiento en la modernización de iFIT',
+            duplication: 'de duplicación de código en un producto cross-platform',
+            languages: 'idiomas para colaborar globalmente'
+        },
+        expertise: {
+            kicker: 'Tráeme la parte difícil',
+            title: 'El valor no está en escribir más código. Está en reducir la incertidumbre.',
+            lead: 'Trabajo donde las decisiones de producto se encuentran con las restricciones de plataforma, convirtiendo problemas mobile ambiguos en sistemas capaces de publicarse, escalar y sobrevivir al siguiente release.',
+            modernize: {
+                title: 'Modernizar sin detener el producto',
+                text: 'Migraciones nativas, modularización, rendimiento, saneamiento de arquitectura y reducción de deuda técnica, sin perder continuidad en producción.'
             },
-            cross: {
-                title: 'Multiplataforma',
-                text: 'Compose Multiplatform / KMM o React Native para código compartido y features unificadas. Aclaramos trade‑offs desde el inicio.'
+            platform: {
+                title: 'Resolver lo complejo de la plataforma',
+                text: 'SDKs de identidad, cámara y escaneo, BLE, reproducción multimedia, Health Connect, mapas, geofencing y ejecución confiable en segundo plano.'
             },
-            native: {
-                title: 'Nativo Android e iOS',
-                text: 'Integraciones profundas, offline, mapas y pagos. Rendimiento y UX primero.'
+            own: {
+                title: 'Asumir todo el camino hasta producción',
+                text: 'Mobile, código compartido, backend, autenticación, infraestructura, mensajería, políticas de stores, analítica y lanzamiento: una única visión responsable del producto.'
             }
         },
-        clients: {title: 'Clientes', sub: 'Experiencia en fintech, lifestyle y SDKs de infraestructura.'},
-        process: {
-            title: 'Cómo trabajo',
-            step1: {
-                badge: 'Paso 1',
-                title: 'Descubrimiento y priorización',
-                text: 'Objetivos, riesgos y restricciones. Roadmap y KPIs.'
+        work: {
+            kicker: 'Proyectos seleccionados', title: 'Resultados, no promesas.',
+            lead: 'Productos maduros, proyectos desde cero, SDKs públicos y entrega como fundador. Contextos distintos; la misma obsesión por la claridad y los resultados.'
+        },
+        cases: {
+            ifit: {
+                type: 'Modernización nativa', label: 'Fitness conectado · Android',
+                title: 'Modernización de una plataforma fitness madura desde Xamarin hacia Android nativo.',
+                text: 'Contribución sustancial en rendimiento, reproducción multimedia, subtítulos, equipos conectados por BLE, Health Connect, revisiones y soporte de releases.',
+                metric1: 'de mejora de rendimiento', metric2: 'menos deuda técnica'
             },
-            step2: {
-                badge: 'Paso 2',
-                title: 'Arquitectura y stack',
-                text: 'Opciones (multiplataforma / nativo), costo total y complejidad.'
+            clear: {
+                type: 'Identidad · SDK', label: 'SDK público → app principal',
+                title: 'Primero, infraestructura de autenticación. Después, flujos de consumo de alta exigencia.',
+                text: 'Trabajé en el SDK público de autenticación de CLEAR antes de pasar a su app principal, mejorando flujos de cámara y escaneo y ayudando a modernizar el código.',
+                metric: 'menos deuda técnica'
             },
-            step3: {
-                badge: 'Paso 3',
-                title: 'Entrega y QA',
-                text: 'Iteraciones de 1–2 semanas, CI/CD, tests. Métricas de estabilidad en la DoD.'
+            surfcast: {
+                type: 'Desde cero · Cross-platform', label: 'Android + iOS desde cero',
+                title: 'Un producto construido a través de plataformas, temporadas y cambios de arquitectura.',
+                text: 'Desarrollé las apps Android e iOS con Kotlin Multiplatform y luego ayudé a evolucionar el producto hacia React Native/Expo, además de mentorizar a un desarrollador junior.',
+                metric1: 'entrega más rápida', metric2: 'duplicación de código', metric3: 'ingresos de la primera temporada'
             },
-            step4: {
-                badge: 'Paso 4',
-                title: 'Lanzamiento y soporte',
-                text: 'Publicación, analítica, alertas. Evolución continua.'
+            hailme: {
+                type: 'Fundador · Único ingeniero de producto', label: 'Ownership sin handoffs',
+                title: 'Un producto real es mucho más que su app.',
+                text: 'Construí y lancé las apps y el backend; además resolví geofencing, mapas, autenticación, push/SMS/WhatsApp, infraestructura, revisión de stores y cumplimiento de mensajería.',
+                link: 'Visitar HailMe'
             }
+        },
+        approach: {
+            kicker: 'Cómo trabajo', title: 'Criterio senior.<br/><em>Urgencia de fundador.</em>',
+            lead: 'Combino la disciplina de grandes equipos de producción con el ownership práctico de quien ha llevado su propio producto por código, proveedores, políticas y tiendas.',
+            ai: 'Mi flujo está potenciado por IA para acelerar análisis de código, planificación, debugging y documentación, manteniendo las decisiones de ingeniería humanas y responsables.',
+            p1: {title: 'Claridad antes que código', text: 'Hacer visibles primero los riesgos, los trade-offs y la definición de éxito.'},
+            p2: {title: 'Entregar en incrementos útiles', text: 'Acortar el ciclo de feedback sin comprometer el sistema que sostiene el producto.'},
+            p3: {title: 'Dejarlo más fuerte', text: 'Mejor arquitectura, documentación clara, menos riesgo operativo y un equipo capaz de continuar.'}
         },
         contact: {
-            title: 'Contame del proyecto',
-            sub: 'Suelo responder dentro de un día hábil (UTC‑3). Más detalles = mejor estimación.',
-            tip1: 'Podés adjuntar links a diseños/repos/referencias.',
-            tip2: '¿NDA? Enviá el tuyo o usamos mi plantilla estándar.'
+            kicker: '¿Tienes un problema mobile difícil?', title: 'Convirtámoslo en<br/><em>una ventaja de producto.</em>',
+            lead: 'Cuéntame qué estás construyendo, modernizando o intentando desbloquear. Responderé con preguntas útiles, no con un discurso comercial genérico.',
+            calendar: 'Agendar una llamada de 30 minutos', availability: 'Remoto global · B2B/C2C mediante empresa uruguaya'
         },
         form: {
-            nameLabel: 'Nombre *',
-            emailLabel: 'Email *',
-            aboutLabel: 'Resumen del proyecto *',
-            aboutPh: 'Objetivo, plataforma(s), features clave, plazos',
-            budgetLabel: 'Presupuesto',
-            budget0: 'Sin definir',
-            timelineLabel: 'Plazos',
-            timeline0: 'Flexibles',
-            timeline1: 'Hasta 1 mes',
-            timeline2: '1–3 meses',
-            timeline3: '3–6 meses',
-            timeline4: '6+ meses',
-            submit: 'Enviar',
-            note: 'Al enviar aceptás el tratamiento de tus datos para responder tu solicitud.'
+            name: 'Tu nombre', namePlaceholder: '¿Cómo debería dirigirme a ti?', email: 'Email laboral',
+            company: 'Empresa / producto', companyPlaceholder: 'Opcional, pero útil',
+            brief: '¿Cuál es la parte difícil?', briefPlaceholder: 'El producto, el desafío, los plazos y dónde necesitas ownership senior',
+            submit: 'Enviar el resumen', note: 'Normalmente respondo en un día hábil.', sending: 'Enviando…',
+            success: 'Gracias, recibí tu mensaje. Responderé pronto.'
         },
-        footer: {contact: 'Contacto'}
+        footer: {tagline: 'Mobile complejo. Resultados claros.'}
     },
     pt: {
-        nav: {services: 'Serviços', clients: 'Clientes', process: 'Processo', cta: 'Falemos'},
+        meta: {
+            title: 'Engenheiro Mobile Sênior para produtos complexos — Max Dymnoff',
+            description: 'Engenheiro Android e mobile full-stack sênior que moderniza produtos complexos e assume a entrega da arquitetura ao lançamento.',
+            socialTitle: 'Faço produtos mobile difíceis parecerem simples.',
+            socialDescription: 'Engenharia Android e mobile full-stack: arquitetura, integrações, backend, publicação e modernização.'
+        },
+        a11y: {skip: 'Ir para o conteúdo', language: 'Idioma'},
+        brand: {role: 'Engenheiro mobile sênior'},
+        nav: {proof: 'Resultados', expertise: 'Especialidade', work: 'Projetos', cta: 'Vamos conversar'},
         hero: {
-            title: 'Apps móveis ponta a ponta — Android, iOS e backend',
-            lead: 'Desenho a arquitetura, escrevo código limpo e publico na App Store e Google Play. Multiplataforma com Compose/KMM/React Native, ou nativo com Kotlin e Swift — conforme objetivos e orçamento.',
-            ctaPrimary: 'Solicitar orçamento',
-            ctaSecondary: 'Ver serviços'
+            eyebrow: 'Disponível para projetos remotos selecionados · UTC−3',
+            title: 'Faço produtos mobile <em>difíceis</em> parecerem simples.',
+            lead: 'De resgatar código legado e resolver integrações complexas até lançar apps prontas para produção: assumo todo o caminho, da arquitetura às lojas. Android como base; full-stack quando o produto precisa.',
+            ctaPrimary: 'Iniciar uma conversa',
+            ctaSecondary: 'Ver resultados',
+            trustLabel: 'Experiência de engenharia em'
         },
-        kpi: {years: 'anos de experiência', releases: 'lançamentos em produção', timezones: 'fusos e clientes'},
-        heroStackNote: 'Escolho o stack conforme os objetivos do produto: time‑to‑market, performance, custo de manutenção.',
-        services: {
-            title: 'Serviços', sub: 'Escopo, prazos e entregáveis claros. Sem surpresas.',
-            full: {
-                title: 'Desenvolvimento turnkey',
-                text: 'App móvel com backend: arquitetura, desenvolvimento, testes, publicação e monitoramento. Documentação e hand‑off.'
+        visual: {
+            live: 'Sistema de entrega ativo', core: 'Ownership ponta a ponta', native: 'UX nativa', platform: 'Profundidade de plataforma',
+            backend: 'Backend', release: 'Publicação', footer: 'Arquitetura → entrega → lançamento',
+            ai: 'Fluxo potencializado por IA', builder: 'Ownership de fundador'
+        },
+        impact: {
+            years: 'anos entregando software em produção',
+            performance: 'de melhoria de performance na modernização do iFIT',
+            duplication: 'de duplicação de código em um produto cross-platform',
+            languages: 'idiomas para colaboração global'
+        },
+        expertise: {
+            kicker: 'Traga a parte difícil',
+            title: 'O valor não está em mais código. Está em menos incerteza.',
+            lead: 'Trabalho onde decisões de produto encontram restrições de plataforma, transformando problemas mobile ambíguos em sistemas que podem ser lançados, escalar e sobreviver ao próximo release.',
+            modernize: {
+                title: 'Modernizar sem parar o produto',
+                text: 'Migrações nativas, modularização, performance, saneamento de arquitetura e redução de dívida técnica, preservando a continuidade em produção.'
             },
-            cross: {
-                title: 'Multiplataforma',
-                text: 'Compose Multiplatform / KMM ou React Native para código compartilhado e features unificadas. Trade‑offs combinados de início.'
+            platform: {
+                title: 'Resolver os recursos pesados de plataforma',
+                text: 'SDKs de identidade, câmera e leitura, BLE, reprodução de mídia, Health Connect, mapas, geofencing e execução confiável em segundo plano.'
             },
-            native: {
-                title: 'Nativo Android e iOS',
-                text: 'Integrações profundas, offline, mapas e pagamentos. Performance e UX em primeiro lugar.'
+            own: {
+                title: 'Assumir todo o caminho até a entrega',
+                text: 'Mobile, código compartilhado, backend, autenticação, infraestrutura, mensageria, políticas das lojas, analytics e lançamento: uma visão responsável do produto.'
             }
         },
-        clients: {title: 'Clientes', sub: 'Experiência em fintech, lifestyle e SDKs de infraestrutura.'},
-        process: {
-            title: 'Como trabalho',
-            step1: {
-                badge: 'Etapa 1',
-                title: 'Descoberta e priorização',
-                text: 'Objetivos, riscos e restrições. Roteiro e KPIs.'
+        work: {
+            kicker: 'Projetos selecionados', title: 'Resultados, não promessas.',
+            lead: 'Produtos maduros, projetos do zero, SDKs públicos e entrega como fundador. Contextos diferentes; o mesmo foco em clareza e resultados.'
+        },
+        cases: {
+            ifit: {
+                type: 'Modernização nativa', label: 'Fitness conectado · Android',
+                title: 'Modernização de uma plataforma fitness madura do Xamarin para Android nativo.',
+                text: 'Contribuição relevante em performance, reprodução de mídia, legendas, equipamentos conectados por BLE, Health Connect, reviews e suporte a releases.',
+                metric1: 'de melhoria de performance', metric2: 'menos dívida técnica'
             },
-            step2: {
-                badge: 'Etapa 2',
-                title: 'Arquitetura e stack',
-                text: 'Opções (multiplataforma / nativo), TCO e complexidade.'
+            clear: {
+                type: 'Identidade · SDK', label: 'SDK público → app principal',
+                title: 'Primeiro, infraestrutura de autenticação. Depois, fluxos de consumo críticos.',
+                text: 'Trabalhei no SDK público de autenticação da CLEAR antes de ir para o app principal, melhorando fluxos de câmera e leitura e ajudando a modernizar o código.',
+                metric: 'menos dívida técnica'
             },
-            step3: {
-                badge: 'Etapa 3',
-                title: 'Entrega e QA',
-                text: 'Sprints de 1–2 semanas, CI/CD, testes. Métricas de estabilidad na DoD.'
+            surfcast: {
+                type: 'Do zero · Cross-platform', label: 'Android + iOS do zero',
+                title: 'Um produto construído entre plataformas, temporadas e mudanças de arquitetura.',
+                text: 'Criei os apps Android e iOS com Kotlin Multiplatform e depois ajudei o produto a evoluir para React Native/Expo, além de orientar um desenvolvedor júnior.',
+                metric1: 'entrega mais rápida', metric2: 'duplicação de código', metric3: 'receita na primeira temporada'
             },
-            step4: {
-                badge: 'Etapa 4',
-                title: 'Lançamento e suporte',
-                text: 'Publicação, analytics, alertas. Evolução contínua.'
+            hailme: {
+                type: 'Fundador · Único engenheiro de produto', label: 'Ownership sem handoffs',
+                title: 'Um produto real é muito mais do que seu app.',
+                text: 'Construí e lancei os apps e o backend; também cuidei de geofencing, mapas, autenticação, push/SMS/WhatsApp, infraestrutura, revisão nas lojas e conformidade de mensageria.',
+                link: 'Visitar o HailMe'
             }
+        },
+        approach: {
+            kicker: 'Como trabalho', title: 'Critério sênior.<br/><em>Urgência de fundador.</em>',
+            lead: 'Combino a disciplina de grandes equipes de produção com o ownership prático de quem levou o próprio produto por código, fornecedores, políticas e lojas.',
+            ai: 'Meu fluxo é potencializado por IA para acelerar análise de código, planejamento, debugging e documentação, mantendo as decisões de engenharia humanas e responsáveis.',
+            p1: {title: 'Clareza antes do código', text: 'Tornar visíveis primeiro os riscos, trade-offs e a definição de sucesso.'},
+            p2: {title: 'Entregar em incrementos úteis', text: 'Reduzir o tempo de feedback sem comprometer o sistema por baixo.'},
+            p3: {title: 'Deixar o produto mais forte', text: 'Melhor arquitetura, documentação clara, menos risco operacional e uma equipe capaz de continuar.'}
         },
         contact: {
-            title: 'Fale do seu projeto',
-            sub: 'Normalmente respondo em um dia útil (UTC‑3). Quanto mais detalhes, melhor a estimativa.',
-            tip1: 'Links para design/repos/referências são bem‑vindos.',
-            tip2: 'Precisa de NDA? Envie o seu ou usamos meu padrão.'
+            kicker: 'Tem um problema mobile difícil?', title: 'Vamos transformá-lo em<br/><em>vantagem de produto.</em>',
+            lead: 'Conte o que está construindo, modernizando ou tentando destravar. Responderei com perguntas úteis, não com um discurso comercial genérico.',
+            calendar: 'Agendar uma conversa de 30 minutos', availability: 'Remoto global · B2B/C2C por meio de empresa uruguaia'
         },
         form: {
-            nameLabel: 'Nome *',
-            emailLabel: 'Email *',
-            aboutLabel: 'Resumo do projeto *',
-            aboutPh: 'Objetivo, plataforma(s), features-chave, prazos',
-            budgetLabel: 'Orçamento',
-            budget0: 'Indefinido',
-            timelineLabel: 'Prazo',
-            timeline0: 'Flexível',
-            timeline1: 'Até 1 mês',
-            timeline2: '1–3 meses',
-            timeline3: '3–6 meses',
-            timeline4: '6+ meses',
-            submit: 'Enviar',
-            note: 'Ao enviar, você concorda com o tratamento dos seus dados para resposta ao seu pedido.'
+            name: 'Seu nome', namePlaceholder: 'Como devo me dirigir a você?', email: 'E-mail profissional',
+            company: 'Empresa / produto', companyPlaceholder: 'Opcional, mas ajuda',
+            brief: 'Qual é a parte difícil?', briefPlaceholder: 'O produto, o desafio, o prazo e onde você precisa de ownership sênior',
+            submit: 'Enviar o resumo', note: 'Normalmente respondo em um dia útil.', sending: 'Enviando…',
+            success: 'Obrigado, recebi sua mensagem. Responderei em breve.'
         },
-        footer: {contact: 'Contato'}
+        footer: {tagline: 'Mobile complexo. Resultados claros.'}
     },
     ru: {
-        nav: {services: 'Услуги', clients: 'Клиенты', process: 'Как работаю', cta: 'Обсудим'},
+        meta: {
+            title: 'Senior Mobile Engineer для сложных продуктов — Max Dymnoff',
+            description: 'Senior Android и full-stack mobile engineer: модернизация сложных продуктов и ответственность за результат от архитектуры до релиза.',
+            socialTitle: 'Сложные мобильные продукты могут выглядеть просто.',
+            socialDescription: 'Senior Android и full-stack mobile engineering: архитектура, платформенные интеграции, backend, релизы и модернизация.'
+        },
+        a11y: {skip: 'Перейти к содержанию', language: 'Язык'},
+        brand: {role: 'Senior mobile engineer'},
+        nav: {proof: 'Результаты', expertise: 'Экспертиза', work: 'Проекты', cta: 'Обсудим'},
         hero: {
-            title: 'Мобильные приложения под ключ — Android, iOS и backend',
-            lead: 'Проектирую архитектуру, пишу чистый код и довожу до релиза в App Store и Google Play. Кроссплатформенно на Compose/KMM/React Native или нативно на Kotlin и Swift — под задачу и бюджет.',
-            ctaPrimary: 'Оценить проект',
-            ctaSecondary: 'Посмотреть услуги'
+            eyebrow: 'Доступен для отдельных удалённых проектов · UTC−3',
+            title: 'Делаю так, чтобы <em>сложные</em> mobile-продукты выглядели просто.',
+            lead: 'От спасения legacy-кода и сложных платформенных интеграций до готовых к запуску приложений: отвечаю за весь путь от архитектуры до публикации в сторах. Android — ядро, full-stack — когда этого требует продукт.',
+            ctaPrimary: 'Начать разговор',
+            ctaSecondary: 'Посмотреть результаты',
+            trustLabel: 'Инженерный опыт в продуктах'
         },
-        kpi: {years: 'лет профессионального опыта', releases: 'продакшен‑релизов', timezones: 'таймзоны и клиенты'},
-        heroStackNote: 'Подбираю стек под задачи продукта: скорость вывода на рынок, производительность, стоимость поддержки.',
-        services: {
-            title: 'Услуги', sub: 'Четко фиксирую границы работ, сроки и итоговые артефакты. Без сюрпризов.',
-            full: {
-                title: 'Разработка под ключ',
-                text: 'Мобильное приложение вместе с backend: архитектура, разработка, тестирование, публикация, мониторинг. Документация и hand‑off.'
+        visual: {
+            live: 'Система поставки активна', core: 'Ответственность целиком', native: 'Нативный UX', platform: 'Глубина платформы',
+            backend: 'Backend', release: 'Релиз', footer: 'Архитектура → поставка → запуск',
+            ai: 'AI-powered процесс', builder: 'Ownership основателя'
+        },
+        impact: {
+            years: 'лет выпускаю production-софт',
+            performance: 'прирост производительности при модернизации iFIT',
+            duplication: 'дублирование кода в cross-platform продукте',
+            languages: 'языка для международной работы'
+        },
+        expertise: {
+            kicker: 'Дайте мне сложную часть',
+            title: 'Ценность не в большем количестве кода. Она в меньшей неопределённости.',
+            lead: 'Работаю там, где продуктовые решения сталкиваются с ограничениями платформы, и превращаю неоднозначные mobile-задачи в системы, которые можно выпустить, масштабировать и развивать.',
+            modernize: {
+                title: 'Модернизировать, не останавливая продукт',
+                text: 'Нативные миграции, модуляризация, производительность, оздоровление архитектуры и сокращение технического долга с сохранением production-ритма.'
             },
-            cross: {
-                title: 'Кроссплатформенная разработка',
-                text: 'Compose Multiplatform / KMM или React Native для общего кода и единых фич. Компромиссы проговариваю заранее.'
+            platform: {
+                title: 'Решить платформенно сложные фичи',
+                text: 'Identity SDK, камера и сканирование, BLE, воспроизведение медиа, Health Connect, карты, geofencing и надёжная фоновая работа.'
             },
-            native: {
-                title: 'Нативный Android и iOS',
-                text: 'Глубокая интеграция с системными сервисами, офлайн‑режим, работа с картами и оплатами. Производительность и UX на первом месте.'
+            own: {
+                title: 'Взять на себя весь путь до релиза',
+                text: 'Mobile, общий код, backend, аутентификация, инфраструктура, messaging, правила сторов, аналитика и запуск — единая ответственная картина продукта.'
             }
         },
-        clients: {title: 'Мне доверяли', sub: 'Опыт в финтехе, лайфстайле и инфраструктурных SDK.'},
-        process: {
-            title: 'Как я работаю',
-            step1: {
-                badge: 'Шаг 1',
-                title: 'Диагностика и приоритизация',
-                text: 'Выясняю цели бизнеса, риски и ограничения. Формирую дорожную карту и KPI.'
+        work: {
+            kicker: 'Избранные проекты', title: 'Факты вместо обещаний.',
+            lead: 'Зрелые продукты, greenfield-разработка, публичные SDK и работа основателя. Контексты разные; фокус на ясности и результате одинаковый.'
+        },
+        cases: {
+            ifit: {
+                type: 'Нативная модернизация', label: 'Connected fitness · Android',
+                title: 'Переход зрелой фитнес-платформы с Xamarin на современный native Android.',
+                text: 'Существенный инженерный вклад в производительность, media playback, субтитры, BLE-оборудование, Health Connect, code review и поддержку релизов.',
+                metric1: 'прирост производительности', metric2: 'сокращение техдолга'
             },
-            step2: {
-                badge: 'Шаг 2',
-                title: 'Архитектура и стек',
-                text: 'Предлагаю варианты (кроссплатформа/натив), оцениваю стоимость владения и сложность.'
+            clear: {
+                type: 'Identity · SDK', label: 'Публичный SDK → основное приложение',
+                title: 'Сначала инфраструктура аутентификации. Затем — критичные пользовательские сценарии.',
+                text: 'Сначала работал над публичным SDK аутентификации CLEAR, затем над основным приложением: улучшал camera/scanning flows и помогал модернизировать кодовую базу.',
+                metric: 'сокращение техдолга'
             },
-            step3: {
-                badge: 'Шаг 3',
-                title: 'Разработка и контроль качества',
-                text: 'Итерации 1–2 недели, CI/CD, автотесты. Показатели стабильности — часть Definition of Done.'
+            surfcast: {
+                type: 'С нуля · Cross-platform', label: 'Android + iOS с нуля',
+                title: 'Продукт, прошедший через платформы, сезоны и смену архитектуры.',
+                text: 'Создал Android- и iOS-приложения на Kotlin Multiplatform, затем помогал развивать продукт в сторону React Native/Expo и менторил junior-разработчика.',
+                metric1: 'быстрее выпуск фич', metric2: 'дублирование кода', metric3: 'выручка первого сезона'
             },
-            step4: {
-                badge: 'Шаг 4',
-                title: 'Запуск и поддержка',
-                text: 'Публикация в сторах, аналитика, алерты. Дальнейшее развитие по бэклогу.'
+            hailme: {
+                type: 'Основатель · Единственный product engineer', label: 'Ownership без handoff',
+                title: 'Настоящий продукт — это намного больше, чем приложение.',
+                text: 'Создал и запустил приложения и backend, а также отвечал за geofencing, карты, аутентификацию, push/SMS/WhatsApp, инфраструктуру, review в сторах и messaging compliance.',
+                link: 'Открыть HailMe'
             }
+        },
+        approach: {
+            kicker: 'Как я работаю', title: 'Senior-решения.<br/><em>Скорость основателя.</em>',
+            lead: 'Соединяю дисциплину крупных production-команд с практическим ownership человека, который провёл собственный продукт через код, подрядчиков, правила и сторы.',
+            ai: 'Использую AI-powered процесс для ускорения анализа кодовой базы, планирования, debugging и документации, сохраняя человеческую ответственность за инженерные решения.',
+            p1: {title: 'Сначала ясность, потом код', text: 'Сначала сделать видимыми риски, компромиссы и критерии успеха.'},
+            p2: {title: 'Поставлять полезными частями', text: 'Сокращать цикл обратной связи, не подрывая фундамент продукта.'},
+            p3: {title: 'Оставлять систему сильнее', text: 'Лучше архитектура, яснее документация, ниже операционный риск, команда готова продолжать.'}
         },
         contact: {
-            title: 'Расскажите о проекте',
-            sub: 'Обычно отвечаю в течение рабочего дня (UTC‑3). Чем конкретнее запрос, тем точнее оценка.',
-            tip1: 'Можно приложить ссылки на макеты/репо/референсы.',
-            tip2: 'Если нужен NDA — пришлите свой или возьмём мой стандартный шаблон.'
+            kicker: 'Есть сложная mobile-задача?', title: 'Превратим её в<br/><em>преимущество продукта.</em>',
+            lead: 'Расскажите, что вы создаёте, модернизируете или пытаетесь разблокировать. Я отвечу полезными вопросами, а не шаблонным коммерческим предложением.',
+            calendar: 'Назначить 30-минутный звонок', availability: 'Удалённо по всему миру · B2B/C2C через уругвайскую компанию'
         },
         form: {
-            nameLabel: 'Имя *',
-            emailLabel: 'Email *',
-            aboutLabel: 'Кратко о проекте *',
-            aboutPh: 'Цель, платформа(ы), ключевые фичи, сроки',
-            budgetLabel: 'Бюджет',
-            budget0: 'Не определён',
-            timelineLabel: 'Сроки',
-            timeline0: 'Гибкие',
-            timeline1: 'До 1 месяца',
-            timeline2: '1–3 месяца',
-            timeline3: '3–6 месяцев',
-            timeline4: '6+ месяцев',
-            submit: 'Отправить',
-            note: 'Нажимая «Отправить», вы соглашаетесь на обработку данных для ответа на ваш запрос.'
+            name: 'Ваше имя', namePlaceholder: 'Как к вам обращаться?', email: 'Рабочая почта',
+            company: 'Компания / продукт', companyPlaceholder: 'Необязательно, но полезно',
+            brief: 'В чём сложность?', briefPlaceholder: 'Продукт, задача, сроки и где нужен senior ownership',
+            submit: 'Отправить описание', note: 'Обычно отвечаю в течение одного рабочего дня.', sending: 'Отправляю…',
+            success: 'Спасибо, сообщение получено. Скоро отвечу.'
         },
-        footer: {contact: 'Контакты'}
+        footer: {tagline: 'Сложный mobile. Ясный результат.'}
     }
 };
 
-// Utility functions
-const $ = sel => document.querySelector(sel);
-const $$ = sel => Array.from(document.querySelectorAll(sel));
+const SUPPORTED_LANGUAGES = Object.keys(I18N);
+const languageSelect = document.getElementById('languageSelect');
+const formStatus = document.getElementById('formStatus');
+let currentLanguage = 'en';
+let formStatusKey = '';
 
-// Initialize year in footer
-function initializeYear() {
-    document.getElementById('y').textContent = new Date().getFullYear();
+function getTranslation(language, path) {
+    return path.split('.').reduce((value, key) => value && value[key], I18N[language]);
 }
 
-// Smooth anchor scroll
-function initializeSmoothScroll() {
-    Array.from(document.querySelectorAll('a[href^="#"]')).forEach(a => {
-        a.addEventListener('click', e => {
-            const id = a.getAttribute('href');
-            const el = document.querySelector(id);
-            if (el) {
-                e.preventDefault();
-                el.scrollIntoView({behavior: 'smooth', block: 'start'});
-            }
-        });
-    });
+function setMeta(selector, value) {
+    const element = document.querySelector(selector);
+    if (element && value) element.setAttribute('content', value);
 }
 
-// Apply internationalization
-function applyI18n(lang) {
-    const dict = I18N[lang] || I18N.en;
-    document.documentElement.lang = lang;
+function applyLanguage(language, updateUrl = true) {
+    const nextLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : 'en';
+    currentLanguage = nextLanguage;
+    document.documentElement.lang = nextLanguage;
+    languageSelect.value = nextLanguage;
 
-    // Apply text content
-    $$('[data-i18n]').forEach(el => {
-        const path = el.getAttribute('data-i18n').split('.');
-        let cur = dict;
-        for (const p of path) {
-            cur = cur?.[p];
-            if (!cur) break;
-        }
-        if (typeof cur === 'string') el.innerHTML = cur;
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const value = getTranslation(nextLanguage, element.dataset.i18n);
+        if (typeof value === 'string') element.textContent = value;
     });
 
-    // Apply placeholders
-    $$('[data-i18n-placeholder]').forEach(el => {
-        const path = el.getAttribute('data-i18n-placeholder').split('.');
-        let cur = dict;
-        for (const p of path) {
-            cur = cur?.[p];
-            if (!cur) break;
-        }
-        if (typeof cur === 'string') el.setAttribute('placeholder', cur);
+    document.querySelectorAll('[data-i18n-html]').forEach((element) => {
+        const value = getTranslation(nextLanguage, element.dataset.i18nHtml);
+        if (typeof value === 'string') element.innerHTML = value;
     });
 
-    // Update language button states
-    $$('.lang button[data-lang]').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-
-    // Update dropdown current language display
-    $$('.lang-current').forEach(span => {
-        span.textContent = lang.toUpperCase();
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+        const value = getTranslation(nextLanguage, element.dataset.i18nPlaceholder);
+        if (typeof value === 'string') element.setAttribute('placeholder', value);
     });
 
-    // Update dropdown option states
-    $$('.lang-option').forEach(option => {
-        option.classList.toggle('active', option.dataset.lang === lang);
-    });
+    const meta = I18N[nextLanguage].meta;
+    document.title = meta.title;
+    setMeta('meta[name="description"]', meta.description);
+    setMeta('meta[property="og:title"]', meta.socialTitle);
+    setMeta('meta[property="og:description"]', meta.socialDescription);
+    setMeta('meta[name="twitter:title"]', meta.socialTitle);
+    setMeta('meta[name="twitter:description"]', meta.socialDescription);
 
-    // Update hero stack note
-    const helper = document.querySelector('.hero-card .helper');
-    if (helper && dict.heroStackNote) {
-        helper.textContent = dict.heroStackNote;
+    if (formStatusKey) formStatus.textContent = getTranslation(nextLanguage, formStatusKey) || '';
+
+    try {
+        localStorage.setItem('preferred-language', nextLanguage);
+    } catch (_) {
+        // Language selection still works when storage is unavailable.
+    }
+
+    if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', nextLanguage);
+        history.replaceState({}, '', url);
     }
 }
 
-// Initialize language switching
-function initializeLanguageSwitching() {
-    // Handle both dropdown options and button clicks
-    $$('.lang button[data-lang]').forEach(b => {
-        b.addEventListener('click', () => {
-            const lang = b.dataset.lang;
-            localStorage.setItem('lang', lang);
-            const url = new URL(window.location);
-            url.searchParams.set('lang', lang);
-            history.replaceState({}, '', url);
-            applyI18n(lang);
+function getInitialLanguage() {
+    const params = new URLSearchParams(window.location.search);
+    const fromUrl = params.get('lang');
+    if (SUPPORTED_LANGUAGES.includes(fromUrl)) return fromUrl;
 
-            // Close dropdown if it's open
-            const dropdown = b.closest('.lang-dropdown');
-            if (dropdown) {
-                const toggle = dropdown.querySelector('.lang-toggle');
-                const menu = dropdown.querySelector('.lang-menu');
-                if (toggle && menu) {
-                    toggle.setAttribute('aria-expanded', 'false');
-                    menu.setAttribute('aria-hidden', 'true');
-                }
-            }
-
-            // Close mobile menu if it's open
-            closeMobileMenu();
-        });
-    });
-
-    // Handle dropdown toggle
-    $$('.lang-toggle').forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const menu = toggle.nextElementSibling;
-            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-            toggle.setAttribute('aria-expanded', !isExpanded);
-            menu.setAttribute('aria-hidden', isExpanded);
-        });
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.lang-dropdown')) {
-            $$('.lang-dropdown').forEach(dropdown => {
-                const toggle = dropdown.querySelector('.lang-toggle');
-                const menu = dropdown.querySelector('.lang-menu');
-                if (toggle && menu) {
-                    toggle.setAttribute('aria-expanded', 'false');
-                    menu.setAttribute('aria-hidden', 'true');
-                }
-            });
-        }
-    });
-}
-
-// Mobile menu functionality
-function initializeMobileMenu() {
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-
-    if (!mobileToggle || !mobileNav) return;
-
-    // Toggle mobile menu
-    mobileToggle.addEventListener('click', () => {
-        const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-        mobileToggle.setAttribute('aria-expanded', !isExpanded);
-        mobileNav.setAttribute('aria-hidden', isExpanded);
-
-        // Prevent body scroll when menu is open
-        if (!isExpanded) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Close mobile menu when clicking on navigation links
-    mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.mobile-nav') && !e.target.closest('.mobile-menu-toggle')) {
-            closeMobileMenu();
-        }
-    });
-
-    // Close mobile menu on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeMobileMenu();
-        }
-    });
-}
-
-function closeMobileMenu() {
-    const mobileToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-
-    if (mobileToggle && mobileNav) {
-        mobileToggle.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    }
-}
-
-// Get initial language
-function getInitialLang() {
-    const urlLang = new URLSearchParams(location.search).get('lang');
-    const storeLang = localStorage.getItem('lang');
-    const nav = (navigator.language || navigator.userLanguage || 'en').slice(0, 2).toLowerCase();
-    const supported = ['en', 'es', 'pt', 'ru'];
-
-    if (urlLang && supported.includes(urlLang)) return urlLang;
-    if (storeLang && supported.includes(storeLang)) return storeLang;
-    if (supported.includes(nav)) return nav;
-    return 'en';
-}
-
-// Router functionality
-function initializeRouter() {
-    const sections = ['.hero', '#services', '#clients', '#process', '#contact'];
-
-    const form = document.getElementById('contactForm');
-    if (form) {
-        let next = form.querySelector('input[name="_next"]');
-        if (!next) {
-            next = document.createElement('input');
-            next.type = 'hidden';
-            next.name = '_next';
-            form.appendChild(next);
-        }
-
-        // For Vercel deployment, use hash-based thanks page
-        let thanksUrl = '#/thanks';
-        try {
-            // Only use absolute URL if we're on a domain that supports it
-            if (location.protocol !== 'file:' && !location.hostname.includes('vercel.app')) {
-                thanksUrl = new URL('/thanks', location.origin).toString();
-            }
-        } catch {
-        }
-        next.value = thanksUrl;
+    try {
+        const saved = localStorage.getItem('preferred-language');
+        if (SUPPORTED_LANGUAGES.includes(saved)) return saved;
+    } catch (_) {
+        // Fall through to browser preference.
     }
 
-    // Pre-fill form from URL params
-    function prefill() {
-        const params = new URLSearchParams(location.search);
-        const map = {name: '#name', email: '#email', about: '#about', budget: '#budget', timeline: '#timeline'};
-        Object.entries(map).forEach(([k, sel]) => {
-            const v = params.get(k);
-            const el = $(sel);
-            if (v && el) {
-                el.value = v;
-            }
+    const browserLanguage = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    return SUPPORTED_LANGUAGES.includes(browserLanguage) ? browserLanguage : 'en';
+}
+
+languageSelect.addEventListener('change', (event) => {
+    applyLanguage(event.target.value);
+    configureFormRedirect();
+});
+applyLanguage(getInitialLanguage(), false);
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealElements = [...document.querySelectorAll('.reveal')];
+
+revealElements.forEach((element) => {
+    const delay = Number(element.dataset.delay || 0);
+    element.style.setProperty('--reveal-delay', `${delay}ms`);
+});
+
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
         });
-    }
-
-    function showThanks() {
-        document.title = 'Thank you — Max Dymnoff';
-        sections.forEach(sel => {
-            const el = $(sel);
-            if (el) el.style.display = 'none';
-        });
-
-        const container = document.createElement('section');
-        container.className = 'hero';
-        container.innerHTML = '<div class="container hero-grid"><div><span class="eyebrow">Message received</span><h2 class="h1">Thanks — I\'ll get back to you</h2><p class="lead">Your request is in. I usually reply within one business day (UTC‑3).</p><div class="cta"><a class="btn" href="/" id="backHome">Back to home</a></div></div></div>';
-        document.querySelector('main').prepend(container);
-
-        document.getElementById('backHome')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            history.replaceState({}, '', '/');
-            location.reload();
-        });
-    }
-
-    prefill();
-    if (location.pathname.endsWith('/thanks') || location.hash === '#/thanks') {
-        showThanks();
-    }
-}
-
-// Development guard for file:// protocol
-function initializeDevGuard() {
-    if (location.protocol === 'file:') {
-        const status = document.getElementById('formStatus');
-        if (status) {
-            status.className = 'status err';
-            status.innerHTML = 'You\'re viewing this page via <code>file://</code>. To submit the form with FormSubmit, run a local server.<br/>Quick options: <code>python3 -m http.server</code>, <code>npx serve</code>, or VS Code Live Server.';
-        }
-    }
-}
-
-// Form submission handling
-function initializeFormSubmission() {
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-    const btn = document.getElementById('submitBtn');
-
-    if (!form) return;
-
-    form.addEventListener('submit', async (e) => {
-        const action = form.getAttribute('action') || '';
-        if (action.startsWith('mailto:')) return; // let mailto open
-
-        // Honeypot: if filled, silently drop
-        const trap = form.website && form.website.value && form.website.value.trim() !== '';
-        if (trap) {
-            e.preventDefault();
-            return;
-        }
-
-        const isFormSubmit = /formsubmit\.co\//.test(action);
-        const isAjax = /\/ajax\//.test(action);
-
-        // If opened as file://, block submit and explain
-        if (location.protocol === 'file:') {
-            e.preventDefault();
-            status.className = 'status err';
-            status.innerHTML = 'FormSubmit will not work from <code>file://</code>. Please run a local server (e.g. <code>python3 -m http.server</code>) and open via <code>http://localhost</code>.';
-            return;
-        }
-
-        // If classic FormSubmit endpoint (non-AJAX), let the browser submit normally (avoids CORS)
-        if (isFormSubmit && !isAjax) {
-            return; // native POST & redirect handled by FormSubmit
-        }
-
-        e.preventDefault();
-        status.textContent = '';
-        btn.disabled = true;
-        btn.textContent = ({
-            en: 'Sending…',
-            es: 'Enviando…',
-            pt: 'Enviando…',
-            ru: 'Отправка…'
-        })[$('.lang .active')?.dataset.lang || 'en'];
-
-        try {
-            if (!action) throw new Error('Form action URL is not configured.');
-
-            let resp;
-            if (form.dataset.formspree === 'true') {
-                const data = new URLSearchParams(new FormData(form));
-                resp = await fetch(action, {method: 'POST', body: data, headers: {'Accept': 'application/json'}});
-            } else {
-                const payload = Object.fromEntries(new FormData(form).entries());
-                resp = await fetch(action, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-                    body: JSON.stringify(payload)
-                });
-            }
-
-            if (resp.ok) {
-                form.reset();
-                status.className = 'status ok';
-                const lang = $('.lang .active')?.dataset.lang || 'en';
-                status.textContent = ({
-                    en: 'Thanks! I received your request and will get back to you.',
-                    es: '¡Gracias! Recibí tu solicitud y te responderé.',
-                    pt: 'Obrigado! Recebi sua mensagem e retornarei em breve.',
-                    ru: 'Спасибо! Я получил вашу заявку и свяжусь с вами.'
-                })[lang];
-            } else {
-                throw new Error(await resp.text() || 'Network error');
-            }
-        } catch (err) {
-            status.className = 'status err';
-            const lang = $('.lang .active')?.dataset.lang || 'en';
-            const msg = ({
-                en: 'Could not send the form: ',
-                es: 'No se pudo enviar el formulario: ',
-                pt: 'Não foi possível enviar o formulário: ',
-                ru: 'Не удалось отправить форму: '
-            })[lang];
-            status.textContent = msg + (err.message || err);
-        } finally {
-            btn.disabled = false;
-            btn.textContent = ({
-                en: 'Send',
-                es: 'Enviar',
-                pt: 'Enviar',
-                ru: 'Отправить'
-            })[$('.lang .active')?.dataset.lang || 'en'];
-        }
-    });
-}
-
-// Main initialization function
-function initialize() {
-    initializeYear();
-    initializeSmoothScroll();
-    initializeLanguageSwitching();
-    initializeRouter();
-    initializeDevGuard();
-    initializeFormSubmission();
-
-    // Apply initial language
-    applyI18n(getInitialLang());
-}
-
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initialize);
+    }, {threshold: 0.12, rootMargin: '0px 0px -5%'});
+    revealElements.forEach((element) => revealObserver.observe(element));
 } else {
-    initialize();
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+}
+
+const siteHeader = document.querySelector('.site-header');
+const progressBar = document.querySelector('.scroll-progress span');
+let scrollFrame = null;
+
+function updateScrollState() {
+    scrollFrame = null;
+    const scrollTop = window.scrollY;
+    const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    siteHeader.classList.toggle('is-scrolled', scrollTop > 18);
+    progressBar.style.width = `${Math.min((scrollTop / scrollable) * 100, 100)}%`;
+}
+
+window.addEventListener('scroll', () => {
+    if (scrollFrame) return;
+    scrollFrame = requestAnimationFrame(updateScrollState);
+}, {passive: true});
+updateScrollState();
+
+const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+if (finePointer && !prefersReducedMotion) {
+    window.addEventListener('pointermove', (event) => {
+        document.documentElement.style.setProperty('--pointer-x', `${event.clientX}px`);
+        document.documentElement.style.setProperty('--pointer-y', `${event.clientY}px`);
+    }, {passive: true});
+
+    document.querySelectorAll('[data-tilt]').forEach((card) => {
+        card.addEventListener('pointermove', (event) => {
+            const bounds = card.getBoundingClientRect();
+            const relativeX = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const relativeY = (event.clientY - bounds.top) / bounds.height - 0.5;
+            card.style.transform = `perspective(1200px) rotateX(${relativeY * -3}deg) rotateY(${relativeX * 4}deg) translateY(-2px)`;
+        });
+        card.addEventListener('pointerleave', () => {
+            card.style.removeProperty('transform');
+        });
+    });
+}
+
+const contactForm = document.getElementById('contactForm');
+const submitButton = document.getElementById('submitButton');
+
+function configureFormRedirect() {
+    const redirectUrl = new URL(window.location.href);
+    redirectUrl.searchParams.set('sent', '1');
+    redirectUrl.hash = 'contact';
+    let nextInput = contactForm.querySelector('input[name="_next"]');
+    if (!nextInput) {
+        nextInput = document.createElement('input');
+        nextInput.type = 'hidden';
+        nextInput.name = '_next';
+        contactForm.appendChild(nextInput);
+    }
+    nextInput.value = redirectUrl.toString();
+}
+
+configureFormRedirect();
+
+contactForm.addEventListener('submit', (event) => {
+    if (contactForm.elements.website.value) {
+        event.preventDefault();
+        return;
+    }
+    submitButton.disabled = true;
+    submitButton.querySelector('span').textContent = getTranslation(currentLanguage, 'form.sending');
+});
+
+const currentUrl = new URL(window.location.href);
+if (currentUrl.searchParams.get('sent') === '1') {
+    formStatusKey = 'form.success';
+    formStatus.textContent = getTranslation(currentLanguage, formStatusKey);
+    currentUrl.searchParams.delete('sent');
+    history.replaceState({}, '', currentUrl);
 }
