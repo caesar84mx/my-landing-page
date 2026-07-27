@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.mdymnoff-mobile.dev/</loc></url>
-  <url><loc>https://www.mdymnoff-mobile.dev/?lang=en</loc></url>
-  <url><loc>https://www.mdymnoff-mobile.dev/?lang=es</loc></url>
-  <url><loc>https://www.mdymnoff-mobile.dev/?lang=pt</loc></url>
-  <url><loc>https://www.mdymnoff-mobile.dev/?lang=ru</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/es/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/pt/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/ru/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/case-studies/hailme/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/case-studies/ifit/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/case-studies/clear/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/case-studies/surfcast/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/services/mobile-product-consulting/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/services/full-stack-mobile-app-development/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/services/mobile-app-modernization/</loc></url>
+  <url><loc>https://www.mdymnoff-mobile.dev/services/fractional-mobile-lead/</loc></url>
 </urlset>

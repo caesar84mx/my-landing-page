@@ -3,13 +3,13 @@ document.documentElement.classList.add('js');
 const I18N = {
     en: {
         meta: {
-            title: 'Mobile Consultant & Full-Stack App Developer — Max Dymnoff',
+            title: 'Mobile Consultant & Full-Stack Mobile App Developer — Max Dymnoff',
             description: 'Mobile consulting and end-to-end app development—from backend and APIs to native or cross-platform Android and iOS apps, modernization, and store launch.',
             socialTitle: 'Mobile products, owned from backend to launch.',
             socialDescription: 'Mobile consulting and full-stack app development across backend, native or cross-platform clients, modernization, and store delivery.'
         },
         a11y: {skip: 'Skip to content', language: 'Language'},
-        brand: {role: 'Mobile consultant · Full-stack engineer'},
+        brand: {role: 'Mobile consultant · Full-stack mobile app developer'},
         nav: {services: 'Services', work: 'Case studies', engagement: 'Ways to work', cta: 'Discuss a project'},
         hero: {
             eyebrow: 'Mobile consulting · End-to-end app development',
@@ -30,6 +30,7 @@ const I18N = {
             duplication: 'code duplication on a cross-platform product',
             fullstack: 'backend, mobile clients, and store launch'
         },
+        services: {read: 'Explore service'},
         expertise: {
             kicker: 'Services',
             title: 'The right level of ownership for the whole mobile product.',
@@ -76,6 +77,7 @@ const I18N = {
             lead: 'Backend-to-app product delivery, native modernization, public SDKs, and cross-platform builds—each with clear technical ownership and measurable outcomes.'
         },
         cases: {
+            read: 'Read case study',
             ifit: {
                 type: 'Native modernization', label: 'Connected fitness · Android',
                 title: 'Moving a mature fitness platform from Xamarin toward modern native Android.',
@@ -151,7 +153,7 @@ const I18N = {
             socialDescription: 'Consultoría móvil y desarrollo full-stack: backend, clientes nativos o multiplataforma, modernización y publicación en tiendas.'
         },
         a11y: {skip: 'Ir al contenido', language: 'Idioma'},
-        brand: {role: 'Consultor móvil · Ingeniero full-stack'},
+        brand: {role: 'Consultor móvil · Desarrollador full-stack de apps móviles'},
         nav: {services: 'Servicios', work: 'Casos', engagement: 'Formas de trabajo', cta: 'Hablemos del proyecto'},
         hero: {
             eyebrow: 'Consultoría móvil · Desarrollo integral de apps',
@@ -172,6 +174,7 @@ const I18N = {
             duplication: 'de código duplicado en un producto multiplataforma',
             fullstack: 'backend, clientes móviles y publicación en tiendas'
         },
+        services: {read: 'Ver servicio'},
         expertise: {
             kicker: 'Servicios',
             title: 'La responsabilidad técnica que necesita todo el producto móvil.',
@@ -218,6 +221,7 @@ const I18N = {
             lead: 'Desarrollo desde el backend hasta las apps, modernización nativa, SDKs públicos y productos multiplataforma, siempre con responsabilidad técnica clara y resultados medibles.'
         },
         cases: {
+            read: 'Ver caso',
             ifit: {
                 type: 'Modernización nativa', label: 'Fitness conectado · Android',
                 title: 'Modernización de una plataforma fitness madura desde Xamarin hacia Android nativo.',
@@ -293,7 +297,7 @@ const I18N = {
             socialDescription: 'Consultoria mobile e desenvolvimento full-stack com backend, aplicativos nativos ou multiplataforma, modernização e publicação nas lojas.'
         },
         a11y: {skip: 'Ir para o conteúdo', language: 'Idioma'},
-        brand: {role: 'Consultor mobile · Engenheiro full-stack'},
+        brand: {role: 'Consultor mobile · Desenvolvedor full-stack de apps mobile'},
         nav: {services: 'Serviços', work: 'Projetos', engagement: 'Formas de trabalho', cta: 'Falar sobre o projeto'},
         hero: {
             eyebrow: 'Consultoria mobile · Desenvolvimento completo de apps',
@@ -314,6 +318,7 @@ const I18N = {
             duplication: 'de código duplicado em um produto multiplataforma',
             fullstack: 'backend, clientes mobile e publicação nas lojas'
         },
+        services: {read: 'Ver serviço'},
         expertise: {
             kicker: 'Serviços',
             title: 'A responsabilidade técnica certa para todo o produto mobile.',
@@ -360,6 +365,7 @@ const I18N = {
             lead: 'Desenvolvimento do backend aos aplicativos, modernização nativa, SDKs públicos e produtos multiplataforma, sempre com responsabilidade técnica clara e resultados mensuráveis.'
         },
         cases: {
+            read: 'Ver projeto',
             ifit: {
                 type: 'Modernização nativa', label: 'Fitness conectado · Android',
                 title: 'Modernização de uma plataforma fitness madura do Xamarin para Android nativo.',
@@ -429,13 +435,13 @@ const I18N = {
     },
     ru: {
         meta: {
-            title: 'Мобильный консультант и full-stack разработчик — Max Dymnoff',
-            description: 'Мобильный консалтинг и разработка приложений под ключ: серверная часть и API, нативные или кроссплатформенные клиенты для Android и iOS, модернизация и публикация.',
+            title: 'Консультант и full-stack разработчик мобильных приложений — Max Dymnoff',
+            description: 'Мобильный консалтинг и разработка под ключ: серверная часть, API, приложения для Android и iOS, модернизация и публикация.',
             socialTitle: 'Мобильный продукт — от серверной части до запуска.',
             socialDescription: 'Мобильный консалтинг и full-stack разработка: серверная часть, нативные или кроссплатформенные приложения, модернизация и публикация.'
         },
         a11y: {skip: 'Перейти к содержанию', language: 'Язык'},
-        brand: {role: 'Мобильный консультант · Full-stack разработчик'},
+        brand: {role: 'Мобильный консультант · Full-stack разработчик мобильных приложений'},
         nav: {services: 'Услуги', work: 'Кейсы', engagement: 'Форматы работы', cta: 'Обсудить проект'},
         hero: {
             eyebrow: 'Мобильный консалтинг · Разработка под ключ',
@@ -456,6 +462,7 @@ const I18N = {
             duplication: 'дублирования кода в кроссплатформенном продукте',
             fullstack: 'серверная часть, мобильные приложения и публикация'
         },
+        services: {read: 'Подробнее об услуге'},
         expertise: {
             kicker: 'Услуги',
             title: 'Ответственность за мобильный продукт в нужном вам объёме.',
@@ -502,6 +509,7 @@ const I18N = {
             lead: 'Разработка от серверной части до приложений, нативная модернизация, публичные SDK и кроссплатформенные продукты — с понятной зоной ответственности и измеримыми результатами.'
         },
         cases: {
+            read: 'Читать кейс',
             ifit: {
                 type: 'Нативная модернизация', label: 'Подключённый фитнес · Android',
                 title: 'Переход зрелой фитнес-платформы с Xamarin на современную нативную Android-разработку.',
@@ -572,7 +580,6 @@ const I18N = {
 };
 
 const SUPPORTED_LANGUAGES = Object.keys(I18N);
-const languageSelect = document.getElementById('languageSelect');
 const formStatus = document.getElementById('formStatus');
 let currentLanguage = 'en';
 let formStatusKey = '';
@@ -586,11 +593,10 @@ function setMeta(selector, value) {
     if (element && value) element.setAttribute('content', value);
 }
 
-function applyLanguage(language, updateUrl = true) {
+function applyLanguage(language) {
     const nextLanguage = SUPPORTED_LANGUAGES.includes(language) ? language : 'en';
     currentLanguage = nextLanguage;
     document.documentElement.lang = nextLanguage;
-    languageSelect.value = nextLanguage;
 
     document.querySelectorAll('[data-i18n]').forEach((element) => {
         const value = getTranslation(nextLanguage, element.dataset.i18n);
@@ -617,40 +623,9 @@ function applyLanguage(language, updateUrl = true) {
 
     if (formStatusKey) formStatus.textContent = getTranslation(nextLanguage, formStatusKey) || '';
 
-    try {
-        localStorage.setItem('preferred-language', nextLanguage);
-    } catch (_) {
-        // Language selection still works when storage is unavailable.
-    }
-
-    if (updateUrl) {
-        const url = new URL(window.location.href);
-        url.searchParams.set('lang', nextLanguage);
-        history.replaceState({}, '', url);
-    }
 }
 
-function getInitialLanguage() {
-    const params = new URLSearchParams(window.location.search);
-    const fromUrl = params.get('lang');
-    if (SUPPORTED_LANGUAGES.includes(fromUrl)) return fromUrl;
-
-    try {
-        const saved = localStorage.getItem('preferred-language');
-        if (SUPPORTED_LANGUAGES.includes(saved)) return saved;
-    } catch (_) {
-        // Fall through to browser preference.
-    }
-
-    const browserLanguage = (navigator.language || 'en').slice(0, 2).toLowerCase();
-    return SUPPORTED_LANGUAGES.includes(browserLanguage) ? browserLanguage : 'en';
-}
-
-languageSelect.addEventListener('change', (event) => {
-    applyLanguage(event.target.value);
-    configureFormRedirect();
-});
-applyLanguage(getInitialLanguage(), false);
+applyLanguage(document.documentElement.lang.slice(0, 2).toLowerCase());
 
 document.getElementById('year').textContent = new Date().getFullYear();
 

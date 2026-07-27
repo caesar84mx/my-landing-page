@@ -9,10 +9,15 @@ The project has been refactored following web development best practices with se
 ```
 Landing/
 ├── index.html          # Main HTML file
+├── es|pt|ru/           # Pre-rendered localized landing pages
+├── case-studies/       # Search-focused project case studies
+├── services/           # Search-focused service pages
 ├── css/
 │   └── styles.css      # All CSS styles and responsive design
 ├── js/
 │   └── main.js         # JavaScript functionality and i18n
+├── scripts/
+│   └── generate-locales.mjs # Generates localized HTML and sitemap
 ├── assets/             # Images, icons, and media files
 │   ├── ancestry.png
 │   ├── apple-touch-icon.png
@@ -28,7 +33,7 @@ Landing/
 
 ## Features
 
-- **Multi-language Support**: English, Spanish, Portuguese, and Russian
+- **Multi-language Support**: Pre-rendered English, Spanish, Portuguese, and Russian pages
 - **Responsive Design**: Mobile-first approach with CSS Grid and Flexbox
 - **Modern UI**: Clean, professional design with smooth animations
 - **Contact Form**: Integrated with FormSubmit for reliable form handling
@@ -95,13 +100,20 @@ The project is ready for deployment to any static hosting service:
 
 ## Internationalization
 
-The site supports four languages with automatic detection:
+The site supports four crawlable language versions:
 - **English (en)**: Default language
 - **Spanish (es)**: Español
 - **Portuguese (pt)**: Português
 - **Russian (ru)**: Русский
 
-Language preferences are stored in localStorage and can be changed via the language switcher in the header.
+The root page is the English and `x-default` version. Spanish, Portuguese, and Russian use `/es/`, `/pt/`, and `/ru/`. Each page contains localized HTML, a self-referencing canonical URL, reciprocal `hreflang` links, and normal crawlable language links.
+
+After changing shared landing content or translations, regenerate and verify the localized pages:
+
+```bash
+node scripts/generate-locales.mjs
+node scripts/generate-locales.mjs --check
+```
 
 ## Contact Form
 

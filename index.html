@@ -3,20 +3,24 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Mobile Consultant &amp; Full-Stack App Developer — Max Dymnoff</title>
+    <title>Mobile Consultant &amp; Full-Stack Mobile App Developer — Max Dymnoff</title>
     <meta name="description" content="Mobile consulting and end-to-end app development—from backend and APIs to native or cross-platform Android and iOS apps, modernization, and store launch."/>
     <meta name="theme-color" content="#080b12"/>
     <meta name="color-scheme" content="dark"/>
 
     <link rel="canonical" href="https://www.mdymnoff-mobile.dev/"/>
-    <link rel="alternate" hreflang="x-default" href="https://www.mdymnoff-mobile.dev/?lang=en"/>
-    <link rel="alternate" hreflang="en" href="https://www.mdymnoff-mobile.dev/?lang=en"/>
-    <link rel="alternate" hreflang="es" href="https://www.mdymnoff-mobile.dev/?lang=es"/>
-    <link rel="alternate" hreflang="pt" href="https://www.mdymnoff-mobile.dev/?lang=pt"/>
-    <link rel="alternate" hreflang="ru" href="https://www.mdymnoff-mobile.dev/?lang=ru"/>
+    <link rel="alternate" hreflang="x-default" href="https://www.mdymnoff-mobile.dev/"/>
+    <link rel="alternate" hreflang="en" href="https://www.mdymnoff-mobile.dev/"/>
+    <link rel="alternate" hreflang="es" href="https://www.mdymnoff-mobile.dev/es/"/>
+    <link rel="alternate" hreflang="pt" href="https://www.mdymnoff-mobile.dev/pt/"/>
+    <link rel="alternate" hreflang="ru" href="https://www.mdymnoff-mobile.dev/ru/"/>
 
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Max Dymnoff"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:locale:alternate" content="es_ES"/>
+    <meta property="og:locale:alternate" content="pt_BR"/>
+    <meta property="og:locale:alternate" content="ru_RU"/>
     <meta property="og:url" content="https://www.mdymnoff-mobile.dev/"/>
     <meta property="og:title" content="Mobile products, owned from backend to launch."/>
     <meta property="og:description" content="Mobile consulting and full-stack app development across backend, native or cross-platform clients, modernization, and store delivery."/>
@@ -39,62 +43,69 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=20260727"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=20260727"/>
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20260727"/>
-    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="/css/styles.css?v=20260727-seo1"/>
 
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Maxim Dymnov",
-          "alternateName": "Max Dymnoff",
-          "jobTitle": "Mobile Consultant and Full-Stack Product Engineer",
-          "url": "https://www.mdymnoff-mobile.dev/",
-          "email": "mailto:dymnov.dm@gmail.com",
-          "worksFor": {
-            "@type": "Organization",
-            "name": "Dymnoff Software Labs SAS",
-            "url": "https://www.mdymnoff-mobile.dev/",
-            "address": {
-              "@type": "PostalAddress",
-              "addressCountry": "UY"
-            }
-          },
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Montevideo",
-            "addressCountry": "UY"
-          },
-          "sameAs": [
-            "https://www.linkedin.com/in/dymnov",
-            "https://github.com/caesar84mx",
-            "https://hailme.app"
-          ],
-          "knowsAbout": [
-            "Android", "Kotlin", "Jetpack Compose", "iOS", "Kotlin Multiplatform",
-            "Compose Multiplatform", "React Native", "Ktor", "Mobile architecture",
-            "Mobile consulting", "Backend APIs", "Mobile app development",
-            "Mobile SDKs", "BLE", "Media playback", "Geofencing"
-          ],
-          "makesOffer": [
+          "@graph": [
             {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Mobile product consulting"
-              }
+              "@type": "WebSite",
+              "@id": "https://www.mdymnoff-mobile.dev/#website",
+              "url": "https://www.mdymnoff-mobile.dev/",
+              "name": "Max Dymnoff",
+              "publisher": {"@id": "https://www.mdymnoff-mobile.dev/#person"}
             },
             {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "End-to-end mobile app development"
-              }
+              "@type": "Person",
+              "@id": "https://www.mdymnoff-mobile.dev/#person",
+              "name": "Maxim Dymnov",
+              "alternateName": "Max Dymnoff",
+              "jobTitle": "Mobile Consultant and Full-Stack Mobile App Developer",
+              "url": "https://www.mdymnoff-mobile.dev/",
+              "email": "mailto:dymnov.dm@gmail.com",
+              "worksFor": {"@id": "https://www.mdymnoff-mobile.dev/#organization"},
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Montevideo",
+                "addressCountry": "UY"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/in/dymnov",
+                "https://github.com/caesar84mx",
+                "https://hailme.app"
+              ],
+              "knowsAbout": [
+                "Android", "Kotlin", "Jetpack Compose", "iOS", "Kotlin Multiplatform",
+                "Compose Multiplatform", "React Native", "Ktor", "Mobile architecture",
+                "Mobile consulting", "Backend APIs", "Mobile app development",
+                "Mobile SDKs", "BLE", "Media playback", "Geofencing"
+              ],
+              "makesOffer": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {"@type": "Service", "name": "Mobile product consulting"}
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {"@type": "Service", "name": "End-to-end mobile app development"}
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {"@type": "Service", "name": "Mobile modernization and platform engineering"}
+                }
+              ]
             },
             {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Mobile modernization and platform engineering"
+              "@type": "Organization",
+              "@id": "https://www.mdymnoff-mobile.dev/#organization",
+              "name": "Dymnoff Software Labs SAS",
+              "url": "https://www.mdymnoff-mobile.dev/",
+              "founder": {"@id": "https://www.mdymnoff-mobile.dev/#person"},
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Montevideo",
+                "addressCountry": "UY"
               }
             }
           ]
@@ -112,7 +123,7 @@
             <span class="brand-mark" aria-hidden="true"><span>M</span><span>D</span></span>
             <span class="brand-copy">
                 <strong>Max Dymnoff</strong>
-                <small data-i18n="brand.role">Mobile consultant · Full-stack engineer</small>
+                <small data-i18n="brand.role">Mobile consultant · Full-stack mobile app developer</small>
             </span>
         </a>
         <nav class="main-nav" aria-label="Main navigation">
@@ -121,15 +132,17 @@
             <a href="#engagement" data-i18n="nav.engagement">Ways to work</a>
         </nav>
         <div class="nav-actions">
-            <label class="language-control">
-                <span class="sr-only" data-i18n="a11y.language">Language</span>
-                <select id="languageSelect" aria-label="Language">
-                    <option value="en">EN</option>
-                    <option value="es">ES</option>
-                    <option value="pt">PT</option>
-                    <option value="ru">RU</option>
-                </select>
-            </label>
+            <nav class="language-control" aria-label="Language">
+                <details>
+                    <summary aria-label="Choose language"><span>EN</span></summary>
+                    <div class="language-menu">
+                        <a href="/" lang="en" hreflang="en" aria-current="page">EN</a>
+                        <a href="/es/" lang="es" hreflang="es">ES</a>
+                        <a href="/pt/" lang="pt" hreflang="pt">PT</a>
+                        <a href="/ru/" lang="ru" hreflang="ru">RU</a>
+                    </div>
+                </details>
+            </nav>
             <a class="button button-small" href="#contact" data-i18n="nav.cta">Discuss a project</a>
         </div>
     </div>
@@ -151,13 +164,13 @@
                 </div>
                 <div class="hero-trust">
                     <span data-i18n="hero.trustLabel">Engineering experience across</span>
-                    <div class="client-wordmarks" aria-label="Selected product clients">
-                        <strong>CLEAR</strong><strong>iFIT</strong><strong>VSCO</strong><strong>Ancestry</strong><strong>OttoConnect</strong>
+                    <div class="client-wordmarks" role="list" aria-label="Selected product clients">
+                        <strong role="listitem">CLEAR</strong><strong role="listitem">iFIT</strong><strong role="listitem">VSCO</strong><strong role="listitem">Ancestry</strong><strong role="listitem">OttoConnect</strong>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-visual reveal" data-delay="120" aria-label="End-to-end product engineering map">
+            <div class="hero-visual reveal" data-delay="120" role="img" aria-label="End-to-end product engineering map">
                 <div class="system-card" data-tilt>
                     <div class="system-topbar">
                         <div><span class="system-live"></span><span data-i18n="visual.live">Delivery system live</span></div>
@@ -190,22 +203,22 @@
 
     <section class="impact-band" id="proof" aria-label="Selected impact">
         <div class="container impact-grid">
-            <article class="impact-item reveal">
+            <div class="impact-item reveal">
                 <strong>8+</strong>
                 <span data-i18n="impact.years">years shipping production software</span>
-            </article>
-            <article class="impact-item reveal" data-delay="60">
+            </div>
+            <div class="impact-item reveal" data-delay="60">
                 <strong>~50%</strong>
                 <span data-i18n="impact.performance">performance improvement on iFIT modernization</span>
-            </article>
-            <article class="impact-item reveal" data-delay="120">
+            </div>
+            <div class="impact-item reveal" data-delay="120">
                 <strong>−30%</strong>
                 <span data-i18n="impact.duplication">code duplication on a cross-platform product</span>
-            </article>
-            <article class="impact-item reveal" data-delay="180">
+            </div>
+            <div class="impact-item reveal" data-delay="180">
                 <strong>E2E</strong>
                 <span data-i18n="impact.fullstack">backend, mobile clients, and store launch</span>
-            </article>
+            </div>
         </div>
     </section>
 
@@ -225,6 +238,7 @@
                     <ul class="tag-list" aria-label="Consulting capabilities">
                         <li data-i18n="expertise.consulting.chip1">Architecture review</li><li data-i18n="expertise.consulting.chip2">Delivery roadmap</li><li data-i18n="expertise.consulting.chip3">Risk reduction</li>
                     </ul>
+                    <a class="case-study-link" href="/services/mobile-product-consulting/"><span data-i18n="services.read">Explore service</span><span aria-hidden="true">↗</span></a>
                 </article>
                 <article class="expertise-card reveal" data-delay="80" data-tilt>
                     <span class="card-index">02</span>
@@ -234,6 +248,7 @@
                     <ul class="tag-list" aria-label="Full-stack mobile capabilities">
                         <li data-i18n="expertise.fullstack.chip1">Backend + APIs</li><li data-i18n="expertise.fullstack.chip2">Native or KMP</li><li data-i18n="expertise.fullstack.chip3">Store launch</li>
                     </ul>
+                    <a class="case-study-link" href="/services/full-stack-mobile-app-development/"><span data-i18n="services.read">Explore service</span><span aria-hidden="true">↗</span></a>
                 </article>
                 <article class="expertise-card reveal" data-delay="160" data-tilt>
                     <span class="card-index">03</span>
@@ -243,6 +258,7 @@
                     <ul class="tag-list" aria-label="Modernization capabilities">
                         <li data-i18n="expertise.modernize.chip1">Legacy rescue</li><li data-i18n="expertise.modernize.chip2">Platform depth</li><li data-i18n="expertise.modernize.chip3">Release stability</li>
                     </ul>
+                    <a class="case-study-link" href="/services/mobile-app-modernization/"><span data-i18n="services.read">Explore service</span><span aria-hidden="true">↗</span></a>
                 </article>
             </div>
         </div>
@@ -301,7 +317,7 @@
                         <p data-i18n="cases.hailme.text">I built and launched the Android and iOS apps and backend, then handled geofencing, maps, authentication, push/SMS/WhatsApp, store review, vendor coordination, and messaging compliance.</p>
                     </div>
                     <div class="case-link-row">
-                        <a href="https://hailme.app" target="_blank" rel="noopener noreferrer"><span data-i18n="cases.hailme.link">Visit HailMe</span><span aria-hidden="true">↗</span></a>
+                        <a href="/case-studies/hailme/"><span data-i18n="cases.read">Read case study</span><span aria-hidden="true">↗</span></a>
                         <span>KMP · Ktor · PostgreSQL · Redis</span>
                     </div>
                 </article>
@@ -317,6 +333,7 @@
                         <div><strong>~50%</strong><span data-i18n="cases.ifit.metric1">performance improvement</span></div>
                         <div><strong>~50%</strong><span data-i18n="cases.ifit.metric2">technical-debt reduction</span></div>
                     </div>
+                    <a class="case-study-link" href="/case-studies/ifit/"><span data-i18n="cases.read">Read case study</span><span aria-hidden="true">↗</span></a>
                 </article>
 
                 <article class="case-card reveal" data-delay="100" data-tilt>
@@ -329,6 +346,7 @@
                     <div class="case-results single-result">
                         <div><strong>~30%</strong><span data-i18n="cases.clear.metric">technical-debt reduction</span></div>
                     </div>
+                    <a class="case-study-link" href="/case-studies/clear/"><span data-i18n="cases.read">Read case study</span><span aria-hidden="true">↗</span></a>
                 </article>
 
                 <article class="case-card reveal" data-delay="140" data-tilt>
@@ -343,6 +361,7 @@
                         <div><strong>−30%</strong><span data-i18n="cases.surfcast.metric2">code duplication</span></div>
                         <div><strong>~$1M</strong><span data-i18n="cases.surfcast.metric3">first-season revenue</span></div>
                     </div>
+                    <a class="case-study-link" href="/case-studies/surfcast/"><span data-i18n="cases.read">Read case study</span><span aria-hidden="true">↗</span></a>
                 </article>
             </div>
         </div>
@@ -370,6 +389,7 @@
                     <span class="card-index">03</span>
                     <h3 data-i18n="engagement.leadership.title">Fractional mobile lead</h3>
                     <p data-i18n="engagement.leadership.text">Senior direction, reviews, architecture, and delivery support for a team that does not need another full-time hire.</p>
+                    <a class="case-study-link" href="/services/fractional-mobile-lead/"><span data-i18n="services.read">Explore service</span><span aria-hidden="true">↗</span></a>
                 </article>
             </div>
         </div>
@@ -472,13 +492,13 @@
                 <span class="footer-brand-icon footer-brand-icon-github" aria-hidden="true"></span>
             </a>
             <a href="https://hailme.app" target="_blank" rel="noopener noreferrer" aria-label="HailMe" title="HailMe">
-                <img class="footer-hailme-icon" src="assets/hailme-logo.png" alt="" width="30" height="30"/>
+                <img class="footer-hailme-icon" src="/assets/hailme-logo-60.png?v=20260727-seo1" alt="" width="30" height="30" loading="lazy" decoding="async"/>
             </a>
         </div>
         <p>© <span id="year"></span> Dymnoff Software Labs SAS · Max Dymnoff · Montevideo, Uruguay</p>
     </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="/js/main.js?v=20260727-seo1"></script>
 </body>
 </html>
