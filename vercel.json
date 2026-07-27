@@ -14,22 +14,22 @@
       "permanent": true
     },
     {
-      "source": "/services/fractional-mobile-lead",
+      "source": "/services/fractional-mobile-lead/",
       "destination": "/services/mobile-technical-lead/",
       "permanent": true
     },
     {
-      "source": "/es/services/fractional-mobile-lead",
+      "source": "/es/services/fractional-mobile-lead/",
       "destination": "/es/services/mobile-technical-lead/",
       "permanent": true
     },
     {
-      "source": "/pt/services/fractional-mobile-lead",
+      "source": "/pt/services/fractional-mobile-lead/",
       "destination": "/pt/services/mobile-technical-lead/",
       "permanent": true
     },
     {
-      "source": "/ru/services/fractional-mobile-lead",
+      "source": "/ru/services/fractional-mobile-lead/",
       "destination": "/ru/services/mobile-technical-lead/",
       "permanent": true
     }
