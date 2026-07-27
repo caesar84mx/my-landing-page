@@ -691,7 +691,9 @@ em {
     inset: 8px;
     border: 1px solid transparent;
     border-radius: 50%;
-    animation: rotate-orbit 16s linear infinite;
+    animation:
+        rotate-core-orbit 16s linear infinite,
+        comet-fade 16s ease-in-out infinite;
 }
 
 .core-orbit::after {
@@ -1791,6 +1793,16 @@ html.js .reveal.is-visible {
 
 @keyframes rotate-orbit {
     to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotate-core-orbit {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes comet-fade {
+    0% { opacity: 0; }
+    8%, 72% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 @keyframes rotate-orbit-reverse {
