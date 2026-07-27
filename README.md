@@ -1,6 +1,6 @@
-# Max Dymnoff Landing Page
+# Max Dymnoff / Dymnoff Software Labs SAS Landing Page
 
-A professional landing page for Max Dymnoff, a full-stack mobile developer, showcasing services, experience, and contact information.
+A professional landing page for Max Dymnoff, working through Dymnoff Software Labs SAS, showcasing services, experience, and contact information.
 
 ## Project Structure
 

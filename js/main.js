@@ -91,7 +91,7 @@ const I18N = {
         contact: {
             kicker: 'Have a difficult mobile problem?', title: 'Let’s turn it into<br/><em>a product advantage.</em>',
             lead: 'Tell me what you’re building, modernizing, or trying to unblock. I’ll reply with useful questions—not a generic sales pitch.',
-            calendar: 'Book a 30-minute call', availability: 'Remote worldwide · B2B/C2C through a Uruguayan company'
+            calendar: 'Book a 30-minute call', availability: 'Remote worldwide · Contracts through Dymnoff Software Labs SAS (Uruguay)'
         },
         form: {
             name: 'Your name', namePlaceholder: 'How should I address you?', email: 'Work email',
@@ -100,7 +100,7 @@ const I18N = {
             submit: 'Send the brief', note: 'Usually replies within one business day.', sending: 'Sending…',
             success: 'Thanks—your message is in. I’ll reply shortly.'
         },
-        footer: {tagline: 'Complex mobile. Clear outcomes.'}
+        footer: {company: 'Working through Dymnoff Software Labs SAS', tagline: 'Complex mobile. Clear outcomes.'}
     },
     es: {
         meta: {
@@ -192,7 +192,7 @@ const I18N = {
         contact: {
             kicker: '¿Tienes un problema mobile difícil?', title: 'Convirtámoslo en<br/><em>una ventaja de producto.</em>',
             lead: 'Cuéntame qué estás construyendo, modernizando o intentando desbloquear. Responderé con preguntas útiles, no con un discurso comercial genérico.',
-            calendar: 'Agendar una llamada de 30 minutos', availability: 'Remoto global · B2B/C2C mediante empresa uruguaya'
+            calendar: 'Agendar una llamada de 30 minutos', availability: 'Remoto global · Contratos mediante Dymnoff Software Labs SAS (Uruguay)'
         },
         form: {
             name: 'Tu nombre', namePlaceholder: '¿Cómo debería dirigirme a ti?', email: 'Email laboral',
@@ -201,7 +201,7 @@ const I18N = {
             submit: 'Enviar el resumen', note: 'Normalmente respondo en un día hábil.', sending: 'Enviando…',
             success: 'Gracias, recibí tu mensaje. Responderé pronto.'
         },
-        footer: {tagline: 'Mobile complejo. Resultados claros.'}
+        footer: {company: 'Servicios mediante Dymnoff Software Labs SAS', tagline: 'Mobile complejo. Resultados claros.'}
     },
     pt: {
         meta: {
@@ -293,7 +293,7 @@ const I18N = {
         contact: {
             kicker: 'Tem um problema mobile difícil?', title: 'Vamos transformá-lo em<br/><em>vantagem de produto.</em>',
             lead: 'Conte o que está construindo, modernizando ou tentando destravar. Responderei com perguntas úteis, não com um discurso comercial genérico.',
-            calendar: 'Agendar uma conversa de 30 minutos', availability: 'Remoto global · B2B/C2C por meio de empresa uruguaia'
+            calendar: 'Agendar uma conversa de 30 minutos', availability: 'Remoto global · Contratos por meio da Dymnoff Software Labs SAS (Uruguai)'
         },
         form: {
             name: 'Seu nome', namePlaceholder: 'Como devo me dirigir a você?', email: 'E-mail profissional',
@@ -302,7 +302,7 @@ const I18N = {
             submit: 'Enviar o resumo', note: 'Normalmente respondo em um dia útil.', sending: 'Enviando…',
             success: 'Obrigado, recebi sua mensagem. Responderei em breve.'
         },
-        footer: {tagline: 'Mobile complexo. Resultados claros.'}
+        footer: {company: 'Serviços por meio da Dymnoff Software Labs SAS', tagline: 'Mobile complexo. Resultados claros.'}
     },
     ru: {
         meta: {
@@ -394,7 +394,7 @@ const I18N = {
         contact: {
             kicker: 'Есть сложная mobile-задача?', title: 'Превратим её в<br/><em>преимущество продукта.</em>',
             lead: 'Расскажите, что вы создаёте, модернизируете или пытаетесь разблокировать. Я отвечу полезными вопросами, а не шаблонным коммерческим предложением.',
-            calendar: 'Назначить 30-минутный звонок', availability: 'Удалённо по всему миру · B2B/C2C через уругвайскую компанию'
+            calendar: 'Назначить 30-минутный звонок', availability: 'Удалённо по всему миру · Договоры через Dymnoff Software Labs SAS (Уругвай)'
         },
         form: {
             name: 'Ваше имя', namePlaceholder: 'Как к вам обращаться?', email: 'Рабочая почта',
@@ -403,7 +403,7 @@ const I18N = {
             submit: 'Отправить описание', note: 'Обычно отвечаю в течение одного рабочего дня.', sending: 'Отправляю…',
             success: 'Спасибо, сообщение получено. Скоро отвечу.'
         },
-        footer: {tagline: 'Сложный mobile. Ясный результат.'}
+        footer: {company: 'Работа через Dymnoff Software Labs SAS', tagline: 'Сложный mobile. Ясный результат.'}
     }
 };
 

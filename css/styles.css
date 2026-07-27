@@ -1514,9 +1514,11 @@ em {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 30px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
 }
 
 .footer-grid > div:first-child {
@@ -1536,6 +1538,7 @@ em {
 
 .footer-grid p {
     grid-column: 1 / -1;
+    width: 100%;
     margin: 10px 0 0;
     padding-top: 24px;
     border-top: 1px solid var(--line);
@@ -1544,19 +1547,61 @@ em {
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 20px;
+    justify-content: center;
+    gap: 12px;
 }
 
 .footer-links a {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
     color: var(--muted-strong);
-    font-size: 11px;
-    font-weight: 700;
-    transition: color 0.2s ease;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .footer-links a:hover {
     color: var(--acid);
+    background: rgba(208, 255, 0, 0.06);
+    border-color: rgba(208, 255, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+.footer-brand-icon {
+    width: 20px;
+    height: 20px;
+    background: currentColor;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+}
+
+.footer-brand-icon-linkedin {
+    mask-image: url("../assets/linkedin.svg");
+    -webkit-mask-image: url("../assets/linkedin.svg");
+}
+
+.footer-brand-icon-github {
+    mask-image: url("../assets/github.svg");
+    -webkit-mask-image: url("../assets/github.svg");
+}
+
+.footer-hailme-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.footer-links a:hover .footer-hailme-icon {
+    transform: scale(1.06);
 }
 
 .reveal {
@@ -1932,11 +1977,12 @@ html.js .reveal.is-visible {
 
     .footer-grid {
         grid-template-columns: 1fr;
-        align-items: start;
+        justify-items: center;
+        align-items: center;
     }
 
     .footer-links {
-        justify-content: flex-start;
+        justify-content: center;
     }
 }
 
