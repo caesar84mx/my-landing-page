@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {CASE_STUDIES} from './case-study-locales.mjs';
+import {SERVICES} from './service-locales.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const siteOrigin = 'https://www.mdymnoff-mobile.dev';
@@ -30,6 +31,12 @@ for (const caseStudy of Object.values(CASE_STUDIES)) {
     for (const locale of ['es', 'pt', 'ru']) {
         const route = `/${locale}/case-studies/${caseStudy.slug}/`;
         pages.set(route, `${locale}/case-studies/${caseStudy.slug}/index.html`);
+    }
+}
+for (const service of Object.values(SERVICES)) {
+    for (const locale of ['es', 'pt', 'ru']) {
+        const route = `/${locale}/services/${service.slug}/`;
+        pages.set(route, `${locale}/services/${service.slug}/index.html`);
     }
 }
 const titles = new Set();
@@ -98,6 +105,20 @@ for (const [route, relativeFile] of pages) {
             report(
                 alternates.get(locale) === `${siteOrigin}${localeRoute}`,
                 `${relativeFile}: missing or incorrect ${locale} case-study hreflang`
+            );
+        }
+    }
+
+    const serviceMatch = route.match(/^\/(?:(?:es|pt|ru)\/)?services\/([^/]+)\/$/);
+    if (serviceMatch) {
+        const slug = serviceMatch[1];
+        for (const locale of ['x-default', 'en', 'es', 'pt', 'ru']) {
+            const localeRoute = ['x-default', 'en'].includes(locale)
+                ? `/services/${slug}/`
+                : `/${locale}/services/${slug}/`;
+            report(
+                alternates.get(locale) === `${siteOrigin}${localeRoute}`,
+                `${relativeFile}: missing or incorrect ${locale} service hreflang`
             );
         }
     }
