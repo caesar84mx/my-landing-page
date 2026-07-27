@@ -3,62 +3,83 @@ document.documentElement.classList.add('js');
 const I18N = {
     en: {
         meta: {
-            title: 'Senior Mobile Engineer for Complex Products — Max Dymnoff',
-            description: 'Senior Android and full-stack mobile engineer who modernizes complex products, builds platform-heavy features, and owns delivery from architecture to launch.',
-            socialTitle: 'I make hard mobile products feel easy.',
-            socialDescription: 'Senior Android and full-stack mobile engineering—from architecture and platform integrations to backend, release, and modernization.'
+            title: 'Mobile Consultant & Full-Stack App Developer — Max Dymnoff',
+            description: 'Mobile consulting and end-to-end app development—from backend and APIs to native or cross-platform Android and iOS apps, modernization, and store launch.',
+            socialTitle: 'Mobile products, owned from backend to launch.',
+            socialDescription: 'Mobile consulting and full-stack app development across backend, native or cross-platform clients, modernization, and store delivery.'
         },
         a11y: {skip: 'Skip to content', language: 'Language'},
-        brand: {role: 'Senior mobile engineer'},
-        nav: {proof: 'Proof', expertise: 'Expertise', work: 'Selected work', cta: 'Let’s talk'},
+        brand: {role: 'Mobile consultant · Full-stack engineer'},
+        nav: {services: 'Services', work: 'Case studies', engagement: 'Ways to work', cta: 'Discuss a project'},
         hero: {
-            eyebrow: 'Available for select remote projects · UTC−3',
-            title: 'I make <em>hard</em> mobile products feel easy.',
-            lead: 'From legacy rescue and platform-heavy features to launch-ready apps, I own the path from architecture to store delivery—Android first, full-stack when the product needs it.',
-            ctaPrimary: 'Start a conversation',
-            ctaSecondary: 'See the proof',
+            eyebrow: 'Mobile consulting · End-to-end app development',
+            title: 'I take on <em>complex</em> mobile products end to end.',
+            lead: 'I plan, build, and modernize complete mobile products—from backend and APIs to native or cross-platform Android and iOS apps, including store launch.',
+            ctaPrimary: 'Discuss your project',
+            ctaSecondary: 'Explore services',
             trustLabel: 'Engineering experience across'
         },
         visual: {
-            live: 'Delivery system live', core: 'Owned end to end', native: 'Native UX', platform: 'Platform depth',
-            backend: 'Backend', release: 'Release', footer: 'Architecture → delivery → launch',
-            ai: 'AI-powered workflow', builder: 'Founder-level ownership'
+            live: 'Product delivery system', core: 'Backend to mobile', native: 'Native apps', platform: 'Cross-platform',
+            backend: 'Backend', release: 'Release', footer: 'Strategy → backend → apps → launch',
+            ai: 'AI-assisted engineering', builder: 'One accountable owner'
         },
         impact: {
             years: 'years shipping production software',
             performance: 'performance improvement on iFIT modernization',
             duplication: 'code duplication on a cross-platform product',
-            languages: 'languages for global collaboration'
+            fullstack: 'backend, mobile clients, and store launch'
         },
         expertise: {
-            kicker: 'Bring me the hard part',
-            title: 'The value is not more code. It’s less uncertainty.',
-            lead: 'I work where product decisions meet platform constraints—turning ambiguous mobile problems into systems that can ship, scale, and survive the next release.',
+            kicker: 'Services',
+            title: 'The right level of ownership for the whole mobile product.',
+            lead: 'Start with a technical decision, a complete build, or a difficult product already in motion. I connect business goals to architecture, backend, mobile clients, and release.',
+            consulting: {
+                title: 'Mobile product consulting',
+                text: 'Technical discovery, architecture reviews, technology choices, and modernization roadmaps that turn uncertainty into a practical delivery plan.',
+                chip1: 'Architecture review', chip2: 'Delivery roadmap', chip3: 'Risk reduction'
+            },
+            fullstack: {
+                title: 'Build the whole mobile product',
+                text: 'Backend APIs, data, authentication, notifications, and integrations, plus native Android and iOS or cross-platform clients—through store release.',
+                chip1: 'Backend + APIs', chip2: 'Native or KMP', chip3: 'Store launch'
+            },
             modernize: {
-                title: 'Modernize without stopping the product',
-                text: 'Native migrations, modularization, performance work, architecture cleanup, and technical-debt reduction—with production continuity in mind.',
-                chip1: 'Production continuity', chip2: 'Measured progress', chip3: 'Lower change risk'
+                title: 'Modernize and unblock complex mobile',
+                text: 'Legacy migrations, performance and architecture work, plus camera, BLE, media, maps, geofencing, and other platform-heavy features.',
+                chip1: 'Legacy rescue', chip2: 'Platform depth', chip3: 'Release stability'
+            }
+        },
+        fit: {
+            kicker: 'When to bring me in',
+            title: 'When the app is only one part of the product system.',
+            lead: 'These are the moments when one senior owner across product, backend, mobile, and release removes the most risk.',
+            new: {
+                title: 'A new product needs a technical path',
+                text: 'You have a business goal, but still need the architecture, delivery plan, backend, and mobile clients.'
+            },
+            legacy: {
+                title: 'The current product slows every release',
+                text: 'Legacy code, performance, or architecture is turning routine changes into expensive risk.'
             },
             platform: {
-                title: 'Solve the platform-heavy features',
-                text: 'Camera and scanning, BLE device integrations, media playback, maps, geofencing, and reliable behavior under OS constraints.',
-                chip1: 'Real-device behavior', chip2: 'Failure-aware flows', chip3: 'OS constraints'
+                title: 'A feature runs into platform limits',
+                text: 'BLE, media, camera, maps, background execution, or store policy needs deeper mobile experience.'
             },
-            own: {
-                title: 'Own the whole delivery path',
-                text: 'Mobile, shared code, backend, authentication, messaging, store policy, analytics, and launch—plus the judgment to bring in specialists when deeper DevOps work is needed.',
-                chip1: 'One accountable owner', chip2: 'Fewer handoffs', chip3: 'Launch-ready'
+            leadership: {
+                title: 'The team needs senior mobile ownership',
+                text: 'You need someone to make cross-stack decisions, unblock delivery, and leave the team in control.'
             }
         },
         work: {
-            kicker: 'Selected work', title: 'Proof, not promises.',
-            lead: 'Mature products, greenfield builds, public SDKs, and founder-led delivery. Different contexts; the same bias toward clarity and outcomes.'
+            kicker: 'Case studies', title: 'Evidence across the whole mobile stack.',
+            lead: 'Backend-to-app product delivery, native modernization, public SDKs, and cross-platform builds—each with clear technical ownership and measurable outcomes.'
         },
         cases: {
             ifit: {
                 type: 'Native modernization', label: 'Connected fitness · Android',
                 title: 'Moving a mature fitness platform from Xamarin toward modern native Android.',
-                text: 'Material engineering contribution across performance, media playback, captions, BLE-connected equipment, Health Connect, reviews, and release support.',
+                text: 'Worked across performance, media playback, captions, BLE-connected equipment, Health Connect, code review, and release support.',
                 metric1: 'performance improvement', metric2: 'technical-debt reduction'
             },
             clear: {
@@ -74,92 +95,133 @@ const I18N = {
                 metric1: 'faster feature delivery', metric2: 'code duplication', metric3: 'first-season revenue'
             },
             hailme: {
-                type: 'Founder · Solo product engineer', label: 'Product ownership without the handoffs',
-                title: 'A real product is more than its app.',
-                text: 'I built and launched the mobile apps and backend, then handled geofencing, maps, authentication, push/SMS/WhatsApp, store review, vendor coordination, and messaging compliance.',
+                type: 'Founder · Solo product engineer', label: 'Backend-to-app product delivery',
+                title: 'One product, owned from backend to both mobile clients.',
+                text: 'I built and launched the Android and iOS apps and backend, then handled geofencing, maps, authentication, push/SMS/WhatsApp, store review, vendor coordination, and messaging compliance.',
                 link: 'Visit HailMe'
             }
         },
+        engagement: {
+            kicker: 'Ways to work',
+            title: 'Start with the level of ownership you need.',
+            lead: 'A focused technical decision, a complete product build, or ongoing senior leadership. The engagement matches the problem instead of forcing every client into the same process.',
+            audit: {
+                title: 'Audit and delivery roadmap',
+                text: 'For architecture, technology, performance, or modernization decisions. You leave with risks, recommendations, and a prioritized plan.'
+            },
+            delivery: {
+                title: 'End-to-end product delivery',
+                text: 'From discovery and backend to mobile clients and store launch, with visible milestones, working increments, and a clean handover.'
+            },
+            leadership: {
+                title: 'Fractional mobile lead',
+                text: 'Senior direction, reviews, architecture, and delivery support for a team that does not need another full-time hire.'
+            }
+        },
         approach: {
-            kicker: 'How I work', title: 'Senior judgment.<br/><em>Founder urgency.</em>',
-            lead: 'I bring the discipline of large production teams and the practical ownership of someone who has shipped his own product through code, vendors, policies, and stores.',
-            ai: 'My workflow is AI-powered for faster codebase analysis, planning, debugging, and documentation—while engineering decisions stay accountable and human.',
-            p1: {title: 'Clarity before code', text: 'Make the risk, trade-offs, and definition of success visible first.'},
-            p2: {title: 'Ship in useful slices', text: 'Reduce feedback time without compromising the system underneath.'},
-            p3: {title: 'Leave it stronger', text: 'Better architecture, clearer docs, lower operational risk, and a team that can continue.'}
+            kicker: 'How I work', title: 'Senior judgment.<br/><em>Product ownership.</em>',
+            lead: 'I can work independently across the product stack and involve focused specialists when deeper infrastructure or design work calls for them.',
+            ai: 'I use AI to accelerate analysis, planning, debugging, and documentation. Architecture, security, and product decisions remain reviewed and owned by me.',
+            p1: {title: 'Align on the outcome and constraints', text: 'Make the business goal, technical risks, trade-offs, and definition of success explicit before committing to a build.'},
+            p2: {title: 'Deliver in verifiable slices', text: 'Working increments and regular demonstrations keep feedback fast and delivery risk visible.'},
+            p3: {title: 'Leave the team in control', text: 'Clear architecture, documentation, source ownership, and a practical handover make the product maintainable after the engagement.'}
         },
         contact: {
-            kicker: 'Have a difficult mobile problem?', title: 'Let’s turn it into<br/><em>a product advantage.</em>',
-            lead: 'Tell me what you’re building, modernizing, or trying to unblock. I’ll reply with useful questions—not a generic sales pitch.',
-            calendar: 'Book a 30-minute call', availability: 'Remote worldwide · Contracts through Dymnoff Software Labs SAS (Uruguay)'
+            kicker: 'Building or fixing a mobile product?', title: 'Let’s choose the<br/><em>right next step.</em>',
+            lead: 'Tell me what you are planning, building, or trying to unblock. I will respond with the questions and engagement shape that fit the problem.',
+            calendar: 'Book an intro call', availability: 'Remote worldwide · Contracts through Dymnoff Software Labs SAS (Uruguay)'
         },
         form: {
             name: 'Your name', namePlaceholder: 'How should I address you?', email: 'Work email',
             company: 'Company / product', companyPlaceholder: 'Optional, but helpful',
-            brief: 'What is the hard part?', briefPlaceholder: 'The product, challenge, timeline, and where you need senior ownership',
-            submit: 'Send the brief', note: 'Usually replies within one business day.', sending: 'Sending…',
+            service: 'What kind of help do you need?', servicePlaceholder: 'Choose the closest option',
+            serviceConsulting: 'Consulting or technical audit', serviceDevelopment: 'End-to-end app development',
+            serviceModernization: 'Modernization or complex mobile work', serviceLeadership: 'Fractional mobile leadership',
+            brief: 'What do you need help with?', briefPlaceholder: 'The product, its current state, your goal, and any important constraints',
+            submit: 'Send the brief', note: 'I usually reply within one business day with a useful next step.', sending: 'Sending…',
             success: 'Thanks—your message is in. I’ll reply shortly.'
         },
-        footer: {company: 'Working through Dymnoff Software Labs SAS', tagline: 'Complex mobile. Clear outcomes.'}
+        footer: {company: 'Working through Dymnoff Software Labs SAS', tagline: 'From backend to mobile. One accountable delivery.'}
     },
     es: {
         meta: {
-            title: 'Ingeniero Mobile Senior para productos complejos — Max Dymnoff',
-            description: 'Ingeniero Android y mobile full-stack senior que moderniza productos complejos y se encarga de la entrega desde la arquitectura hasta el lanzamiento.',
-            socialTitle: 'Hago que los productos mobile difíciles parezcan simples.',
-            socialDescription: 'Ingeniería Android y mobile full-stack: arquitectura, integraciones, backend, publicación y modernización.'
+            title: 'Consultor móvil y desarrollador full-stack de apps — Max Dymnoff',
+            description: 'Consultoría móvil y desarrollo integral de aplicaciones: backend y APIs, clientes nativos o multiplataforma para Android e iOS, modernización y publicación.',
+            socialTitle: 'Productos móviles, del backend al lanzamiento.',
+            socialDescription: 'Consultoría móvil y desarrollo full-stack: backend, clientes nativos o multiplataforma, modernización y publicación en tiendas.'
         },
         a11y: {skip: 'Ir al contenido', language: 'Idioma'},
-        brand: {role: 'Ingeniero mobile senior'},
-        nav: {proof: 'Resultados', expertise: 'Especialidad', work: 'Proyectos', cta: 'Hablemos'},
+        brand: {role: 'Consultor móvil · Ingeniero full-stack'},
+        nav: {services: 'Servicios', work: 'Casos', engagement: 'Formas de trabajo', cta: 'Hablemos del proyecto'},
         hero: {
-            eyebrow: 'Disponible para proyectos remotos seleccionados · UTC−3',
-            title: 'Hago que los productos mobile <em>difíciles</em> parezcan simples.',
-            lead: 'Desde rescatar código legacy y resolver integraciones complejas hasta lanzar apps listas para producción: me encargo del camino completo, de la arquitectura a las tiendas. Android como núcleo; full-stack cuando el producto lo requiere.',
-            ctaPrimary: 'Iniciar una conversación',
-            ctaSecondary: 'Ver resultados',
+            eyebrow: 'Consultoría móvil · Desarrollo integral de apps',
+            title: 'Me hago cargo de productos móviles <em>complejos</em>, de principio a fin.',
+            lead: 'Planifico, desarrollo y modernizo productos móviles completos: desde el backend y las APIs hasta apps nativas o multiplataforma para Android e iOS, incluida su publicación.',
+            ctaPrimary: 'Hablemos de tu proyecto',
+            ctaSecondary: 'Ver servicios',
             trustLabel: 'Experiencia de ingeniería en'
         },
         visual: {
-            live: 'Sistema de entrega activo', core: 'Responsabilidad integral', native: 'UX nativa', platform: 'Profundidad de plataforma',
-            backend: 'Backend', release: 'Publicación', footer: 'Arquitectura → entrega → lanzamiento',
-            ai: 'Flujo potenciado por IA', builder: 'Ownership de fundador'
+            live: 'Sistema de entrega', core: 'Del backend a las apps', native: 'Apps nativas', platform: 'Multiplataforma',
+            backend: 'Backend', release: 'Publicación', footer: 'Estrategia → backend → apps → lanzamiento',
+            ai: 'IA aplicada a ingeniería', builder: 'Un responsable de principio a fin'
         },
         impact: {
-            years: 'años publicando software en producción',
+            years: 'años entregando software en producción',
             performance: 'de mejora de rendimiento en la modernización de iFIT',
-            duplication: 'de duplicación de código en un producto cross-platform',
-            languages: 'idiomas para colaborar globalmente'
+            duplication: 'de código duplicado en un producto multiplataforma',
+            fullstack: 'backend, clientes móviles y publicación en tiendas'
         },
         expertise: {
-            kicker: 'Tráeme la parte difícil',
-            title: 'El valor no está en escribir más código. Está en reducir la incertidumbre.',
-            lead: 'Trabajo donde las decisiones de producto se encuentran con las restricciones de plataforma, convirtiendo problemas mobile ambiguos en sistemas capaces de publicarse, escalar y sobrevivir al siguiente release.',
+            kicker: 'Servicios',
+            title: 'La responsabilidad técnica que necesita todo el producto móvil.',
+            lead: 'Podemos empezar por una decisión técnica, un desarrollo completo o un producto existente que necesita avanzar. Conecto los objetivos del negocio con la arquitectura, el backend, las apps y la publicación.',
+            consulting: {
+                title: 'Consultoría de producto móvil',
+                text: 'Descubrimiento técnico, revisión de arquitectura, elección de tecnologías y planes de modernización que convierten la incertidumbre en un plan viable.',
+                chip1: 'Revisión de arquitectura', chip2: 'Hoja de ruta', chip3: 'Menos riesgo'
+            },
+            fullstack: {
+                title: 'Desarrollo del producto móvil completo',
+                text: 'APIs, datos, autenticación, notificaciones e integraciones en el backend, junto con apps nativas para Android e iOS o clientes multiplataforma, hasta su publicación.',
+                chip1: 'Backend + APIs', chip2: 'Nativo o KMP', chip3: 'Publicación'
+            },
             modernize: {
-                title: 'Modernizar sin detener el producto',
-                text: 'Migraciones nativas, modularización, rendimiento, saneamiento de arquitectura y reducción de deuda técnica, sin perder continuidad en producción.',
-                chip1: 'Continuidad en producción', chip2: 'Progreso medible', chip3: 'Menor riesgo de cambio'
+                title: 'Modernización y problemas móviles complejos',
+                text: 'Migraciones desde sistemas heredados, rendimiento y arquitectura, además de cámara, BLE, multimedia, mapas, geolocalización y otras funciones que exigen conocimiento profundo de la plataforma.',
+                chip1: 'Rescate de sistemas', chip2: 'Experiencia de plataforma', chip3: 'Lanzamientos estables'
+            }
+        },
+        fit: {
+            kicker: 'Cuándo puedo ayudar',
+            title: 'Cuando la app es solo una parte de un producto más grande.',
+            lead: 'Son situaciones en las que un único responsable senior para producto, backend, apps y publicación reduce gran parte del riesgo.',
+            new: {
+                title: 'Un producto nuevo necesita un camino técnico',
+                text: 'Tienes un objetivo de negocio, pero aún faltan la arquitectura, el plan de entrega, el backend y las apps.'
+            },
+            legacy: {
+                title: 'El producto actual frena cada lanzamiento',
+                text: 'El código heredado, el rendimiento o la arquitectura convierten cambios habituales en riesgos costosos.'
             },
             platform: {
-                title: 'Resolver lo complejo de la plataforma',
-                text: 'Cámara y escaneo, integraciones con dispositivos BLE, reproducción multimedia, mapas, geofencing y comportamiento confiable bajo las restricciones del sistema operativo.',
-                chip1: 'Comportamiento real', chip2: 'Flujos tolerantes a fallos', chip3: 'Restricciones del SO'
+                title: 'Una función choca con los límites de la plataforma',
+                text: 'BLE, multimedia, cámara, mapas, ejecución en segundo plano o las reglas de las tiendas exigen más experiencia móvil.'
             },
-            own: {
-                title: 'Asumir todo el camino hasta producción',
-                text: 'Mobile, código compartido, backend, autenticación, mensajería, políticas de stores, analítica y lanzamiento, con el criterio para sumar especialistas cuando hace falta trabajo DevOps más profundo.',
-                chip1: 'Un responsable', chip2: 'Menos handoffs', chip3: 'Listo para lanzar'
+            leadership: {
+                title: 'El equipo necesita liderazgo móvil senior',
+                text: 'Hace falta alguien que tome decisiones entre distintas capas, destrabe la entrega y deje al equipo en control.'
             }
         },
         work: {
-            kicker: 'Proyectos seleccionados', title: 'Resultados, no promesas.',
-            lead: 'Productos maduros, proyectos desde cero, SDKs públicos y entrega como fundador. Contextos distintos; la misma obsesión por la claridad y los resultados.'
+            kicker: 'Casos', title: 'Resultados en todas las capas del producto móvil.',
+            lead: 'Desarrollo desde el backend hasta las apps, modernización nativa, SDKs públicos y productos multiplataforma, siempre con responsabilidad técnica clara y resultados medibles.'
         },
         cases: {
             ifit: {
                 type: 'Modernización nativa', label: 'Fitness conectado · Android',
                 title: 'Modernización de una plataforma fitness madura desde Xamarin hacia Android nativo.',
-                text: 'Contribución sustancial en rendimiento, reproducción multimedia, subtítulos, equipos conectados por BLE, Health Connect, revisiones y soporte de releases.',
+                text: 'Trabajo en rendimiento, reproducción multimedia, subtítulos, equipos conectados por BLE, Health Connect, revisión de código y soporte de lanzamientos.',
                 metric1: 'de mejora de rendimiento', metric2: 'menos deuda técnica'
             },
             clear: {
@@ -169,99 +231,140 @@ const I18N = {
                 metric: 'menos deuda técnica'
             },
             surfcast: {
-                type: 'Desde cero · Cross-platform', label: 'Android + iOS desde cero',
+                type: 'Desde cero · Multiplataforma', label: 'Android + iOS desde cero',
                 title: 'Un producto construido a través de plataformas, temporadas y cambios de arquitectura.',
                 text: 'Desarrollé las apps Android e iOS con Kotlin Multiplatform y luego ayudé a evolucionar el producto hacia React Native/Expo, además de mentorizar a un desarrollador junior.',
                 metric1: 'entrega más rápida', metric2: 'duplicación de código', metric3: 'ingresos de la primera temporada'
             },
             hailme: {
-                type: 'Fundador · Único ingeniero de producto', label: 'Ownership sin handoffs',
-                title: 'Un producto real es mucho más que su app.',
-                text: 'Construí y lancé las apps y el backend; además resolví geofencing, mapas, autenticación, push/SMS/WhatsApp, revisión de stores, coordinación de proveedores y cumplimiento de mensajería.',
+                type: 'Fundador · Único ingeniero de producto', label: 'Del backend a las apps',
+                title: 'Un solo producto, desde el backend hasta ambos clientes móviles.',
+                text: 'Construí y lancé las apps para Android e iOS y el backend; además resolví geolocalización, mapas, autenticación, push/SMS/WhatsApp, revisión de las tiendas, coordinación de proveedores y cumplimiento normativo de la mensajería.',
                 link: 'Visitar HailMe'
             }
         },
+        engagement: {
+            kicker: 'Formas de trabajo',
+            title: 'Empecemos con el nivel de responsabilidad que necesitas.',
+            lead: 'Una decisión técnica concreta, el desarrollo completo de un producto o liderazgo senior continuo. El formato se adapta al problema, no al revés.',
+            audit: {
+                title: 'Auditoría y hoja de ruta',
+                text: 'Para decisiones de arquitectura, tecnología, rendimiento o modernización. Recibirás los riesgos, las recomendaciones y un plan priorizado.'
+            },
+            delivery: {
+                title: 'Desarrollo integral del producto',
+                text: 'Desde el descubrimiento y el backend hasta las apps y la publicación, con hitos visibles, entregas funcionales y una transferencia ordenada.'
+            },
+            leadership: {
+                title: 'Liderazgo móvil flexible',
+                text: 'Dirección senior, revisiones, arquitectura y apoyo a la entrega para un equipo que no necesita otra contratación a tiempo completo.'
+            }
+        },
         approach: {
-            kicker: 'Cómo trabajo', title: 'Criterio senior.<br/><em>Urgencia de fundador.</em>',
-            lead: 'Combino la disciplina de grandes equipos de producción con el ownership práctico de quien ha llevado su propio producto por código, proveedores, políticas y tiendas.',
-            ai: 'Mi flujo está potenciado por IA para acelerar análisis de código, planificación, debugging y documentación, manteniendo las decisiones de ingeniería humanas y responsables.',
-            p1: {title: 'Claridad antes que código', text: 'Hacer visibles primero los riesgos, los trade-offs y la definición de éxito.'},
-            p2: {title: 'Entregar en incrementos útiles', text: 'Acortar el ciclo de feedback sin comprometer el sistema que sostiene el producto.'},
-            p3: {title: 'Dejarlo más fuerte', text: 'Mejor arquitectura, documentación clara, menos riesgo operativo y un equipo capaz de continuar.'}
+            kicker: 'Cómo trabajo', title: 'Criterio senior.<br/><em>Responsabilidad de producto.</em>',
+            lead: 'Puedo trabajar de forma autónoma en todas las capas del producto y sumar especialistas cuando la infraestructura o el diseño requieren una profundidad adicional.',
+            ai: 'Uso IA para acelerar el análisis, la planificación, la depuración y la documentación. Las decisiones de arquitectura, seguridad y producto siguen bajo mi revisión y responsabilidad.',
+            p1: {title: 'Acordar el objetivo y las restricciones', text: 'Definir con claridad el objetivo de negocio, los riesgos técnicos, las alternativas y los criterios de éxito antes de comprometer el desarrollo.'},
+            p2: {title: 'Entregar en incrementos verificables', text: 'Las entregas funcionales y las demostraciones periódicas mantienen rápido el aprendizaje y visible el riesgo.'},
+            p3: {title: 'Dejar al equipo en control', text: 'Una arquitectura clara, documentación, propiedad del código y una transferencia práctica facilitan el mantenimiento después del proyecto.'}
         },
         contact: {
-            kicker: '¿Tienes un problema mobile difícil?', title: 'Convirtámoslo en<br/><em>una ventaja de producto.</em>',
-            lead: 'Cuéntame qué estás construyendo, modernizando o intentando desbloquear. Responderé con preguntas útiles, no con un discurso comercial genérico.',
-            calendar: 'Agendar una llamada de 30 minutos', availability: 'Remoto global · Contratos mediante Dymnoff Software Labs SAS (Uruguay)'
+            kicker: '¿Estás creando o corrigiendo un producto móvil?', title: 'Definamos el<br/><em>siguiente paso adecuado.</em>',
+            lead: 'Cuéntame qué estás planificando, desarrollando o intentando destrabar. Responderé con las preguntas y el formato de trabajo que mejor se ajusten al problema.',
+            calendar: 'Agendar una llamada inicial', availability: 'Trabajo remoto en todo el mundo · Contratos mediante Dymnoff Software Labs SAS (Uruguay)'
         },
         form: {
             name: 'Tu nombre', namePlaceholder: '¿Cómo debería dirigirme a ti?', email: 'Email laboral',
             company: 'Empresa / producto', companyPlaceholder: 'Opcional, pero útil',
-            brief: '¿Cuál es la parte difícil?', briefPlaceholder: 'El producto, el desafío, los plazos y dónde necesitas ownership senior',
-            submit: 'Enviar el resumen', note: 'Normalmente respondo en un día hábil.', sending: 'Enviando…',
+            service: '¿Qué tipo de ayuda necesitas?', servicePlaceholder: 'Elige la opción más cercana',
+            serviceConsulting: 'Consultoría o auditoría técnica', serviceDevelopment: 'Desarrollo integral de una app',
+            serviceModernization: 'Modernización o trabajo móvil complejo', serviceLeadership: 'Liderazgo móvil flexible',
+            brief: '¿En qué necesitas ayuda?', briefPlaceholder: 'El producto, su estado actual, el objetivo y cualquier restricción importante',
+            submit: 'Enviar el resumen', note: 'Normalmente respondo en un día hábil con un siguiente paso útil.', sending: 'Enviando…',
             success: 'Gracias, recibí tu mensaje. Responderé pronto.'
         },
-        footer: {company: 'Servicios mediante Dymnoff Software Labs SAS', tagline: 'Mobile complejo. Resultados claros.'}
+        footer: {company: 'Servicios mediante Dymnoff Software Labs SAS', tagline: 'Del backend a las apps. Una entrega bajo una sola responsabilidad.'}
     },
     pt: {
         meta: {
-            title: 'Engenheiro Mobile Sênior para produtos complexos — Max Dymnoff',
-            description: 'Engenheiro Android e mobile full-stack sênior que moderniza produtos complexos e assume a entrega da arquitetura ao lançamento.',
-            socialTitle: 'Faço produtos mobile difíceis parecerem simples.',
-            socialDescription: 'Engenharia Android e mobile full-stack: arquitetura, integrações, backend, publicação e modernização.'
+            title: 'Consultor mobile e desenvolvedor full-stack de aplicativos — Max Dymnoff',
+            description: 'Consultoria mobile e desenvolvimento completo de aplicativos: backend e APIs, clientes nativos ou multiplataforma para Android e iOS, modernização e publicação.',
+            socialTitle: 'Produtos mobile, do backend ao lançamento.',
+            socialDescription: 'Consultoria mobile e desenvolvimento full-stack com backend, aplicativos nativos ou multiplataforma, modernização e publicação nas lojas.'
         },
         a11y: {skip: 'Ir para o conteúdo', language: 'Idioma'},
-        brand: {role: 'Engenheiro mobile sênior'},
-        nav: {proof: 'Resultados', expertise: 'Especialidade', work: 'Projetos', cta: 'Vamos conversar'},
+        brand: {role: 'Consultor mobile · Engenheiro full-stack'},
+        nav: {services: 'Serviços', work: 'Projetos', engagement: 'Formas de trabalho', cta: 'Falar sobre o projeto'},
         hero: {
-            eyebrow: 'Disponível para projetos remotos selecionados · UTC−3',
-            title: 'Faço produtos mobile <em>difíceis</em> parecerem simples.',
-            lead: 'De resgatar código legado e resolver integrações complexas até lançar apps prontas para produção: assumo todo o caminho, da arquitetura às lojas. Android como base; full-stack quando o produto precisa.',
-            ctaPrimary: 'Iniciar uma conversa',
-            ctaSecondary: 'Ver resultados',
+            eyebrow: 'Consultoria mobile · Desenvolvimento completo de apps',
+            title: 'Assumo produtos mobile <em>complexos</em> de ponta a ponta.',
+            lead: 'Planejo, desenvolvo e modernizo produtos mobile completos: do backend e das APIs aos aplicativos nativos ou multiplataforma para Android e iOS, incluindo a publicação.',
+            ctaPrimary: 'Falar sobre seu projeto',
+            ctaSecondary: 'Ver serviços',
             trustLabel: 'Experiência de engenharia em'
         },
         visual: {
-            live: 'Sistema de entrega ativo', core: 'Ownership ponta a ponta', native: 'UX nativa', platform: 'Profundidade de plataforma',
-            backend: 'Backend', release: 'Publicação', footer: 'Arquitetura → entrega → lançamento',
-            ai: 'Fluxo potencializado por IA', builder: 'Ownership de fundador'
+            live: 'Sistema de entrega', core: 'Do backend aos apps', native: 'Apps nativos', platform: 'Multiplataforma',
+            backend: 'Backend', release: 'Publicação', footer: 'Estratégia → backend → apps → lançamento',
+            ai: 'IA aplicada à engenharia', builder: 'Um responsável de ponta a ponta'
         },
         impact: {
             years: 'anos entregando software em produção',
-            performance: 'de melhoria de performance na modernização do iFIT',
-            duplication: 'de duplicação de código em um produto cross-platform',
-            languages: 'idiomas para colaboração global'
+            performance: 'de ganho de desempenho na modernização do iFIT',
+            duplication: 'de código duplicado em um produto multiplataforma',
+            fullstack: 'backend, clientes mobile e publicação nas lojas'
         },
         expertise: {
-            kicker: 'Traga a parte difícil',
-            title: 'O valor não está em mais código. Está em menos incerteza.',
-            lead: 'Trabalho onde decisões de produto encontram restrições de plataforma, transformando problemas mobile ambíguos em sistemas que podem ser lançados, escalar e sobreviver ao próximo release.',
+            kicker: 'Serviços',
+            title: 'A responsabilidade técnica certa para todo o produto mobile.',
+            lead: 'Podemos começar por uma decisão técnica, um desenvolvimento completo ou um produto em andamento que precisa avançar. Conecto os objetivos de negócio à arquitetura, ao backend, aos aplicativos e à publicação.',
+            consulting: {
+                title: 'Consultoria de produto mobile',
+                text: 'Descoberta técnica, revisão de arquitetura, escolha de tecnologias e planos de modernização que transformam incerteza em um caminho viável de entrega.',
+                chip1: 'Revisão de arquitetura', chip2: 'Plano de entrega', chip3: 'Redução de risco'
+            },
+            fullstack: {
+                title: 'Desenvolvimento do produto completo',
+                text: 'APIs, dados, autenticação, notificações e integrações no backend, junto com aplicativos nativos para Android e iOS ou clientes multiplataforma, até a publicação.',
+                chip1: 'Backend + APIs', chip2: 'Nativo ou KMP', chip3: 'Publicação'
+            },
             modernize: {
-                title: 'Modernizar sem parar o produto',
-                text: 'Migrações nativas, modularização, performance, saneamento de arquitetura e redução de dívida técnica, preservando a continuidade em produção.',
-                chip1: 'Continuidade em produção', chip2: 'Progresso mensurável', chip3: 'Menor risco de mudança'
+                title: 'Modernização e desafios mobile complexos',
+                text: 'Migrações de sistemas legados, desempenho e arquitetura, além de câmera, BLE, mídia, mapas, geolocalização e outros recursos que exigem conhecimento profundo da plataforma.',
+                chip1: 'Resgate de sistemas', chip2: 'Experiência de plataforma', chip3: 'Lançamentos estáveis'
+            }
+        },
+        fit: {
+            kicker: 'Quando posso ajudar',
+            title: 'Quando o aplicativo é apenas uma parte de um produto maior.',
+            lead: 'São situações em que um único responsável sênior por produto, backend, aplicativos e publicação reduz a maior parte do risco.',
+            new: {
+                title: 'Um novo produto precisa de um caminho técnico',
+                text: 'Existe um objetivo de negócio, mas ainda faltam a arquitetura, o plano de entrega, o backend e os aplicativos.'
+            },
+            legacy: {
+                title: 'O produto atual atrasa cada lançamento',
+                text: 'Código legado, desempenho ou arquitetura transformam mudanças comuns em riscos caros.'
             },
             platform: {
-                title: 'Resolver os recursos pesados de plataforma',
-                text: 'Câmera e leitura, integrações com dispositivos BLE, reprodução de mídia, mapas, geofencing e comportamento confiável sob as restrições do sistema operacional.',
-                chip1: 'Comportamento real', chip2: 'Fluxos resilientes', chip3: 'Restrições do SO'
+                title: 'Um recurso esbarra nos limites da plataforma',
+                text: 'BLE, mídia, câmera, mapas, execução em segundo plano ou regras das lojas exigem mais experiência mobile.'
             },
-            own: {
-                title: 'Assumir todo o caminho até a entrega',
-                text: 'Mobile, código compartilhado, backend, autenticação, mensageria, políticas das lojas, analytics e lançamento, com o critério para envolver especialistas quando é necessário um trabalho DevOps mais profundo.',
-                chip1: 'Um responsável', chip2: 'Menos handoffs', chip3: 'Pronto para lançar'
+            leadership: {
+                title: 'O time precisa de liderança mobile sênior',
+                text: 'É preciso alguém para tomar decisões entre as camadas, destravar a entrega e deixar o time no controle.'
             }
         },
         work: {
-            kicker: 'Projetos selecionados', title: 'Resultados, não promessas.',
-            lead: 'Produtos maduros, projetos do zero, SDKs públicos e entrega como fundador. Contextos diferentes; o mesmo foco em clareza e resultados.'
+            kicker: 'Projetos', title: 'Resultados em todas as camadas do produto mobile.',
+            lead: 'Desenvolvimento do backend aos aplicativos, modernização nativa, SDKs públicos e produtos multiplataforma, sempre com responsabilidade técnica clara e resultados mensuráveis.'
         },
         cases: {
             ifit: {
                 type: 'Modernização nativa', label: 'Fitness conectado · Android',
                 title: 'Modernização de uma plataforma fitness madura do Xamarin para Android nativo.',
-                text: 'Contribuição relevante em performance, reprodução de mídia, legendas, equipamentos conectados por BLE, Health Connect, reviews e suporte a releases.',
-                metric1: 'de melhoria de performance', metric2: 'menos dívida técnica'
+                text: 'Trabalho em desempenho, reprodução de mídia, legendas, equipamentos conectados por BLE, Health Connect, revisão de código e suporte a lançamentos.',
+                metric1: 'de ganho de desempenho', metric2: 'menos dívida técnica'
             },
             clear: {
                 type: 'Identidade · SDK', label: 'SDK público → app principal',
@@ -270,140 +373,201 @@ const I18N = {
                 metric: 'menos dívida técnica'
             },
             surfcast: {
-                type: 'Do zero · Cross-platform', label: 'Android + iOS do zero',
+                type: 'Do zero · Multiplataforma', label: 'Android + iOS do zero',
                 title: 'Um produto construído entre plataformas, temporadas e mudanças de arquitetura.',
                 text: 'Criei os apps Android e iOS com Kotlin Multiplatform e depois ajudei o produto a evoluir para React Native/Expo, além de orientar um desenvolvedor júnior.',
                 metric1: 'entrega mais rápida', metric2: 'duplicação de código', metric3: 'receita na primeira temporada'
             },
             hailme: {
-                type: 'Fundador · Único engenheiro de produto', label: 'Ownership sem handoffs',
-                title: 'Um produto real é muito mais do que seu app.',
-                text: 'Construí e lancei os apps e o backend; também cuidei de geofencing, mapas, autenticação, push/SMS/WhatsApp, revisão nas lojas, coordenação de fornecedores e conformidade de mensageria.',
+                type: 'Fundador · Único engenheiro de produto', label: 'Do backend aos aplicativos',
+                title: 'Um único produto, do backend aos dois clientes mobile.',
+                text: 'Construí e lancei os aplicativos para Android e iOS e o backend; também cuidei de geolocalização, mapas, autenticação, push/SMS/WhatsApp, revisão nas lojas, coordenação de fornecedores e conformidade de mensageria.',
                 link: 'Visitar o HailMe'
             }
         },
+        engagement: {
+            kicker: 'Formas de trabalho',
+            title: 'Comece pelo nível de responsabilidade de que você precisa.',
+            lead: 'Uma decisão técnica específica, o desenvolvimento completo de um produto ou liderança sênior contínua. O formato se adapta ao problema, e não o contrário.',
+            audit: {
+                title: 'Auditoria e plano de execução',
+                text: 'Para decisões de arquitetura, tecnologia, desempenho ou modernização. Você recebe os riscos, as recomendações e um plano priorizado.'
+            },
+            delivery: {
+                title: 'Desenvolvimento de ponta a ponta',
+                text: 'Da descoberta e do backend aos aplicativos e à publicação, com marcos visíveis, entregas funcionais e uma transição organizada.'
+            },
+            leadership: {
+                title: 'Liderança mobile sob demanda',
+                text: 'Direção sênior, revisões, arquitetura e apoio à entrega para um time que não precisa de outra contratação em tempo integral.'
+            }
+        },
         approach: {
-            kicker: 'Como trabalho', title: 'Critério sênior.<br/><em>Urgência de fundador.</em>',
-            lead: 'Combino a disciplina de grandes equipes de produção com o ownership prático de quem levou o próprio produto por código, fornecedores, políticas e lojas.',
-            ai: 'Meu fluxo é potencializado por IA para acelerar análise de código, planejamento, debugging e documentação, mantendo as decisões de engenharia humanas e responsáveis.',
-            p1: {title: 'Clareza antes do código', text: 'Tornar visíveis primeiro os riscos, trade-offs e a definição de sucesso.'},
-            p2: {title: 'Entregar em incrementos úteis', text: 'Reduzir o tempo de feedback sem comprometer o sistema por baixo.'},
-            p3: {title: 'Deixar o produto mais forte', text: 'Melhor arquitetura, documentação clara, menos risco operacional e uma equipe capaz de continuar.'}
+            kicker: 'Como trabalho', title: 'Critério sênior.<br/><em>Responsabilidade pelo produto.</em>',
+            lead: 'Posso trabalhar com autonomia em todas as camadas do produto e envolver especialistas quando infraestrutura ou design exigem uma profundidade adicional.',
+            ai: 'Uso IA para acelerar análise, planejamento, depuração e documentação. As decisões de arquitetura, segurança e produto continuam sob minha revisão e responsabilidade.',
+            p1: {title: 'Alinhar o objetivo e as restrições', text: 'Definir o objetivo de negócio, os riscos técnicos, as alternativas e os critérios de sucesso antes de assumir o desenvolvimento.'},
+            p2: {title: 'Entregar em etapas verificáveis', text: 'Entregas funcionais e demonstrações frequentes mantêm o aprendizado rápido e o risco visível.'},
+            p3: {title: 'Deixar o time no controle', text: 'Arquitetura clara, documentação, propriedade do código e uma transição prática facilitam a manutenção depois do projeto.'}
         },
         contact: {
-            kicker: 'Tem um problema mobile difícil?', title: 'Vamos transformá-lo em<br/><em>vantagem de produto.</em>',
-            lead: 'Conte o que está construindo, modernizando ou tentando destravar. Responderei com perguntas úteis, não com um discurso comercial genérico.',
-            calendar: 'Agendar uma conversa de 30 minutos', availability: 'Remoto global · Contratos por meio da Dymnoff Software Labs SAS (Uruguai)'
+            kicker: 'Está criando ou modernizando um produto mobile?', title: 'Vamos definir o<br/><em>próximo passo certo.</em>',
+            lead: 'Conte o que está planejando, desenvolvendo ou tentando resolver. Responderei com as perguntas e o formato de trabalho mais adequados ao problema.',
+            calendar: 'Agendar uma conversa inicial', availability: 'Trabalho remoto em todo o mundo · Contratos por meio da Dymnoff Software Labs SAS (Uruguai)'
         },
         form: {
             name: 'Seu nome', namePlaceholder: 'Como devo me dirigir a você?', email: 'E-mail profissional',
             company: 'Empresa / produto', companyPlaceholder: 'Opcional, mas ajuda',
-            brief: 'Qual é a parte difícil?', briefPlaceholder: 'O produto, o desafio, o prazo e onde você precisa de ownership sênior',
-            submit: 'Enviar o resumo', note: 'Normalmente respondo em um dia útil.', sending: 'Enviando…',
+            service: 'Que tipo de ajuda você procura?', servicePlaceholder: 'Escolha a opção mais próxima',
+            serviceConsulting: 'Consultoria ou auditoria técnica', serviceDevelopment: 'Desenvolvimento completo de aplicativo',
+            serviceModernization: 'Modernização ou trabalho mobile complexo', serviceLeadership: 'Liderança mobile sob demanda',
+            brief: 'Em que você precisa de ajuda?', briefPlaceholder: 'O produto, o estado atual, o objetivo e qualquer restrição importante',
+            submit: 'Enviar o resumo', note: 'Normalmente respondo em um dia útil com um próximo passo útil.', sending: 'Enviando…',
             success: 'Obrigado, recebi sua mensagem. Responderei em breve.'
         },
-        footer: {company: 'Serviços por meio da Dymnoff Software Labs SAS', tagline: 'Mobile complexo. Resultados claros.'}
+        footer: {company: 'Serviços por meio da Dymnoff Software Labs SAS', tagline: 'Do backend aos aplicativos. Uma entrega sob uma única responsabilidade.'}
     },
     ru: {
         meta: {
-            title: 'Senior Mobile Engineer для сложных продуктов — Max Dymnoff',
-            description: 'Senior Android и full-stack mobile engineer: модернизация сложных продуктов и ответственность за результат от архитектуры до релиза.',
-            socialTitle: 'Сложные мобильные продукты могут выглядеть просто.',
-            socialDescription: 'Senior Android и full-stack mobile engineering: архитектура, платформенные интеграции, backend, релизы и модернизация.'
+            title: 'Мобильный консультант и full-stack разработчик — Max Dymnoff',
+            description: 'Мобильный консалтинг и разработка приложений под ключ: серверная часть и API, нативные или кроссплатформенные клиенты для Android и iOS, модернизация и публикация.',
+            socialTitle: 'Мобильный продукт — от серверной части до запуска.',
+            socialDescription: 'Мобильный консалтинг и full-stack разработка: серверная часть, нативные или кроссплатформенные приложения, модернизация и публикация.'
         },
         a11y: {skip: 'Перейти к содержанию', language: 'Язык'},
-        brand: {role: 'Senior mobile engineer'},
-        nav: {proof: 'Результаты', expertise: 'Экспертиза', work: 'Проекты', cta: 'Обсудим'},
+        brand: {role: 'Мобильный консультант · Full-stack разработчик'},
+        nav: {services: 'Услуги', work: 'Кейсы', engagement: 'Форматы работы', cta: 'Обсудить проект'},
         hero: {
-            eyebrow: 'Доступен для отдельных удалённых проектов · UTC−3',
-            title: 'Делаю так, чтобы <em>сложные</em> mobile-продукты выглядели просто.',
-            lead: 'От спасения legacy-кода и сложных платформенных интеграций до готовых к запуску приложений: отвечаю за весь путь от архитектуры до публикации в сторах. Android — ядро, full-stack — когда этого требует продукт.',
-            ctaPrimary: 'Начать разговор',
-            ctaSecondary: 'Посмотреть результаты',
-            trustLabel: 'Инженерный опыт в продуктах'
+            eyebrow: 'Мобильный консалтинг · Разработка под ключ',
+            title: 'Беру <em>сложные</em> мобильные продукты целиком.',
+            lead: 'Проектирую, создаю и модернизирую мобильные продукты целиком — от серверной части и API до нативных или кроссплатформенных приложений для Android и iOS.',
+            ctaPrimary: 'Обсудить проект',
+            ctaSecondary: 'Посмотреть услуги',
+            trustLabel: 'Работал над продуктами'
         },
         visual: {
-            live: 'Система поставки активна', core: 'Ответственность целиком', native: 'Нативный UX', platform: 'Глубина платформы',
-            backend: 'Backend', release: 'Релиз', footer: 'Архитектура → поставка → запуск',
-            ai: 'AI-powered процесс', builder: 'Ownership основателя'
+            live: 'Контур разработки', core: 'От сервера до приложений', native: 'Нативные приложения', platform: 'Кроссплатформа',
+            backend: 'Серверная часть', release: 'Публикация', footer: 'Стратегия → сервер → приложения → запуск',
+            ai: 'Инженерная работа с ИИ', builder: 'Один ответственный за результат'
         },
         impact: {
-            years: 'лет выпускаю production-софт',
+            years: 'лет разрабатываю и выпускаю программные продукты',
             performance: 'прирост производительности при модернизации iFIT',
-            duplication: 'дублирование кода в cross-platform продукте',
-            languages: 'языка для международной работы'
+            duplication: 'дублирования кода в кроссплатформенном продукте',
+            fullstack: 'серверная часть, мобильные приложения и публикация'
         },
         expertise: {
-            kicker: 'Дайте мне сложную часть',
-            title: 'Ценность не в большем количестве кода. Она в меньшей неопределённости.',
-            lead: 'Работаю там, где продуктовые решения сталкиваются с ограничениями платформы, и превращаю неоднозначные mobile-задачи в системы, которые можно выпустить, масштабировать и развивать.',
+            kicker: 'Услуги',
+            title: 'Ответственность за мобильный продукт в нужном вам объёме.',
+            lead: 'Можно начать с одного технического решения, разработки под ключ или сложного продукта, который уже находится в работе. Я связываю бизнес-цели с архитектурой, серверной частью, мобильными приложениями и публикацией.',
+            consulting: {
+                title: 'Консалтинг по мобильным продуктам',
+                text: 'Предпроектный анализ, аудит архитектуры, выбор технологий и план модернизации, который превращает неопределённость в выполнимый план работ.',
+                chip1: 'Аудит архитектуры', chip2: 'План разработки', chip3: 'Снижение рисков'
+            },
+            fullstack: {
+                title: 'Разработка продукта целиком',
+                text: 'API, данные, авторизация, уведомления и интеграции на сервере, а также нативные приложения для Android и iOS или кроссплатформенные клиенты — вплоть до публикации.',
+                chip1: 'Сервер + API', chip2: 'Нативно или KMP', chip3: 'Публикация'
+            },
             modernize: {
-                title: 'Модернизировать, не останавливая продукт',
-                text: 'Нативные миграции, модуляризация, производительность, оздоровление архитектуры и сокращение технического долга с сохранением production-ритма.',
-                chip1: 'Без остановки production', chip2: 'Измеримый прогресс', chip3: 'Ниже риск изменений'
+                title: 'Модернизация и сложные мобильные задачи',
+                text: 'Миграции с устаревших решений, производительность и архитектура, а также камера, BLE, мультимедиа, карты, геозоны и другие функции, требующие глубокого знания платформы.',
+                chip1: 'Обновление кодовой базы', chip2: 'Сложные интеграции', chip3: 'Стабильные релизы'
+            }
+        },
+        fit: {
+            kicker: 'Когда я особенно полезен',
+            title: 'Когда приложение — только часть большого продукта.',
+            lead: 'В этих ситуациях один опытный специалист, отвечающий за продукт, серверную часть, приложения и публикацию, снимает больше всего рисков.',
+            new: {
+                title: 'Новому продукту нужен технический путь',
+                text: 'Есть бизнес-цель, но ещё предстоит определить архитектуру, план разработки, серверную часть и мобильные приложения.'
+            },
+            legacy: {
+                title: 'Текущий продукт тормозит каждый релиз',
+                text: 'Устаревший код, низкая производительность или архитектура превращают обычные изменения в дорогой риск.'
             },
             platform: {
-                title: 'Решить платформенно сложные фичи',
-                text: 'Камера и сканирование, интеграции с BLE-устройствами, воспроизведение медиа, карты, geofencing и надёжная работа в условиях ограничений ОС.',
-                chip1: 'Поведение на устройствах', chip2: 'Устойчивые сценарии', chip3: 'Ограничения ОС'
+                title: 'Функция упирается в ограничения платформы',
+                text: 'BLE, мультимедиа, камера, карты, фоновая работа или правила магазинов требуют более глубокой мобильной экспертизы.'
             },
-            own: {
-                title: 'Взять на себя весь путь до релиза',
-                text: 'Mobile, общий код, backend, аутентификация, messaging, правила сторов, аналитика и запуск, а для глубоких DevOps-задач — умение вовремя подключить профильных специалистов.',
-                chip1: 'Единая ответственность', chip2: 'Меньше handoff', chip3: 'Готово к запуску'
+            leadership: {
+                title: 'Команде не хватает технического лидера',
+                text: 'Нужен человек, который примет решения на стыке систем, разблокирует разработку и оставит управление команде.'
             }
         },
         work: {
-            kicker: 'Избранные проекты', title: 'Факты вместо обещаний.',
-            lead: 'Зрелые продукты, greenfield-разработка, публичные SDK и работа основателя. Контексты разные; фокус на ясности и результате одинаковый.'
+            kicker: 'Кейсы', title: 'Результаты на всех уровнях мобильного продукта.',
+            lead: 'Разработка от серверной части до приложений, нативная модернизация, публичные SDK и кроссплатформенные продукты — с понятной зоной ответственности и измеримыми результатами.'
         },
         cases: {
             ifit: {
-                type: 'Нативная модернизация', label: 'Connected fitness · Android',
-                title: 'Переход зрелой фитнес-платформы с Xamarin на современный native Android.',
-                text: 'Существенный инженерный вклад в производительность, media playback, субтитры, BLE-оборудование, Health Connect, code review и поддержку релизов.',
+                type: 'Нативная модернизация', label: 'Подключённый фитнес · Android',
+                title: 'Переход зрелой фитнес-платформы с Xamarin на современную нативную Android-разработку.',
+                text: 'Работал над производительностью, воспроизведением мультимедиа, субтитрами, BLE-оборудованием, Health Connect, проверкой кода и поддержкой релизов.',
                 metric1: 'прирост производительности', metric2: 'сокращение техдолга'
             },
             clear: {
-                type: 'Identity · SDK', label: 'Публичный SDK → основное приложение',
+                type: 'Идентификация · SDK', label: 'Публичный SDK → основное приложение',
                 title: 'Сначала инфраструктура аутентификации. Затем — критичные пользовательские сценарии.',
-                text: 'Сначала работал над публичным SDK аутентификации CLEAR, затем над основным приложением: улучшал camera/scanning flows и помогал модернизировать кодовую базу.',
+                text: 'Сначала работал над публичным SDK аутентификации CLEAR, затем над основным приложением: улучшал работу камеры и сканирования и помогал модернизировать кодовую базу.',
                 metric: 'сокращение техдолга'
             },
             surfcast: {
-                type: 'С нуля · Cross-platform', label: 'Android + iOS с нуля',
-                title: 'Продукт, прошедший через платформы, сезоны и смену архитектуры.',
-                text: 'Создал Android- и iOS-приложения на Kotlin Multiplatform, затем помогал развивать продукт в сторону React Native/Expo и менторил junior-разработчика.',
-                metric1: 'быстрее выпуск фич', metric2: 'дублирование кода', metric3: 'выручка первого сезона'
+                type: 'С нуля · Кроссплатформа', label: 'Android + iOS с нуля',
+                title: 'Продукт, прошедший через несколько платформ, сезонов и смену архитектуры.',
+                text: 'Создал приложения для Android и iOS на Kotlin Multiplatform, затем помогал переводить продукт на React Native/Expo и поддерживал младшего разработчика.',
+                metric1: 'быстрее выпуск функций', metric2: 'дублирование кода', metric3: 'выручка первого сезона'
             },
             hailme: {
-                type: 'Основатель · Единственный product engineer', label: 'Ownership без handoff',
-                title: 'Настоящий продукт — это намного больше, чем приложение.',
-                text: 'Создал и запустил приложения и backend, а также отвечал за geofencing, карты, аутентификацию, push/SMS/WhatsApp, review в сторах, координацию подрядчиков и messaging compliance.',
+                type: 'Основатель · Единственный инженер продукта', label: 'От серверной части до приложений',
+                title: 'Один продукт — от серверной части до двух мобильных приложений.',
+                text: 'Создал и запустил приложения для Android и iOS и серверную часть, а также отвечал за геозоны, карты, авторизацию, push/SMS/WhatsApp, проверки App Store и Google Play, подрядчиков и требования к рассылкам.',
                 link: 'Открыть HailMe'
             }
         },
+        engagement: {
+            kicker: 'Форматы работы',
+            title: 'Начнём с той зоны ответственности, которая вам нужна.',
+            lead: 'Отдельное техническое решение, разработка продукта целиком или постоянная поддержка команды опытным специалистом. Формат подстраивается под задачу, а не наоборот.',
+            audit: {
+                title: 'Аудит и план работ',
+                text: 'Для решений по архитектуре, технологиям, производительности или модернизации. На выходе — риски, рекомендации и план с приоритетами.'
+            },
+            delivery: {
+                title: 'Разработка под ключ',
+                text: 'От предпроектного анализа и серверной части до мобильных приложений и публикации — с понятными этапами, рабочими версиями и передачей результата.'
+            },
+            leadership: {
+                title: 'Техническое лидерство по запросу',
+                text: 'Экспертное руководство, проверка решений, архитектура и поддержка разработки без найма ещё одного руководителя в штат.'
+            }
+        },
         approach: {
-            kicker: 'Как я работаю', title: 'Senior-решения.<br/><em>Скорость основателя.</em>',
-            lead: 'Соединяю дисциплину крупных production-команд с практическим ownership человека, который провёл собственный продукт через код, подрядчиков, правила и сторы.',
-            ai: 'Использую AI-powered процесс для ускорения анализа кодовой базы, планирования, debugging и документации, сохраняя человеческую ответственность за инженерные решения.',
-            p1: {title: 'Сначала ясность, потом код', text: 'Сначала сделать видимыми риски, компромиссы и критерии успеха.'},
-            p2: {title: 'Поставлять полезными частями', text: 'Сокращать цикл обратной связи, не подрывая фундамент продукта.'},
-            p3: {title: 'Оставлять систему сильнее', text: 'Лучше архитектура, яснее документация, ниже операционный риск, команда готова продолжать.'}
+            kicker: 'Как я работаю', title: 'Инженерная зрелость.<br/><em>Ответственность за продукт.</em>',
+            lead: 'Могу самостоятельно работать со всеми уровнями продукта и подключать профильных специалистов, когда инфраструктуре или дизайну требуется дополнительная глубина.',
+            ai: 'Использую ИИ, чтобы ускорить анализ, планирование, отладку и документацию. Решения по архитектуре, безопасности и продукту остаются под моей проверкой и ответственностью.',
+            p1: {title: 'Согласовать результат и ограничения', text: 'До начала разработки сделать явными бизнес-цель, технические риски, возможные компромиссы и критерии успеха.'},
+            p2: {title: 'Двигаться проверяемыми этапами', text: 'Рабочие версии и регулярные демонстрации ускоряют обратную связь и позволяют постоянно видеть риски.'},
+            p3: {title: 'Оставить управление команде', text: 'Понятная архитектура, документация, права на исходный код и практическая передача позволяют поддерживать продукт после завершения работы.'}
         },
         contact: {
-            kicker: 'Есть сложная mobile-задача?', title: 'Превратим её в<br/><em>преимущество продукта.</em>',
-            lead: 'Расскажите, что вы создаёте, модернизируете или пытаетесь разблокировать. Я отвечу полезными вопросами, а не шаблонным коммерческим предложением.',
-            calendar: 'Назначить 30-минутный звонок', availability: 'Удалённо по всему миру · Договоры через Dymnoff Software Labs SAS (Уругвай)'
+            kicker: 'Создаёте или модернизируете мобильный продукт?', title: 'Определим правильный<br/><em>следующий шаг.</em>',
+            lead: 'Расскажите, что вы планируете, разрабатываете или пытаетесь сдвинуть с места. Я отвечу по существу и предложу подходящий формат работы.',
+            calendar: 'Назначить вводный звонок', availability: 'Удалённая работа по всему миру · Договоры через Dymnoff Software Labs SAS (Уругвай)'
         },
         form: {
             name: 'Ваше имя', namePlaceholder: 'Как к вам обращаться?', email: 'Рабочая почта',
             company: 'Компания / продукт', companyPlaceholder: 'Необязательно, но полезно',
-            brief: 'В чём сложность?', briefPlaceholder: 'Продукт, задача, сроки и где нужен senior ownership',
-            submit: 'Отправить описание', note: 'Обычно отвечаю в течение одного рабочего дня.', sending: 'Отправляю…',
+            service: 'Какая помощь вам нужна?', servicePlaceholder: 'Выберите ближайший вариант',
+            serviceConsulting: 'Консалтинг или технический аудит', serviceDevelopment: 'Разработка приложения под ключ',
+            serviceModernization: 'Модернизация или сложная мобильная задача', serviceLeadership: 'Техническое лидерство по запросу',
+            brief: 'С чем нужно помочь?', briefPlaceholder: 'Продукт, его текущее состояние, ваша цель и важные ограничения',
+            submit: 'Отправить описание', note: 'Обычно отвечаю в течение одного рабочего дня и предлагаю следующий шаг.', sending: 'Отправляю…',
             success: 'Спасибо, сообщение получено. Скоро отвечу.'
         },
-        footer: {company: 'Работа через Dymnoff Software Labs SAS', tagline: 'Сложный mobile. Ясный результат.'}
+        footer: {company: 'Работа через Dymnoff Software Labs SAS', tagline: 'От серверной части до приложений. Один ответственный за результат.'}
     }
 };
 
