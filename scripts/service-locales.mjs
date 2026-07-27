@@ -573,25 +573,25 @@ export const SERVICES = {
         }
     },
     lead: {
-        slug: 'fractional-mobile-lead',
+        slug: 'mobile-technical-lead',
         proofCase: 'surfcast',
         locales: {
             es: {
-                seoTitle: 'Liderazgo técnico móvil a tiempo parcial para equipos Android/iOS | Max Dymnoff',
-                seoDescription: 'Liderazgo móvil flexible para equipos Android e iOS: arquitectura, revisiones, planificación, mentoría, decisiones entre capas y soporte de releases.',
+                seoTitle: 'Liderazgo técnico móvil para equipos Android e iOS | Max Dymnoff',
+                seoDescription: 'Liderazgo técnico para equipos Android e iOS: arquitectura, revisiones, planificación, mentoría y soporte, por proyecto, contrato o a tiempo completo.',
                 socialTitle: 'Liderazgo móvil senior cuando el equipo necesita dirección técnica',
-                socialDescription: 'Arquitectura, revisiones, planificación, mentoría y decisiones entre capas sin contratar otro responsable a tiempo completo.',
-                serviceName: 'Liderazgo técnico móvil a tiempo parcial',
-                serviceType: 'Dirección técnica móvil integrada a tiempo parcial',
+                socialDescription: 'Arquitectura, revisiones, planificación, mentoría y decisiones entre capas por proyecto, bajo contrato o a tiempo completo.',
+                serviceName: 'Liderazgo técnico móvil',
+                serviceType: 'Dirección técnica para equipos de desarrollo móvil',
                 structuredDescription: 'Arquitectura, revisión de código, planificación, decisiones entre capas, mentoría y soporte de releases para equipos Android e iOS.',
                 kicker: 'Arquitectura · Revisiones · Dirección técnica',
-                title: 'Liderazgo móvil senior con <em>la dedicación que necesitas.</em>',
-                summary: 'Dirección técnica continua para un equipo que necesita arquitectura, revisiones, mentoría y responsabilidad sobre las entregas, pero no otro puesto directivo a tiempo completo.',
+                title: 'Liderazgo móvil senior en <em>el formato que necesitas.</em>',
+                summary: 'Dirección técnica para equipos que necesitan arquitectura, revisiones, mentoría y responsabilidad sobre las entregas, ya sea por proyecto, bajo contrato o en un puesto a tiempo completo.',
                 facts: [
                     ['Dirección', 'Arquitectura · Tecnología · Estándares'],
                     ['Entrega', 'Planificación · Revisión · Preparación del release'],
                     ['Equipo', 'Mentoría · Decisiones · Traspaso'],
-                    ['Ritmo', 'Colaboración integrada a tiempo parcial']
+                    ['Formato', 'Proyecto · Contrato · Tiempo completo']
                 ],
                 technologiesLabel: 'Responsabilidades del liderazgo móvil',
                 technologies: ['Arquitectura', 'Revisión de código', 'Planificación', 'Descubrimiento técnico', 'Mentoría', 'Preparación de releases', 'Decisiones entre capas', 'Traspaso'],
@@ -635,21 +635,21 @@ export const SERVICES = {
                 ctaProof: 'Ver experiencia de entrega y mentoría'
             },
             pt: {
-                seoTitle: 'Liderança técnica mobile fracionada para equipes Android/iOS | Max Dymnoff',
-                seoDescription: 'Liderança mobile flexível para equipes Android e iOS: arquitetura, revisões, planejamento, mentoria, decisões entre camadas e suporte a releases.',
+                seoTitle: 'Liderança técnica mobile para equipes Android e iOS | Max Dymnoff',
+                seoDescription: 'Liderança técnica para equipes Android e iOS: arquitetura, revisões, planejamento, mentoria e suporte em projeto, contrato ou posição integral.',
                 socialTitle: 'Liderança mobile sênior quando a equipe precisa de direção técnica',
-                socialDescription: 'Arquitetura, revisões, planejamento, mentoria e decisões entre camadas sem contratar outra liderança em tempo integral.',
-                serviceName: 'Liderança técnica mobile fracionada',
-                serviceType: 'Liderança técnica mobile integrada em tempo parcial',
+                socialDescription: 'Arquitetura, revisões, planejamento, mentoria e decisões entre camadas em projeto, contrato ou posição em tempo integral.',
+                serviceName: 'Liderança técnica mobile',
+                serviceType: 'Liderança técnica para equipes de desenvolvimento mobile',
                 structuredDescription: 'Arquitetura, revisão de código, planejamento, decisões entre camadas, mentoria e suporte a releases para equipes Android e iOS.',
                 kicker: 'Arquitetura · Revisões · Liderança de entrega',
-                title: 'Liderança mobile sênior <em>na medida certa para a equipe.</em>',
-                summary: 'Direção técnica contínua para uma equipe que precisa de arquitetura, revisões, mentoria e responsabilidade pela entrega, mas não de outra liderança em tempo integral.',
+                title: 'Liderança mobile sênior <em>no formato certo para a equipe.</em>',
+                summary: 'Direção técnica para equipes que precisam de arquitetura, revisões, mentoria e responsabilidade pela entrega, seja em projeto, contrato ou posição em tempo integral.',
                 facts: [
                     ['Direção', 'Arquitetura · Tecnologia · Padrões'],
                     ['Entrega', 'Planejamento · Revisão · Preparação de release'],
                     ['Equipe', 'Mentoria · Apoio a decisões · Transição'],
-                    ['Cadência', 'Atuação integrada em tempo parcial']
+                    ['Formato', 'Projeto · Contrato · Tempo integral']
                 ],
                 technologiesLabel: 'Atividades da liderança mobile',
                 technologies: ['Arquitetura', 'Revisão de código', 'Planejamento de entrega', 'Descoberta técnica', 'Mentoria', 'Preparação de releases', 'Decisões entre camadas', 'Transição'],
@@ -693,21 +693,21 @@ export const SERVICES = {
                 ctaProof: 'Ver experiência de entrega e mentoria'
             },
             ru: {
-                seoTitle: 'Внешний технический лидер для команд Android и iOS | Max Dymnoff',
-                seoDescription: 'Техническое лидерство для мобильных команд: архитектура, ревью, планирование, наставничество, решения между слоями и поддержка релизов.',
-                socialTitle: 'Внешний мобильный техлид, когда команде нужна единая техническая ответственность',
-                socialDescription: 'Архитектура, ревью, планирование, наставничество и сквозные решения без найма ещё одного штатного руководителя.',
-                serviceName: 'Внешний технический лидер мобильной команды',
-                serviceType: 'Техническое лидерство в мобильной команде с частичной занятостью',
+                seoTitle: 'Технический лидер для команд Android и iOS | Max Dymnoff',
+                seoDescription: 'Техническое лидерство для мобильных команд: архитектура, ревью, планирование и наставничество в проектном, контрактном или full-time формате.',
+                socialTitle: 'Мобильный техлид для единого технического направления команды',
+                socialDescription: 'Архитектура, ревью, планирование, наставничество и сквозные решения в проектном, контрактном или full-time формате.',
+                serviceName: 'Техническое лидерство мобильной команды',
+                serviceType: 'Техническое руководство разработкой мобильных продуктов',
                 structuredDescription: 'Архитектура, ревью кода, планирование, сквозные технические решения, наставничество и поддержка релизов для команд Android и iOS.',
                 kicker: 'Архитектура · Ревью · Руководство разработкой',
-                title: 'Сильное техническое лидерство <em>в нужном объёме.</em>',
-                summary: 'Регулярное техническое руководство для команды, которой нужны архитектура, ревью, наставничество и ответственность за разработку, но не ещё один штатный руководитель.',
+                title: 'Сильное техническое лидерство <em>в подходящем формате.</em>',
+                summary: 'Техническое руководство для команды, которой нужны архитектура, ревью, наставничество и ответственность за разработку — в проектном, контрактном или full-time формате.',
                 facts: [
                     ['Направление', 'Архитектура · Технологии · Стандарты'],
                     ['Разработка', 'Планирование · Ревью · Готовность релиза'],
                     ['Команда', 'Наставничество · Решения · Передача знаний'],
-                    ['Формат', 'Работа внутри команды с частичной занятостью']
+                    ['Формат', 'Проект · Контракт · Full-time']
                 ],
                 technologiesLabel: 'Задачи мобильного техлида',
                 technologies: ['Архитектура', 'Ревью кода', 'Планирование разработки', 'Техническое исследование', 'Наставничество', 'Подготовка релизов', 'Сквозные решения', 'Передача знаний'],

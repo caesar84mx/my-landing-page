@@ -116,8 +116,8 @@ const I18N = {
                 text: 'From discovery and backend to mobile clients and store launch, with visible milestones, working increments, and a clean handover.'
             },
             leadership: {
-                title: 'Fractional mobile lead',
-                text: 'Senior direction, reviews, architecture, and delivery support for a team that does not need another full-time hire.'
+                title: 'Mobile technical leadership',
+                text: 'Senior direction, reviews, architecture, and delivery support for project, contract, or full-time roles.'
             }
         },
         approach: {
@@ -138,7 +138,7 @@ const I18N = {
             company: 'Company / product', companyPlaceholder: 'Optional, but helpful',
             service: 'What kind of help do you need?', servicePlaceholder: 'Choose the closest option',
             serviceConsulting: 'Consulting or technical audit', serviceDevelopment: 'End-to-end app development',
-            serviceModernization: 'Modernization or complex mobile work', serviceLeadership: 'Fractional mobile leadership',
+            serviceModernization: 'Modernization or complex mobile work', serviceLeadership: 'Mobile technical leadership',
             brief: 'What do you need help with?', briefPlaceholder: 'The product, its current state, your goal, and any important constraints',
             submit: 'Send the brief', note: 'I usually reply within one business day with a useful next step.', sending: 'Sending…',
             success: 'Thanks—your message is in. I’ll reply shortly.'
@@ -260,8 +260,8 @@ const I18N = {
                 text: 'Desde el descubrimiento y el backend hasta las apps y la publicación, con hitos visibles, entregas funcionales y una transferencia ordenada.'
             },
             leadership: {
-                title: 'Liderazgo móvil flexible',
-                text: 'Dirección senior, revisiones, arquitectura y apoyo a la entrega para un equipo que no necesita otra contratación a tiempo completo.'
+                title: 'Liderazgo técnico móvil',
+                text: 'Dirección senior, revisiones, arquitectura y apoyo a la entrega por proyecto, bajo contrato o a tiempo completo.'
             }
         },
         approach: {
@@ -282,7 +282,7 @@ const I18N = {
             company: 'Empresa / producto', companyPlaceholder: 'Opcional, pero útil',
             service: '¿Qué tipo de ayuda necesitas?', servicePlaceholder: 'Elige la opción más cercana',
             serviceConsulting: 'Consultoría o auditoría técnica', serviceDevelopment: 'Desarrollo integral de una app',
-            serviceModernization: 'Modernización o trabajo móvil complejo', serviceLeadership: 'Liderazgo móvil flexible',
+            serviceModernization: 'Modernización o trabajo móvil complejo', serviceLeadership: 'Liderazgo técnico móvil',
             brief: '¿En qué necesitas ayuda?', briefPlaceholder: 'El producto, su estado actual, el objetivo y cualquier restricción importante',
             submit: 'Enviar el resumen', note: 'Normalmente respondo en un día hábil con un siguiente paso útil.', sending: 'Enviando…',
             success: 'Gracias, recibí tu mensaje. Responderé pronto.'
@@ -404,8 +404,8 @@ const I18N = {
                 text: 'Da descoberta e do backend aos aplicativos e à publicação, com marcos visíveis, entregas funcionais e uma transição organizada.'
             },
             leadership: {
-                title: 'Liderança mobile sob demanda',
-                text: 'Direção sênior, revisões, arquitetura e apoio à entrega para um time que não precisa de outra contratação em tempo integral.'
+                title: 'Liderança técnica mobile',
+                text: 'Direção sênior, revisões, arquitetura e apoio à entrega em projeto, contrato ou posição em tempo integral.'
             }
         },
         approach: {
@@ -426,7 +426,7 @@ const I18N = {
             company: 'Empresa / produto', companyPlaceholder: 'Opcional, mas ajuda',
             service: 'Que tipo de ajuda você procura?', servicePlaceholder: 'Escolha a opção mais próxima',
             serviceConsulting: 'Consultoria ou auditoria técnica', serviceDevelopment: 'Desenvolvimento completo de aplicativo',
-            serviceModernization: 'Modernização ou trabalho mobile complexo', serviceLeadership: 'Liderança mobile sob demanda',
+            serviceModernization: 'Modernização ou trabalho mobile complexo', serviceLeadership: 'Liderança técnica mobile',
             brief: 'Em que você precisa de ajuda?', briefPlaceholder: 'O produto, o estado atual, o objetivo e qualquer restrição importante',
             submit: 'Enviar o resumo', note: 'Normalmente respondo em um dia útil com um próximo passo útil.', sending: 'Enviando…',
             success: 'Obrigado, recebi sua mensagem. Responderei em breve.'
@@ -548,8 +548,8 @@ const I18N = {
                 text: 'От предпроектного анализа и серверной части до мобильных приложений и публикации — с понятными этапами, рабочими версиями и передачей результата.'
             },
             leadership: {
-                title: 'Техническое лидерство по запросу',
-                text: 'Экспертное руководство, проверка решений, архитектура и поддержка разработки без найма ещё одного руководителя в штат.'
+                title: 'Техническое лидерство мобильной команды',
+                text: 'Экспертное руководство, ревью, архитектура и поддержка разработки в проектном, контрактном или full-time формате.'
             }
         },
         approach: {
@@ -570,7 +570,7 @@ const I18N = {
             company: 'Компания / продукт', companyPlaceholder: 'Необязательно, но полезно',
             service: 'Какая помощь вам нужна?', servicePlaceholder: 'Выберите ближайший вариант',
             serviceConsulting: 'Консалтинг или технический аудит', serviceDevelopment: 'Разработка приложения под ключ',
-            serviceModernization: 'Модернизация или сложная мобильная задача', serviceLeadership: 'Техническое лидерство по запросу',
+            serviceModernization: 'Модернизация или сложная мобильная задача', serviceLeadership: 'Техническое лидерство мобильной команды',
             brief: 'С чем нужно помочь?', briefPlaceholder: 'Продукт, его текущее состояние, ваша цель и важные ограничения',
             submit: 'Отправить описание', note: 'Обычно отвечаю в течение одного рабочего дня и предлагаю следующий шаг.', sending: 'Отправляю…',
             success: 'Спасибо, сообщение получено. Скоро отвечу.'

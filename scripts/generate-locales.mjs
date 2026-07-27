@@ -553,7 +553,7 @@ const sitemapPaths = [
     '/services/mobile-product-consulting/',
     '/services/full-stack-mobile-app-development/',
     '/services/mobile-app-modernization/',
-    '/services/fractional-mobile-lead/'
+    '/services/mobile-technical-lead/'
 ];
 for (const caseStudy of Object.values(CASE_STUDIES)) {
     for (const locale of ['es', 'pt', 'ru']) {

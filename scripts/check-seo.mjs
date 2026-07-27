@@ -18,7 +18,7 @@ const pages = new Map([
     ['/services/mobile-product-consulting/', 'services/mobile-product-consulting/index.html'],
     ['/services/full-stack-mobile-app-development/', 'services/full-stack-mobile-app-development/index.html'],
     ['/services/mobile-app-modernization/', 'services/mobile-app-modernization/index.html'],
-    ['/services/fractional-mobile-lead/', 'services/fractional-mobile-lead/index.html']
+    ['/services/mobile-technical-lead/', 'services/mobile-technical-lead/index.html']
 ]);
 const languageRoutes = new Map([
     ['x-default', '/'],
