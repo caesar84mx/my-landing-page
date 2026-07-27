@@ -106,7 +106,7 @@ The site supports four crawlable language versions:
 - **Portuguese (pt)**: Português
 - **Russian (ru)**: Русский
 
-The root page is the English and `x-default` version. Spanish, Portuguese, and Russian use `/es/`, `/pt/`, and `/ru/`. Each page contains localized HTML, a self-referencing canonical URL, reciprocal `hreflang` links, and normal crawlable language links.
+The root page is the English and `x-default` version. Spanish, Portuguese, and Russian use `/es/`, `/pt/`, and `/ru/`. Every landing and case-study page contains localized HTML, a self-referencing canonical URL, reciprocal `hreflang` links, and normal crawlable language links.
 
 After changing shared landing content or translations, regenerate and verify the localized pages:
 

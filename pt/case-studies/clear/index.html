@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Projeto CLEAR — SDK de autenticação e app Android | Max Dymnoff</title>
+    <meta name="description" content="Engenharia Android no SDK público de autenticação da CLEAR, aplicativo principal, fluxos de câmera e leitura e modernização de código legado."/>
+    <meta name="theme-color" content="#080b12"/>
+    <meta name="color-scheme" content="dark"/>
+
+    <link rel="canonical" href="https://www.mdymnoff-mobile.dev/pt/case-studies/clear/"/>
+    <link rel="alternate" hreflang="x-default" href="https://www.mdymnoff-mobile.dev/case-studies/clear/"/>
+    <link rel="alternate" hreflang="en" href="https://www.mdymnoff-mobile.dev/case-studies/clear/"/>
+    <link rel="alternate" hreflang="es" href="https://www.mdymnoff-mobile.dev/es/case-studies/clear/"/>
+    <link rel="alternate" hreflang="pt" href="https://www.mdymnoff-mobile.dev/pt/case-studies/clear/"/>
+    <link rel="alternate" hreflang="ru" href="https://www.mdymnoff-mobile.dev/ru/case-studies/clear/"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:site_name" content="Max Dymnoff"/>
+    <meta property="og:locale" content="pt_BR"/>
+    <meta property="og:locale:alternate" content="en_US"/>
+    <meta property="og:locale:alternate" content="es_ES"/>
+    <meta property="og:locale:alternate" content="ru_RU"/>
+    <meta property="og:url" content="https://www.mdymnoff-mobile.dev/pt/case-studies/clear/"/>
+    <meta property="og:title" content="CLEAR: do SDK de autenticação aos fluxos principais no Android"/>
+    <meta property="og:description" content="Engenharia Android em autenticação pública, câmera, leitura e modernização do aplicativo."/>
+    <meta property="og:image" content="https://www.mdymnoff-mobile.dev/assets/og-v2.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:image:alt" content="Max Dymnoff — engenheiro sênior de aplicativos mobile para produtos complexos"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="CLEAR: do SDK de autenticação aos fluxos principais no Android"/>
+    <meta name="twitter:description" content="Engenharia Android em autenticação pública, câmera, leitura e modernização do aplicativo."/>
+    <meta name="twitter:image" content="https://www.mdymnoff-mobile.dev/assets/og-v2.png"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=20260727"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=20260727"/>
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20260727"/>
+    <link rel="stylesheet" href="/css/styles.css?v=20260727-seo1"/>
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "CLEAR: do SDK de autenticação aos fluxos principais no Android",
+          "description": "Engenharia Android em autenticação pública, câmera, leitura e modernização do aplicativo.",
+          "inLanguage": "pt",
+          "url": "https://www.mdymnoff-mobile.dev/pt/case-studies/clear/",
+          "mainEntityOfPage": "https://www.mdymnoff-mobile.dev/pt/case-studies/clear/",
+          "author": {
+            "@type": "Person",
+            "@id": "https://www.mdymnoff-mobile.dev/#person",
+            "name": "Maxim Dymnov",
+            "alternateName": "Max Dymnoff"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "@id": "https://www.mdymnoff-mobile.dev/#organization",
+            "name": "Dymnoff Software Labs SAS"
+          },
+          "about": [
+            "Android",
+            "Kotlin",
+            "Public SDK",
+            "Authentication",
+            "Camera",
+            "Scanning",
+            "Legacy modernization"
+          ]
+        }
+    </script>
+</head>
+<body class="case-study-page">
+<a class="skip-link" href="#main">Ir para o conteúdo</a>
+
+<header class="site-header">
+    <div class="container nav-shell">
+        <a class="brand" href="/pt/" aria-label="Max Dymnoff">
+            <span class="brand-mark" aria-hidden="true"><span>M</span><span>D</span></span>
+            <span class="brand-copy"><strong>Max Dymnoff</strong><small>Consultor mobile · Desenvolvedor full-stack de apps mobile</small></span>
+        </a>
+        <nav class="case-header-nav" aria-label="Navegação do projeto">
+            <a href="/pt/">Início</a>
+            <a href="/pt/#work">Todos os projetos</a>
+                <div class="language-control">
+                    <details>
+                        <summary aria-label="Escolher idioma"><span>PT</span></summary>
+                        <div class="language-menu">
+                            <a href="/case-studies/clear/" lang="en" hreflang="en">EN</a>
+                            <a href="/es/case-studies/clear/" lang="es" hreflang="es">ES</a>
+                            <a href="/pt/case-studies/clear/" lang="pt" hreflang="pt" aria-current="page">PT</a>
+                            <a href="/ru/case-studies/clear/" lang="ru" hreflang="ru">RU</a>
+                        </div>
+                    </details>
+                </div>
+            <a class="button button-small" href="/pt/#contact">Falar sobre um projeto</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main" class="case-study-main">
+    <section class="case-hero-section">
+        <div class="container">
+            <nav class="case-breadcrumbs" aria-label="Caminho de navegação">
+                <a href="/pt/">Início</a><span aria-hidden="true">/</span><a href="/pt/#work">Todos os projetos</a><span aria-hidden="true">/</span><span>CLEAR</span>
+            </nav>
+            <div class="case-hero-grid">
+                <div>
+                    <p class="section-kicker">Identidade · SDK público · Aplicativo Android principal</p>
+                    <h1>Primeiro, a infraestrutura de autenticação. <em>Depois, a experiência do usuário.</em></h1>
+                    <p class="case-summary">Trabalho de engenharia Android que começou no SDK público de autenticação da CLEAR e continuou nos fluxos de câmera, leitura e modernização do aplicativo principal.</p>
+                </div>
+                <dl class="case-facts">
+                    <div class="case-fact"><dt>Papel</dt><dd>Android Engineer</dd></div>
+                    <div class="case-fact"><dt>Período</dt><dd>2021 – 2023</dd></div>
+                    <div class="case-fact"><dt>Escopo</dt><dd>SDK público · Aplicativo principal</dd></div>
+                    <div class="case-fact"><dt>Foco</dt><dd>Autenticação · Câmera · Leitura</dd></div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <div class="container case-content">
+        <section class="case-content-section">
+            <div class="case-section-label">01 · Contexto</div>
+            <div class="case-prose">
+                <h2>Fluxos de identidade têm pouca tolerância a falhas.</h2>
+                    <p>Uma infraestrutura pública de autenticação precisa integrar-se com clareza a outros aplicativos, enquanto o app de consumo deve tornar câmera e leitura confiáveis e diretas. O trabalho atravessou os dois lados dessa experiência.</p>
+
+            </div>
+        </section>
+
+        <section class="case-content-section">
+            <div class="case-section-label">02 · Contribuição</div>
+            <div class="case-prose">
+                <h2>Experiência dos dois lados da fronteira do SDK.</h2>
+                    <p>Trabalhei primeiro no SDK público de autenticação da CLEAR e depois no aplicativo Android principal. Essa sequência conectou o contrato de integração à experiência real do usuário.</p>
+                    <p>No aplicativo, melhorei os fluxos de câmera e leitura e contribuí para a modernização e a redução de dívida técnica.</p>
+
+                    <ul class="case-tech-list" aria-label="Tecnologias e áreas de trabalho">
+                        <li>Android</li>
+                        <li>Kotlin</li>
+                        <li>Public SDK</li>
+                        <li>Authentication</li>
+                        <li>Camera</li>
+                        <li>Scanning</li>
+                        <li>Legacy modernization</li>
+                    </ul>
+            </div>
+        </section>
+
+        <section class="case-content-section">
+            <div class="case-section-label">03 · Impacto</div>
+            <div class="case-prose">
+                <h2>O conhecimento de infraestrutura chegou aos fluxos do usuário.</h2>
+                    <p>O resultado combinou experiência de autenticação no nível do SDK com melhorias em fluxos críticos e uma redução de aproximadamente 30% da dívida técnica.</p>
+
+                    <div class="case-outcomes">
+                        <div class="case-outcome"><strong>SDK</strong><span>infraestrutura pública de autenticação</span></div>
+                        <div class="case-outcome"><strong>App</strong><span>melhorias de câmera e leitura</span></div>
+                        <div class="case-outcome"><strong>~30%</strong><span>redução de dívida técnica</span></div>
+                    </div>
+            </div>
+        </section>
+
+        <aside class="case-next">
+            <p class="section-kicker">Está criando um SDK mobile ou um fluxo de identidade?</p>
+            <h2>Faça a integração e a experiência trabalharem juntas.</h2>
+            <p>Posso ajudar a definir os limites do SDK, revisar a experiência do aplicativo integrador e modernizar a implementação Android.</p>
+            <div class="case-next-actions">
+                <a class="button" href="/pt/#contact">Falar sobre o projeto <span aria-hidden="true">↗</span></a>
+                <a class="text-link" href="/pt/case-studies/surfcast/">Próximo: SurfCast <span aria-hidden="true">→</span></a>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div><strong>Max Dymnoff</strong><span>Serviços por meio da Dymnoff Software Labs SAS</span><span>Do backend aos aplicativos. Um responsável pela entrega.</span></div>
+        <p>© 2026 Dymnoff Software Labs SAS · Max Dymnoff · Montevideo, Uruguay</p>
+    </div>
+</footer>
+</body>
+</html>

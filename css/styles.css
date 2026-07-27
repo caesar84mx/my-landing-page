@@ -2210,7 +2210,7 @@ html.js .reveal.is-visible {
         display: none;
     }
 
-    .case-header-nav a:not(.button) {
+    .case-header-nav > a:not(.button) {
         display: none;
     }
 

@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {CASE_STUDIES} from './case-study-locales.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const siteOrigin = 'https://www.mdymnoff-mobile.dev';
@@ -25,6 +26,12 @@ const languageRoutes = new Map([
     ['pt', '/pt/'],
     ['ru', '/ru/']
 ]);
+for (const caseStudy of Object.values(CASE_STUDIES)) {
+    for (const locale of ['es', 'pt', 'ru']) {
+        const route = `/${locale}/case-studies/${caseStudy.slug}/`;
+        pages.set(route, `${locale}/case-studies/${caseStudy.slug}/index.html`);
+    }
+}
 const titles = new Set();
 const canonicals = new Set();
 const errors = [];
@@ -68,18 +75,30 @@ for (const [route, relativeFile] of pages) {
     titles.add(title);
     canonicals.add(canonical);
 
-    if (languageRoutes.has(language) || route === '/') {
-        const alternates = new Map(
-            [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"\/>/g)]
-                .map((match) => [match[1], match[2]])
-        );
-        if (['/', '/es/', '/pt/', '/ru/'].includes(route)) {
-            for (const [locale, localeRoute] of languageRoutes) {
-                report(
-                    alternates.get(locale) === `${siteOrigin}${localeRoute}`,
-                    `${relativeFile}: missing or incorrect ${locale} hreflang`
-                );
-            }
+    const alternates = new Map(
+        [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"\/>/g)]
+            .map((match) => [match[1], match[2]])
+    );
+    if (['/', '/es/', '/pt/', '/ru/'].includes(route)) {
+        for (const [locale, localeRoute] of languageRoutes) {
+            report(
+                alternates.get(locale) === `${siteOrigin}${localeRoute}`,
+                `${relativeFile}: missing or incorrect ${locale} hreflang`
+            );
+        }
+    }
+
+    const caseMatch = route.match(/^\/(?:(?:es|pt|ru)\/)?case-studies\/([^/]+)\/$/);
+    if (caseMatch) {
+        const slug = caseMatch[1];
+        for (const locale of ['x-default', 'en', 'es', 'pt', 'ru']) {
+            const localeRoute = ['x-default', 'en'].includes(locale)
+                ? `/case-studies/${slug}/`
+                : `/${locale}/case-studies/${slug}/`;
+            report(
+                alternates.get(locale) === `${siteOrigin}${localeRoute}`,
+                `${relativeFile}: missing or incorrect ${locale} case-study hreflang`
+            );
         }
     }
 
