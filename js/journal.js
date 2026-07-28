@@ -244,6 +244,7 @@ function render() {
     $('browseLabel').textContent = text.browse;
     $('footerCompany').textContent = text.footerCompany;
     $('footerTagline').textContent = text.footerTagline;
+    $('footerYear').textContent = String(new Date().getFullYear());
     renderArchive(text);
 }
 
