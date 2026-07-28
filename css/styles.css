@@ -1406,6 +1406,150 @@ em {
     color: #d7ff71;
 }
 
+.journal {
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+}
+
+.journal::before {
+    content: "";
+    position: absolute;
+    top: 12%;
+    right: -180px;
+    width: 480px;
+    height: 480px;
+    background: rgba(200, 255, 61, 0.055);
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+}
+
+.journal-issue {
+    position: relative;
+    min-height: 530px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+    overflow: hidden;
+    background:
+        linear-gradient(140deg, rgba(200, 255, 61, 0.07), transparent 40%),
+        rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--line-bright);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
+
+.journal-copy {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(32px, 5vw, 68px);
+}
+
+.journal-meta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.journal-series {
+    margin: clamp(50px, 7vw, 88px) 0 18px;
+    color: var(--acid);
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.journal-copy h3 {
+    max-width: 16ch;
+    margin-bottom: 22px;
+    font-size: clamp(36px, 5vw, 66px);
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+.journal-copy > p:not(.journal-series) {
+    max-width: 68ch;
+    margin-bottom: 34px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.journal-link {
+    margin-top: auto;
+}
+
+.journal-signal {
+    position: relative;
+    min-height: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.16);
+    border-left: 1px solid var(--line);
+}
+
+.journal-signal strong {
+    position: relative;
+    z-index: 2;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(200, 255, 61, 0.62);
+    font-family: "Space Mono", monospace;
+    font-size: clamp(90px, 14vw, 180px);
+    line-height: 1;
+    letter-spacing: -0.13em;
+}
+
+.journal-signal small {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+    z-index: 2;
+    color: var(--muted);
+    font-family: "Space Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.journal-orbit {
+    position: absolute;
+    border: 1px solid rgba(200, 255, 61, 0.2);
+    border-radius: 50%;
+}
+
+.journal-orbit-outer {
+    width: 430px;
+    height: 430px;
+}
+
+.journal-orbit-inner {
+    width: 250px;
+    height: 250px;
+}
+
+.journal-pulse {
+    position: absolute;
+    top: 34%;
+    right: 21%;
+    width: 9px;
+    height: 9px;
+    background: var(--acid);
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px var(--acid-soft), 0 0 34px rgba(200, 255, 61, 0.75);
+}
+
 .engagement {
     overflow: hidden;
     border-bottom: 1px solid var(--line);
@@ -2162,6 +2306,16 @@ html.js .reveal.is-visible {
         grid-template-columns: 1fr;
     }
 
+    .journal-issue {
+        grid-template-columns: 1fr;
+    }
+
+    .journal-signal {
+        min-height: 320px;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+    }
+
     .expertise-card {
         min-height: 0;
     }
@@ -2467,6 +2621,42 @@ html.js .reveal.is-visible {
 
     .engagement-card {
         min-height: 260px;
+    }
+
+    .journal-issue {
+        min-height: 0;
+        border-radius: var(--radius);
+    }
+
+    .journal-copy {
+        padding: 28px 24px 36px;
+    }
+
+    .journal-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .journal-series {
+        margin-top: 48px;
+    }
+
+    .journal-copy h3 {
+        font-size: clamp(36px, 12vw, 52px);
+    }
+
+    .journal-link {
+        width: 100%;
+    }
+
+    .journal-signal {
+        min-height: 250px;
+    }
+
+    .journal-signal small {
+        right: 20px;
+        bottom: 20px;
     }
 
     .case-card {

@@ -18,7 +18,8 @@ const pages = new Map([
     ['/services/mobile-product-consulting/', 'services/mobile-product-consulting/index.html'],
     ['/services/full-stack-mobile-app-development/', 'services/full-stack-mobile-app-development/index.html'],
     ['/services/mobile-app-modernization/', 'services/mobile-app-modernization/index.html'],
-    ['/services/mobile-technical-lead/', 'services/mobile-technical-lead/index.html']
+    ['/services/mobile-technical-lead/', 'services/mobile-technical-lead/index.html'],
+    ['/journal/signal-001/', 'journal/signal-001/index.html']
 ]);
 const languageRoutes = new Map([
     ['x-default', '/'],
@@ -54,6 +55,7 @@ function matchOne(html, pattern, label, file) {
 }
 
 function localTargetExists(rawUrl) {
+    if (rawUrl.includes('${')) return true;
     const url = rawUrl.split('#')[0].split('?')[0];
     if (!url || /^(https?:|mailto:|tel:)/.test(url)) return true;
 
@@ -70,7 +72,7 @@ for (const [route, relativeFile] of pages) {
     const description = matchOne(html, /<meta name="description" content="([^"]+)"\/>/g, 'meta description', relativeFile);
     const canonical = matchOne(html, /<link rel="canonical" href="([^"]+)"\/>/g, 'canonical', relativeFile);
     const openGraphUrl = matchOne(html, /<meta property="og:url" content="([^"]+)"\/>/g, 'og:url', relativeFile);
-    const language = matchOne(html, /<html lang="([^"]+)">/g, 'html lang', relativeFile);
+    const language = matchOne(html, /<html\b[^>]*\slang="([^"]+)"[^>]*>/g, 'html lang', relativeFile);
 
     report((html.match(/<h1\b/g) || []).length === 1, `${relativeFile}: expected exactly one h1`);
     report(Boolean(title?.trim()), `${relativeFile}: title is empty`);

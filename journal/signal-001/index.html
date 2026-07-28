@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>MAX.D / SIGNAL — Issue 001</title>
+<meta name="description" content="A weekly engineering journal on Android and cross-platform development, with source-backed analysis and practical decisions."/>
+<meta name="theme-color" content="#0b0d0c">
+<link rel="canonical" href="https://www.mdymnoff-mobile.dev/journal/signal-001/"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=20260727">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=20260727">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20260727">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Max Dymnoff">
+<meta property="og:url" content="https://www.mdymnoff-mobile.dev/journal/signal-001/"/>
+<meta property="og:title" content="MAX.D / SIGNAL — Issue 001">
+<meta property="og:description" content="Mobile changes worth making decisions about: Kotlin, Media3, Nearby Connections, Android tooling, tracing, and AI.">
+<meta property="og:image" content="https://www.mdymnoff-mobile.dev/assets/og-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MAX.D / SIGNAL — Issue 001">
+<meta name="twitter:description" content="Mobile changes worth making decisions about: Kotlin, Media3, Nearby Connections, Android tooling, tracing, and AI.">
+<meta name="twitter:image" content="https://www.mdymnoff-mobile.dev/assets/og-v3.png">
+<style>
+:root{
+  --bg:#0b0d0c;--bg2:#111411;--surface:#171b17;--text:#f1f3ed;--muted:#a0a89d;
+  --dim:#727a70;--line:#30372f;--line2:#4c5649;--accent:#d9ff59;--ink:#10120d;
+  --soft:rgba(217,255,89,.09);--max:1440px;--body:760px;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace
+}
+html[data-theme="light"]{
+  --bg:#ecefe8;--bg2:#e5e9e1;--surface:#f5f7f1;--text:#111410;--muted:#565e53;
+  --dim:#798175;--line:#c6ccc1;--line2:#8c9687;--accent:#455f00;--ink:#f7ffdb;--soft:rgba(69,95,0,.08)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;min-width:320px;color:var(--text);background:
+ linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),var(--bg);
+ background-size:56px 56px;font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,select{font:inherit}.progress{position:fixed;z-index:100;inset:0 0 auto;height:3px}.progress span{display:block;width:0;height:100%;background:var(--accent)}
+.header{position:sticky;top:0;z-index:80;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px)}
+.header-in{width:min(var(--max),calc(100% - 40px));min-height:78px;margin:auto;display:grid;grid-template-columns:1fr auto auto;gap:28px;align-items:center}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}.mark{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line2);color:var(--accent);font:800 .82rem var(--mono);letter-spacing:-.08em}
+.brand b{display:block;font-size:.9rem}.brand small{display:block;color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
+.nav{display:flex;gap:24px}.nav a{color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:650}.nav a.active{color:var(--text)}.nav a.active:before{content:"●";color:var(--accent);font-size:.55rem;margin-right:7px}
+.actions{display:flex;gap:8px}.lang,.theme,.menu{min-height:38px;border:1px solid var(--line);border-radius:0;color:var(--text);background:var(--surface);cursor:pointer}
+.lang{padding:0 34px 0 12px;font:700 .72rem var(--mono)}.theme,.menu{width:38px}.menu{display:none}
+.shell{width:min(var(--max),calc(100% - 40px));margin:auto}
+.cover{min-height:min(830px,calc(100svh - 78px));display:grid;grid-template-columns:minmax(0,8fr) minmax(290px,4fr);border-inline:1px solid var(--line);overflow:hidden}
+.cover-main{position:relative;min-height:680px;padding:clamp(48px,8vw,116px) clamp(28px,6vw,88px) 54px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.cover-main:before,.cover-main:after{content:"";position:absolute;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:50%;width:clamp(360px,52vw,820px);aspect-ratio:1;right:-25%;top:18%}
+.cover-main:after{width:clamp(220px,34vw,540px);right:-10%;top:31%}.dot{position:absolute;right:23%;top:52%;width:10px;height:10px;background:var(--accent);box-shadow:0 0 0 8px var(--soft),0 0 32px var(--accent)}
+.kicker,.eyebrow,.label,.meta-label,.panel-label,.mono{font:700 .72rem/1.25 var(--mono);letter-spacing:.105em;text-transform:uppercase}
+.kicker{position:relative;z-index:2;color:var(--accent)}.live{display:inline-block;width:7px;height:7px;background:var(--accent);margin-right:10px;box-shadow:0 0 0 5px var(--soft)}
+.cover-copy{position:relative;z-index:2;margin-top:auto;padding-top:84px}.cover h1{margin:0;max-width:11ch;font-size:clamp(3.3rem,7.7vw,8.8rem);line-height:.87;letter-spacing:-.075em;text-wrap:balance}.accent{color:var(--accent)}
+.deck{max-width:790px;margin:32px 0 0;color:var(--muted);font-size:clamp(1rem,1.55vw,1.3rem)}
+.cover-foot{position:relative;z-index:2;margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font:650 .7rem/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.cover-side{border-left:1px solid var(--line);background:var(--bg2);display:flex;flex-direction:column}.issue-no{position:relative;min-height:330px;padding:30px;border-bottom:1px solid var(--line);overflow:hidden}.issue-no strong{position:absolute;right:-.08em;bottom:-.2em;color:transparent;-webkit-text-stroke:1px var(--line2);font-size:clamp(10rem,24vw,26rem);font-weight:800;line-height:.8;letter-spacing:-.12em}.issue-no span{position:relative;z-index:2;color:var(--muted)}
+.side{padding:29px 30px 34px;display:flex;flex-direction:column;flex:1}.side h2{margin:0 0 24px;color:var(--muted);font:700 .72rem var(--mono);text-transform:uppercase;letter-spacing:.1em}.side ol{list-style:none;margin:0;padding:0}.side li{border-top:1px solid var(--line)}.side a{display:grid;grid-template-columns:32px 1fr auto;gap:10px;padding:14px 0;color:var(--muted);text-decoration:none;font-size:.8rem}.side a:hover{color:var(--text)}.side .s{color:var(--accent);font:700 .63rem var(--mono);text-transform:uppercase}.side-btns{margin-top:auto;padding-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:8px}.btn{min-height:42px;border:1px solid var(--line);background:transparent;color:var(--text);font:700 .67rem var(--mono);text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.decision{border:1px solid var(--line);border-top:0;padding:clamp(42px,7vw,90px) clamp(24px,5vw,74px);background:var(--surface)}.section-head{display:grid;grid-template-columns:minmax(170px,3fr) minmax(0,9fr);gap:28px;margin-bottom:45px}.eyebrow{color:var(--accent);padding-top:.7em}.section-head h2{margin:0;font-size:clamp(2.35rem,5.1vw,5.6rem);line-height:.92;letter-spacing:-.06em;max-width:980px}
+.board{border-top:1px solid var(--line2)}.decision-row{display:grid;grid-template-columns:76px minmax(130px,1.8fr) minmax(0,7fr) 28px;gap:22px;align-items:center;min-height:102px;border-bottom:1px solid var(--line)}.decision-row:hover{background:var(--soft)}.dnum{color:var(--dim);font:700 .7rem var(--mono)}.dtype{color:var(--accent);font:750 .73rem var(--mono);letter-spacing:.09em;text-transform:uppercase}.dcopy{font-size:clamp(1rem,1.65vw,1.25rem);font-weight:600;letter-spacing:-.02em}
+.leads{display:grid;grid-template-columns:1.25fr .75fr;border-inline:1px solid var(--line);border-bottom:1px solid var(--line)}.lead,.small-lead{position:relative;min-height:420px;padding:clamp(28px,5vw,62px);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;overflow:hidden}.lead{border-right:1px solid var(--line);background:var(--bg2)}.small-stack{display:grid;grid-template-rows:1fr 1fr}.small-lead{min-height:210px;padding:30px;border-bottom:1px solid var(--line);background:var(--surface)}.small-lead:last-child{border-bottom:0}.story-meta{display:flex;justify-content:space-between;color:var(--muted);font:700 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.story-meta span:first-child{color:var(--accent)}.story-title{margin:46px 0 20px;max-width:15ch;font-size:clamp(2.3rem,4.7vw,5.1rem);line-height:.93;letter-spacing:-.06em}.small-lead .story-title{margin:28px 0 14px;font-size:clamp(1.7rem,2.65vw,2.65rem)}.story-deck{margin:0;max-width:720px;color:var(--muted)}.arrow{position:absolute;right:25px;bottom:19px;color:var(--accent);font-size:1.6rem}
+.content-grid{display:grid;grid-template-columns:280px minmax(0,1fr);border-inline:1px solid var(--line)}.rail{position:sticky;top:78px;height:calc(100svh - 78px);padding:34px 24px;border-right:1px solid var(--line);background:var(--bg2);overflow:auto}.rail h2{margin:0 0 23px;color:var(--muted);font:700 .69rem var(--mono);text-transform:uppercase;letter-spacing:.1em}.railnav{display:grid}.railnav a{display:grid;grid-template-columns:27px 1fr;gap:9px;padding:9px 8px;color:var(--muted);text-decoration:none;font-size:.75rem;border-left:2px solid transparent}.railnav a.active{color:var(--text);border-left-color:var(--accent);background:var(--soft)}.railnote{margin-top:34px;padding-top:23px;border-top:1px solid var(--line);color:var(--dim);font-size:.72rem}
+.article{padding:clamp(58px,8vw,116px) clamp(24px,7vw,108px);border-bottom:1px solid var(--line)}.article-head,.meta-grid{max-width:1060px;margin-left:auto;margin-right:auto}.label{color:var(--accent);margin-bottom:21px}.article h2{margin:0;max-width:17ch;font-size:clamp(2.55rem,5.1vw,6rem);line-height:.92;letter-spacing:-.066em;text-wrap:balance}.article-lead{max-width:780px;margin:28px 0 0;color:var(--muted);font-size:clamp(1.05rem,1.7vw,1.3rem)}
+.meta-grid{margin-top:54px;margin-bottom:55px;display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}.meta{min-height:86px;padding:16px 17px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:9px}.meta:last-child{border-right:0}.meta-label{color:var(--dim)}.meta strong{font-size:.84rem}.meta strong.accent{color:var(--accent)}
+.article-body{max-width:var(--body);margin:auto;font-size:1.06rem}.article-body p{margin:0 0 1.45em}.article-body h3{margin:2.7em 0 .8em;font-size:clamp(1.5rem,2.5vw,2.1rem);line-height:1.1;letter-spacing:-.04em}.panel{margin:36px 0;padding:25px 27px;border:1px solid var(--line);background:var(--surface)}.panel.fact{border-left:3px solid var(--accent)}.panel.analysis{border-style:dashed;background:var(--soft)}.panel.verdict{color:var(--ink);background:var(--accent);border-color:var(--accent)}.panel-label{margin-bottom:13px;color:var(--muted)}.panel.verdict .panel-label{color:color-mix(in srgb,var(--ink) 65%,transparent)}.panel p:last-child{margin-bottom:0}
+.cost{margin:35px 0;border-top:1px solid var(--line)}.cost div{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--line)}.cost span{color:var(--muted)}.cost strong{text-align:right}.source{display:inline-flex;margin-top:8px;color:var(--accent);font:700 .71rem var(--mono);letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+.actions-board{border:1px solid var(--line);padding:clamp(48px,7vw,88px) clamp(24px,5vw,72px);background:var(--surface)}.cols{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line2)}.col{padding:27px 27px 8px 0;border-right:1px solid var(--line)}.col+.col{padding-left:27px}.col:last-child{border-right:0}.col h3{margin:0 0 23px;color:var(--accent);font:750 .73rem var(--mono);text-transform:uppercase;letter-spacing:.09em}.col ol{list-style:none;padding:0;margin:0;counter-reset:item}.col li{counter-increment:item;position:relative;padding:13px 0 13px 33px;border-top:1px solid var(--line);color:var(--muted)}.col li:before{content:counter(item,decimal-leading-zero);position:absolute;left:0;top:17px;color:var(--dim);font:700 .62rem var(--mono)}
+.sources{border-inline:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(50px,7vw,86px) clamp(24px,5vw,72px);background:var(--bg2)}.sources ol{list-style:none;padding:0;margin:42px 0 0;border-top:1px solid var(--line2)}.sources li{border-bottom:1px solid var(--line)}.sources a{display:grid;grid-template-columns:52px 1fr auto;gap:19px;align-items:center;min-height:70px;color:var(--muted);text-decoration:none}.sources a:hover{color:var(--text)}.domain{color:var(--accent);font:700 .64rem var(--mono);text-transform:uppercase}
+.cta{position:relative;padding:clamp(70px,10vw,138px) clamp(24px,7vw,98px);border-inline:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}.cta:after{content:"MD";position:absolute;right:-.04em;bottom:-.28em;color:transparent;-webkit-text-stroke:1px var(--line);font-size:clamp(13rem,34vw,35rem);font-weight:850;line-height:1;letter-spacing:-.13em}.cta-in{position:relative;z-index:2;max-width:920px}.cta h2{margin:20px 0 28px;max-width:12ch;font-size:clamp(3rem,7vw,7.8rem);line-height:.89;letter-spacing:-.07em}.cta p{max-width:650px;color:var(--muted);font-size:1.07rem}.primary{display:inline-flex;align-items:center;gap:12px;min-height:52px;margin-top:22px;padding:0 19px;color:var(--ink);background:var(--accent);text-decoration:none;font:750 .73rem var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.footer{width:min(var(--max),calc(100% - 40px));margin:auto;padding:28px 0 44px;display:flex;justify-content:space-between;gap:25px;color:var(--dim);font-size:.73rem}
+.mobilebar,.mobilepanel{display:none}
+@media(max-width:1100px){.nav{display:none}.header-in{grid-template-columns:1fr auto}.menu{display:block}.cover{grid-template-columns:1fr}.cover-side{border-left:0;border-top:1px solid var(--line);display:grid;grid-template-columns:230px 1fr}.issue-no{min-height:260px;border-bottom:0;border-right:1px solid var(--line)}.side ol{columns:2}.content-grid{grid-template-columns:1fr}.rail{display:none}.mobilebar{position:sticky;top:78px;z-index:60;display:flex;justify-content:space-between;align-items:center;min-height:52px;padding:0 20px;border-inline:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}.mobilebar button{border:0;background:transparent;color:var(--text);font:700 .68rem var(--mono);text-transform:uppercase}.mobilepanel.open{position:fixed;inset:130px 20px 20px;z-index:95;display:block;padding:24px;border:1px solid var(--line2);background:var(--bg2);overflow:auto;box-shadow:0 30px 90px #0009}.close{float:right;width:38px;height:38px;border:1px solid var(--line);background:var(--surface);color:var(--text)}}
+@media(max-width:820px){.header-in,.shell,.footer{width:min(100% - 24px,var(--max))}.header-in{min-height:70px}.brand small{display:none}.cover-side{grid-template-columns:1fr}.issue-no{min-height:170px;border-right:0;border-bottom:1px solid var(--line)}.side ol{columns:1}.section-head{grid-template-columns:1fr;gap:12px}.decision-row{grid-template-columns:42px 110px 1fr;gap:12px}.leads{grid-template-columns:1fr}.lead{border-right:0;border-bottom:1px solid var(--line)}.small-stack{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.small-lead:first-child{border-right:1px solid var(--line)}.meta-grid{grid-template-columns:1fr 1fr}.meta:nth-child(2){border-right:0}.meta:nth-child(-n+2){border-bottom:1px solid var(--line)}.cols{grid-template-columns:1fr}.col,.col+.col{padding:26px 0;border-right:0;border-bottom:1px solid var(--line)}.col:last-child{border-bottom:0}.footer{flex-direction:column}}
+@media(max-width:560px){body{background-size:36px 36px}.brand b{display:none}.cover-main{min-height:calc(100svh - 70px);padding:34px 20px 28px}.cover h1{font-size:clamp(3.2rem,17vw,5.7rem)}.cover-foot{flex-direction:column;gap:7px}.side{padding:24px 20px 29px}.decision,.actions-board,.sources{padding-inline:20px}.decision-row{grid-template-columns:34px 1fr;padding:16px 0}.dtype,.dcopy{grid-column:2}.small-stack{grid-template-columns:1fr}.small-lead:first-child{border-right:0;border-bottom:1px solid var(--line)}.lead,.small-lead{min-height:300px;padding:24px 20px}.small-lead{min-height:230px}.article{padding-inline:20px}.article h2{font-size:clamp(2.4rem,13vw,4.3rem)}.meta-grid{grid-template-columns:1fr}.meta,.meta:nth-child(2){min-height:69px;border-right:0;border-bottom:1px solid var(--line)}.meta:last-child{border-bottom:0}.panel{padding:21px 19px}.cost div{grid-template-columns:1fr;gap:4px}.cost strong{text-align:left}.mobilebar{top:70px}.mobilepanel.open{inset:122px 12px 12px}.sources a{grid-template-columns:35px 1fr;padding:14px 0}.domain{grid-column:2}}
+@media print{.header,.cover-side,.rail,.mobilebar,.cta,.footer,.side-btns{display:none!important}body{background:#fff;color:#000}.shell{width:100%}.cover{display:block;min-height:auto}.cover-main{min-height:auto}.content-grid{display:block}.panel.verdict{color:#000;background:#eee}.article{break-inside:avoid}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="progress"><span id="progress"></span></div>
+
+<header class="header">
+  <div class="header-in">
+    <a class="brand" id="brandLink" href="/">
+      <span class="mark">MD</span><span><b>Max Dymnoff</b><small id="role"></small></span>
+    </a>
+    <nav class="nav">
+      <a id="navServices" href="/#expertise"></a>
+      <a id="navCases" href="/#work"></a>
+      <a id="navJournal" class="active" href="/#journal"></a>
+      <a id="navWork" href="/#engagement"></a>
+    </nav>
+    <div class="actions">
+      <select class="lang" id="lang" aria-label="Language"><option value="en">EN</option><option value="es">ES</option><option value="pt">PT</option><option value="ru">RU</option></select>
+      <button class="theme" id="theme" aria-label="Theme">◐</button>
+      <button class="menu" id="menu" aria-label="Contents">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="shell">
+  <section class="cover">
+    <div class="cover-main">
+      <span class="dot"></span>
+      <div class="kicker"><span class="live"></span>MAX.D / SIGNAL · <span id="coverKicker"></span></div>
+      <div class="cover-copy">
+        <h1 id="coverTitle"></h1>
+        <p class="deck" id="coverDeck"></p>
+      </div>
+      <div class="cover-foot"><span id="date"></span><span id="read"></span><span id="sourcePolicy"></span></div>
+    </div>
+    <aside class="cover-side">
+      <div class="issue-no"><span class="mono" id="issueNo">Issue / 001</span><strong>01</strong></div>
+      <div class="side">
+        <h2 id="inIssue"></h2><ol id="coverToc"></ol>
+        <div class="side-btns"><button class="btn" id="copy"></button><button class="btn" onclick="print()" id="print"></button></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="decision">
+    <div class="section-head"><div class="eyebrow" id="decisionKicker">Decision board / 01</div><h2 id="decisionHeading"></h2></div>
+    <div class="board" id="board"></div>
+  </section>
+
+  <section class="leads">
+    <a class="lead" href="#article-1"><div class="story-meta"><span>01 / Kotlin Multiplatform</span><span id="leadStatus"></span></div><div><h2 class="story-title" id="leadTitle"></h2><p class="story-deck" id="leadDeck"></p></div><span class="arrow">↗</span></a>
+    <div class="small-stack">
+      <a class="small-lead" href="#article-3"><div class="story-meta"><span>03 / Media3</span><span id="smallStatus1"></span></div><div><h2 class="story-title" id="smallTitle1"></h2><p class="story-deck" id="smallDeck1"></p></div><span class="arrow">↗</span></a>
+      <a class="small-lead" href="#article-4"><div class="story-meta"><span>04 / Android</span><span id="smallStatus2"></span></div><div><h2 class="story-title" id="smallTitle2"></h2><p class="story-deck" id="smallDeck2"></p></div><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <div class="mobilebar"><span class="mono" id="mobileIssueNo">Issue / 001</span><button id="openContents"></button></div>
+  <div class="mobilepanel" id="mobilePanel"><button class="close" id="close" aria-label="Close contents">×</button><h2 class="mono" id="mobileIssue"></h2><nav class="railnav" id="mobileNav"></nav></div>
+
+  <section class="content-grid">
+    <aside class="rail"><h2 id="railTitle"></h2><nav class="railnav" id="railNav"></nav><p class="railnote" id="railNote"></p></aside>
+    <div id="articles"></div>
+  </section>
+
+  <section class="actions-board">
+    <div class="section-head"><div class="eyebrow" id="actionKicker">Action list / 02</div><h2 id="actionHeading"></h2></div>
+    <div class="cols" id="actionCols"></div>
+  </section>
+
+  <section class="sources">
+    <div class="section-head"><div class="eyebrow" id="sourcesKicker">Sources / 03</div><h2 id="sourcesHeading"></h2></div>
+    <ol id="sources"></ol>
+  </section>
+
+  <section class="cta">
+    <div class="cta-in"><div class="eyebrow">MAX.D / Mobile engineering</div><h2 id="ctaTitle"></h2><p id="ctaCopy"></p><a class="primary" id="ctaLink" href="/#contact"><span id="ctaButton"></span> ↗</a></div>
+  </section>
+</main>
+<footer class="footer"><span>© Dymnoff Software Labs SAS · Max Dymnoff</span><span id="footerLocation">Montevideo, Uruguay · Remote worldwide</span></footer>
+
+<script>
+const sources=[
+ ["What’s new in Kotlin EAP","kotlinlang.org","https://kotlinlang.org/docs/whatsnew-eap.html"],
+ ["Media3 release notes","developer.android.com","https://developer.android.com/jetpack/androidx/releases/media3"],
+ ["Upcoming changes to Nearby Connections","android-developers.googleblog.com","https://android-developers.googleblog.com/2026/07/upcoming-changes-nearby-connections-api.html"],
+ ["Android Studio Quail 2 stable features","android-developers.googleblog.com","https://android-developers.googleblog.com/2026/06/android-studio-quail-2-stable-features.html"],
+ ["AndroidX Tracing release notes","developer.android.com","https://developer.android.com/jetpack/androidx/releases/tracing"],
+ ["Android on-device inference","android-developers.googleblog.com","https://android-developers.googleblog.com/2026/07/android-on-device-inference.html"],
+ ["Cloud and hybrid inference on Android","android-developers.googleblog.com","https://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-cloud-hybrid-inference.html"],
+ ["React Native 0.86","reactnative.dev","https://reactnative.dev/blog/2026/06/11/react-native-0.86"]
+];
+
+const ui={
+ru:{
+ metaTitle:"Решения недели в мобильной разработке — MAX.D / SIGNAL 001",metaDescription:"Еженедельный инженерный дайджест об Android и кроссплатформенной разработке: факты, риски и практические решения.",
+ role:"Мобильный консультант · Full-stack разработчик",nav:["Услуги","Кейсы","Журнал","Форматы работы"],
+ languageLabel:"Язык",themeLabel:"Сменить тему",menuLabel:"Открыть содержание",closeLabel:"Закрыть содержание",issueNo:"Выпуск / 001",decisionKicker:"Карта решений / 01",actionKicker:"План действий / 02",sourcesKicker:"Источники / 03",footerLocation:"Монтевидео, Уругвай · Работаю удалённо по всему миру",
+ coverKicker:"Инженерный журнал",coverTitle:'Изменения в мобильной разработке, <span class="accent">которые требуют решений.</span>',
+ coverDeck:"Kotlin улучшает экспорт в Swift, Media3 исправляет опасную работу с памятью, Nearby Connections меняет управление Wi-Fi и Bluetooth, а ИИ в Android начинает превращаться в отдельный слой выполнения.",
+ date:"27 июля 2026",read:"10 минут чтения",sourcePolicy:"В основе — преимущественно англоязычные первоисточники",
+ inIssue:"В этом выпуске",copy:"Копировать ссылку",copied:"Ссылка скопирована",print:"Печать / PDF",
+ decisionHeading:"Что делать с изменениями этой недели.",
+ leadStatus:"Тестировать",leadTitle:"Kotlin наконец начинает нормально говорить со Swift.",leadDeck:"Sealed-иерархии, наследование между языками и более быстрая инкрементальная компиляция делают новый экспорт в Swift действительно полезным.",
+ smallStatus1:"Внедрять",smallTitle1:"KtorDataSource больше не должен загружать ответ целиком.",smallDeck1:"RC-версия исправляет поведение, которое могло вызывать резкий рост heap и OOM на больших медиаданных.",
+ smallStatus2:"Планировать",smallTitle2:"Теперь приложение должно само следить за готовностью Wi-Fi и Bluetooth.",smallDeck2:"Сценарий подключения придётся перестроить до изменения поведения платформы.",
+ openContents:"Открыть содержание",railNote:"Подтверждённые факты, редакционные выводы и ранние сигналы оформлены отдельно, чтобы уровень уверенности был понятен.",
+ actionHeading:"Работа на ближайшую неделю.",sourcesHeading:"Первоисточники этого выпуска.",
+ ctaTitle:"Создаёте или модернизируете сложный мобильный продукт?",ctaCopy:"Могу взять на себя архитектуру, серверную часть, приложения для Android и iOS, производительность или весь путь до выпуска.",ctaButton:"Обсудить проект",
+ labels:["Зрелость","Решение","Влияние","Риск","Подтверждено источником","Редакционный анализ","Стоимость перехода","Вердикт","Открыть первоисточник"],
+ decisions:[
+  ["Внедрять","Обновить Android Studio и сделать поиск утечек памяти частью обычного цикла разработки."],
+  ["Тестировать","Проверить Kotlin 2.4.20-Beta2 и новый экспорт в Swift в изолированной KMP-ветке."],
+  ["Планировать","Продумать сценарий проверки Wi-Fi и Bluetooth в продуктах с Nearby Connections."],
+  ["Наблюдать","Маршрутизация ИИ между устройством и облаком и AppFunctions перспективны, но пока не подходят на роль основы production-архитектуры."]
+ ],
+ actionTitles:["Действовать","Тестировать","Наблюдать"],
+ actions:[
+  ["Обновить Android Studio до Quail 2.","Проверить Media3 RC на больших медиаданных, которые загружаются через Ktor.","Добавить проверку готовности Wi-Fi и Bluetooth в план работ по Nearby Connections."],
+  ["Kotlin 2.4.20-Beta2 в отдельной KMP-ветке.","Экспорт sealed-иерархий в Swift и наследование между языками.","AndroidX Tracing 2.0 на одном ресурсоёмком пользовательском сценарии."],
+  ["Нативный образ компилятора Kotlin.","Firebase Hybrid Inference и AppFunctions.","Следующие стабильные релизы Compose Multiplatform и Swift."]
+ ]
+},
+en:{
+ metaTitle:"Mobile engineering decisions — MAX.D / SIGNAL 001",metaDescription:"A weekly engineering journal on Android and cross-platform development, with source-backed analysis and practical decisions.",
+ role:"Mobile consultant · Full-stack mobile app developer",nav:["Services","Case studies","Journal","Ways to work"],
+ languageLabel:"Language",themeLabel:"Switch theme",menuLabel:"Open contents",closeLabel:"Close contents",issueNo:"Issue / 001",decisionKicker:"Decision board / 01",actionKicker:"Action list / 02",sourcesKicker:"Sources / 03",footerLocation:"Montevideo, Uruguay · Remote worldwide",
+ coverKicker:"Engineering journal",coverTitle:'Mobile changes <span class="accent">worth making decisions about.</span>',
+ coverDeck:"Kotlin improves Swift export, Media3 fixes a high-risk memory behavior, Nearby Connections changes radio-state handling, and Android’s AI stack starts to look like a distinct execution layer.",
+ date:"27 July 2026",read:"10 min read",sourcePolicy:"Based primarily on first-party English-language sources",
+ inIssue:"In this issue",copy:"Copy link",copied:"Link copied",print:"Print / PDF",
+ decisionHeading:"What to do with this week’s changes.",
+ leadStatus:"Test now",leadTitle:"Kotlin is finally learning to speak Swift properly.",leadDeck:"Sealed hierarchies, cross-language inheritance, and faster incremental compilation make the new Swift export genuinely useful.",
+ smallStatus1:"Act now",smallTitle1:"KtorDataSource should no longer buffer the whole response.",smallDeck1:"The RC fixes behavior that could trigger heap spikes and OOMs on large media responses.",
+ smallStatus2:"Plan",smallTitle2:"Nearby Connections puts radio readiness in the app’s hands.",smallDeck2:"Connection UX needs to change before the platform behavior does.",
+ openContents:"Open contents",railNote:"Confirmed facts, editorial conclusions, and early signals use separate treatments to make confidence explicit.",
+ actionHeading:"Engineering work for the coming week.",sourcesHeading:"Primary material behind this issue.",
+ ctaTitle:"Building or modernizing a complex mobile product?",ctaCopy:"I can take ownership of architecture, backend, Android and iOS clients, performance, or the full route to release.",ctaButton:"Discuss a project",
+ labels:["Maturity","Decision","Impact","Risk","Confirmed by source","Editorial analysis","Migration cost","Verdict","Open primary source"],
+ decisions:[
+  ["Act now","Update Android Studio and make memory-leak checks part of the normal delivery loop."],
+  ["Test","Evaluate Kotlin 2.4.20-Beta2 and the new Swift export in an isolated KMP branch."],
+  ["Plan","Design explicit Wi-Fi and Bluetooth readiness UX for products using Nearby Connections."],
+  ["Watch","On-device and cloud AI routing and AppFunctions are promising, but not yet a production foundation."]
+ ],
+ actionTitles:["Act","Test","Watch"],
+ actions:[
+  ["Update Android Studio to Quail 2.","Run the Media3 RC against large media responses delivered through Ktor.","Add Wi-Fi and Bluetooth readiness to the Nearby Connections backlog."],
+  ["Kotlin 2.4.20-Beta2 in an isolated KMP branch.","Swift export for sealed hierarchies and cross-language inheritance.","AndroidX Tracing 2.0 on one expensive user flow."],
+  ["The Kotlin compiler native image.","Firebase Hybrid Inference and AppFunctions.","The next stable Compose Multiplatform and Swift releases."]
+ ]
+},
+es:{
+ metaTitle:"Decisiones de ingeniería móvil — MAX.D / SIGNAL 001",metaDescription:"Una revista semanal sobre Android y desarrollo multiplataforma, con análisis basado en fuentes y decisiones prácticas.",
+ role:"Consultor de productos móviles · Desarrollador full-stack",nav:["Servicios","Casos","Revista","Formas de trabajo"],
+ languageLabel:"Idioma",themeLabel:"Cambiar tema",menuLabel:"Abrir el contenido",closeLabel:"Cerrar el contenido",issueNo:"Edición / 001",decisionKicker:"Mapa de decisiones / 01",actionKicker:"Plan de acción / 02",sourcesKicker:"Fuentes / 03",footerLocation:"Montevideo, Uruguay · Trabajo remoto en todo el mundo",
+ coverKicker:"Revista de ingeniería",coverTitle:'Cambios en el desarrollo móvil <span class="accent">que exigen tomar decisiones.</span>',
+ coverDeck:"Kotlin mejora la exportación a Swift, Media3 corrige un problema grave de memoria, Nearby Connections cambia la gestión de Wi-Fi y Bluetooth, y la IA en Android empieza a tomar forma como una capa de ejecución propia.",
+ date:"27 de julio de 2026",read:"10 min de lectura",sourcePolicy:"Basado principalmente en fuentes primarias en inglés",
+ inIssue:"En esta edición",copy:"Copiar enlace",copied:"Enlace copiado",print:"Imprimir / PDF",
+ decisionHeading:"Qué conviene hacer con los cambios de esta semana.",
+ leadStatus:"Probar",leadTitle:"Kotlin por fin empieza a entenderse bien con Swift.",leadDeck:"Las jerarquías sealed, la herencia entre lenguajes y una compilación incremental más rápida hacen que la nueva exportación a Swift resulte realmente útil.",
+ smallStatus1:"Implementar",smallTitle1:"KtorDataSource ya no debería cargar toda la respuesta en memoria.",smallDeck1:"La versión candidata corrige un comportamiento que podía provocar picos de uso del heap y errores OOM con archivos multimedia grandes.",
+ smallStatus2:"Planificar",smallTitle2:"La app tendrá que comprobar el estado de Wi-Fi y Bluetooth.",smallDeck2:"El flujo de conexión deberá cambiar antes que el comportamiento de la plataforma.",
+ openContents:"Abrir el contenido",railNote:"Los hechos confirmados, las conclusiones editoriales y las señales tempranas se presentan por separado para dejar claro el nivel de certeza.",
+ actionHeading:"Trabajo de ingeniería para la próxima semana.",sourcesHeading:"Fuentes primarias de esta edición.",
+ ctaTitle:"¿Estás creando o modernizando un producto móvil complejo?",ctaCopy:"Puedo hacerme cargo de la arquitectura, el backend, los clientes para Android y iOS, el rendimiento o todo el camino hasta el lanzamiento.",ctaButton:"Hablemos del proyecto",
+ labels:["Madurez","Decisión","Impacto","Riesgo","Confirmado por la fuente","Análisis editorial","Costo de migración","Veredicto","Abrir la fuente primaria"],
+ decisions:[
+  ["Implementar","Actualizar Android Studio e incorporar la detección de fugas de memoria al ciclo habitual de desarrollo."],
+  ["Probar","Evaluar Kotlin 2.4.20-Beta2 y la nueva exportación a Swift en una rama KMP aislada."],
+  ["Planificar","Diseñar un flujo explícito para comprobar Wi-Fi y Bluetooth en productos que usan Nearby Connections."],
+  ["Observar","La ejecución de IA en el dispositivo o en la nube y AppFunctions son prometedoras, pero todavía no constituyen una base para producción."]
+ ],
+ actionTitles:["Actuar","Probar","Observar"],
+ actions:[
+  ["Actualizar Android Studio a Quail 2.","Probar la versión candidata de Media3 con archivos multimedia grandes servidos mediante Ktor.","Agregar la comprobación de Wi-Fi y Bluetooth al backlog de Nearby Connections."],
+  ["Kotlin 2.4.20-Beta2 en una rama KMP aislada.","Exportación a Swift de jerarquías sealed y herencia entre lenguajes.","AndroidX Tracing 2.0 en un flujo de usuario costoso."],
+  ["La imagen nativa del compilador de Kotlin.","Firebase Hybrid Inference y AppFunctions.","Las próximas versiones estables de Compose Multiplatform y Swift."]
+ ]
+},
+pt:{
+ metaTitle:"Decisões de engenharia mobile — MAX.D / SIGNAL 001",metaDescription:"Uma revista semanal sobre Android e desenvolvimento multiplataforma, com análise baseada em fontes e decisões práticas.",
+ role:"Consultor de produtos mobile · Desenvolvedor full-stack",nav:["Serviços","Projetos","Revista","Formas de trabalho"],
+ languageLabel:"Idioma",themeLabel:"Alternar tema",menuLabel:"Abrir o conteúdo",closeLabel:"Fechar o conteúdo",issueNo:"Edição / 001",decisionKicker:"Mapa de decisões / 01",actionKicker:"Plano de ação / 02",sourcesKicker:"Fontes / 03",footerLocation:"Montevidéu, Uruguai · Trabalho remoto para o mundo todo",
+ coverKicker:"Revista de engenharia",coverTitle:'Mudanças no desenvolvimento mobile <span class="accent">que exigem decisões.</span>',
+ coverDeck:"Kotlin melhora a exportação para Swift, Media3 corrige um problema grave de memória, Nearby Connections muda o controle de Wi-Fi e Bluetooth, e a IA no Android começa a tomar forma como uma camada própria de execução.",
+ date:"27 de julho de 2026",read:"10 min de leitura",sourcePolicy:"Baseado principalmente em fontes primárias em inglês",
+ inIssue:"Nesta edição",copy:"Copiar link",copied:"Link copiado",print:"Imprimir / PDF",
+ decisionHeading:"O que fazer com as mudanças desta semana.",
+ leadStatus:"Testar",leadTitle:"Kotlin finalmente começa a conversar melhor com Swift.",leadDeck:"Hierarquias sealed, herança entre linguagens e compilação incremental mais rápida tornam a nova exportação para Swift realmente útil.",
+ smallStatus1:"Adotar",smallTitle1:"KtorDataSource não deve mais carregar a resposta inteira na memória.",smallDeck1:"A versão candidata corrige um comportamento que podia causar picos de heap e erros OOM com arquivos de mídia grandes.",
+ smallStatus2:"Planejar",smallTitle2:"O app terá que verificar o estado do Wi-Fi e do Bluetooth.",smallDeck2:"O fluxo de conexão precisa mudar antes do comportamento da plataforma.",
+ openContents:"Abrir o conteúdo",railNote:"Fatos confirmados, conclusões editoriais e sinais iniciais aparecem separados para deixar claro o grau de certeza.",
+ actionHeading:"Trabalho de engenharia para a próxima semana.",sourcesHeading:"Fontes primárias desta edição.",
+ ctaTitle:"Está criando ou modernizando um produto mobile complexo?",ctaCopy:"Posso assumir a arquitetura, o backend, os clientes para Android e iOS, a performance ou todo o caminho até o lançamento.",ctaButton:"Conversar sobre o projeto",
+ labels:["Maturidade","Decisão","Impacto","Risco","Confirmado pela fonte","Análise editorial","Custo de migração","Veredito","Abrir a fonte primária"],
+ decisions:[
+  ["Adotar","Atualizar o Android Studio e incorporar a detecção de vazamentos de memória ao fluxo normal de desenvolvimento."],
+  ["Testar","Avaliar Kotlin 2.4.20-Beta2 e a nova exportação para Swift em uma branch KMP isolada."],
+  ["Planejar","Projetar um fluxo explícito para verificar Wi-Fi e Bluetooth em produtos que usam Nearby Connections."],
+  ["Acompanhar","A execução de IA no dispositivo ou na nuvem e AppFunctions são promissoras, mas ainda não formam uma base para produção."]
+ ],
+ actionTitles:["Agir","Testar","Acompanhar"],
+ actions:[
+  ["Atualizar o Android Studio para Quail 2.","Testar a versão candidata do Media3 com arquivos de mídia grandes entregues via Ktor.","Adicionar a verificação de Wi-Fi e Bluetooth ao backlog de Nearby Connections."],
+  ["Kotlin 2.4.20-Beta2 em uma branch KMP isolada.","Exportação para Swift de hierarquias sealed e herança entre linguagens.","AndroidX Tracing 2.0 em um fluxo de usuário pesado."],
+  ["A imagem nativa do compilador Kotlin.","Firebase Hybrid Inference e AppFunctions.","As próximas versões estáveis do Compose Multiplatform e do Swift."]
+ ]
+}
+};
+
+const articleCore=[
+{
+ topic:["Kotlin Multiplatform","Kotlin Multiplatform","Kotlin Multiplatform","Kotlin Multiplatform"],
+ status:["Тестировать","Test","Probar","Testar"],
+ title:["Kotlin 2.4.20-Beta2 делает экспорт в Swift заметно практичнее.","Kotlin 2.4.20-Beta2 makes Swift export substantially more practical.","Kotlin 2.4.20-Beta2 vuelve mucho más práctica la exportación a Swift.","Kotlin 2.4.20-Beta2 torna a exportação para Swift muito mais prática."],
+ lead:["Главные изменения улучшают границу между общим Kotlin-кодом и нативной частью приложения для iOS.","The important changes improve the boundary between shared Kotlin code and the native iOS layer.","Los cambios más importantes mejoran la frontera entre el código Kotlin compartido y la capa nativa de iOS.","As mudanças mais importantes melhoram a fronteira entre o código Kotlin compartilhado e a camada nativa do iOS."],
+ meta:[["Beta","Тестировать","Архитектура · время сборки","Средний"],["Beta","Test","Architecture · build time","Medium"],["Beta","Probar","Arquitectura · tiempo de compilación","Medio"],["Beta","Testar","Arquitetura · tempo de compilação","Médio"]],
+ confirmed:["В beta-версии по умолчанию включена инкрементальная компиляция klib, а экспорт в Swift получил поддержку sealed-иерархий, наследования между языками и генерации Package.swift для XCFramework.","The beta enables incremental klib compilation by default and expands Swift export with sealed hierarchies, cross-language inheritance, and Package.swift generation.","La beta activa por defecto la compilación incremental de klib y amplía la exportación a Swift con jerarquías sealed, herencia entre lenguajes y generación de Package.swift.","A beta ativa por padrão a compilação incremental de klib e amplia a exportação para Swift com hierarquias sealed, herança entre linguagens e geração de Package.swift."],
+ body:[
+  ["Для KMP-команд это может оказаться важнее большинства языковых новшеств: повседневная стоимость разработки часто определяется циклом «изменил общий код — запустил iOS».","Экспорт sealed-типов и реализация Kotlin-контрактов в Swift сокращают количество ручных адаптеров между платформами."],
+  ["For KMP teams this may matter more than most language features: the everyday cost is often the loop between changing shared code and running iOS.","Sealed export and Swift implementations of Kotlin contracts reduce hand-written platform adapters."],
+  ["Para los equipos KMP esto puede importar más que muchas funciones nuevas del lenguaje: el costo diario suele estar en el ciclo «cambiar código compartido y ejecutar iOS».","La exportación de tipos sealed y las implementaciones en Swift de contratos Kotlin reducen la cantidad de adaptadores manuales."],
+  ["Para equipes KMP isso pode importar mais do que muitos recursos novos da linguagem: o custo diário costuma estar no ciclo entre alterar o código compartilhado e executar o app no iOS.","A exportação de tipos sealed e as implementações em Swift de contratos Kotlin reduzem a quantidade de adaptadores manuais."]
+ ],
+ analysis:["Узкое место KMP смещается от совместного использования кода к качеству экспортируемого API для Swift.","KMP’s bottleneck is shifting from code sharing to the quality of the exported Swift API.","El cuello de botella de KMP se desplaza del código compartido a la calidad del API exportado a Swift.","O gargalo do KMP está mudando do compartilhamento de código para a qualidade da API exportada para Swift."],
+ migration:[["Изменения кода","Средние","Риск для сборки","Высокий"],["Code changes","Medium","Build risk","High"],["Cambios de código","Medios","Riesgo de compilación","Alto"],["Mudanças de código","Médias","Risco de compilação","Alto"]],
+ verdict:["Экспортировать один небольшой вертикальный сценарий. Не переписывать весь мост к Swift на beta-инструментах.","Export one limited vertical slice. Do not rewrite the entire Swift bridge on a beta toolchain.","Exportar un flujo vertical acotado. No reescribir todo el puente con Swift usando herramientas beta.","Exportar um fluxo vertical limitado. Não reescrever toda a ponte com Swift usando ferramentas beta."],
+ source:0
+},
+{
+ topic:["Инструменты Kotlin","Kotlin tooling","Herramientas de Kotlin","Ferramentas Kotlin"],
+ status:["Наблюдать","Watch","Observar","Acompanhar"],
+ title:["Нативный образ компилятора делает инструменты Kotlin более независимыми.","Compiler native image points toward more independent Kotlin tooling.","La imagen nativa del compilador apunta a herramientas de Kotlin más independientes.","A imagem nativa do compilador aponta para ferramentas Kotlin mais independentes."],
+ lead:["Сигнал важен для экосистемы сборки, но обычному Android-проекту пока почти нечего внедрять.","The ecosystem signal matters, but an ordinary Android product has little to adopt today.","La señal importa para el ecosistema, pero un producto Android normal tiene poco que adoptar hoy.","O sinal importa para o ecossistema, mas um produto Android comum tem pouco a adotar hoje."],
+ meta:[["Эксперимент","Наблюдать","Инструменты · CI","Высокий"],["Experimental","Watch","Tooling · CI","High"],["Experimental","Observar","Herramientas · CI","Alto"],["Experimental","Acompanhar","Ferramentas · CI","Alto"]],
+ confirmed:["JetBrains показала экспериментальный kotlinc в виде нативного образа и расширяет Build Tools API за пределы JVM.","JetBrains introduced an experimental native-image kotlinc and is expanding Build Tools API beyond JVM.","JetBrains presentó un kotlinc experimental como imagen nativa y amplía Build Tools API más allá de la JVM.","A JetBrains apresentou um kotlinc experimental como imagem nativa e está ampliando a Build Tools API para além da JVM."],
+ body:[
+  ["Нативный образ компилятора может снизить накладные расходы коротких запусков и пригодиться для CLI-инструментов, Bazel и удалённых сборочных узлов.","Это инфраструктурная основа, а не функция продукта."],
+  ["A native compiler image may reduce the cost of short compiler invocations for CLI tools, Bazel, and remote workers.","This is infrastructure groundwork rather than a product feature."],
+  ["Una imagen nativa puede reducir el costo de ejecuciones breves del compilador en herramientas de línea de comandos, Bazel y nodos de compilación remotos.","Es una base de infraestructura, no una función del producto."],
+  ["Uma imagem nativa pode reduzir o custo de execuções curtas do compilador em ferramentas de linha de comando, Bazel e nós remotos de compilação.","É uma base de infraestrutura, não um recurso do produto."]
+ ],
+ analysis:["Польза проявится позже — в более устойчивых интеграциях со сборочными системами.","The benefit should appear later through more stable build integrations.","El beneficio debería aparecer más adelante, mediante integraciones más estables con los sistemas de compilación.","O benefício deve aparecer mais adiante, em integrações mais estáveis com os sistemas de compilação."],
+ migration:[["Изменения кода","Нет","Риск для сборки","Очень высокий"],["Code changes","None","Build risk","Very high"],["Cambios de código","Ninguno","Riesgo de compilación","Muy alto"],["Mudanças de código","Nenhuma","Risco de compilação","Muito alto"]],
+ verdict:["Не внедрять в обычный продуктовый репозиторий. Следить за развитием стоит командам, которые отвечают за инструменты сборки.","Do not adopt in an ordinary product repository. Track it if you own tooling.","No adoptarlo en un repositorio de producto convencional. Conviene seguirlo si el equipo mantiene herramientas de compilación.","Não adotar em um repositório de produto comum. Vale acompanhar se a equipe mantém ferramentas de compilação."],
+ source:0
+},
+{
+ topic:["Media3","Media3","Media3","Media3"],
+ status:["Внедрять","Act","Implementar","Adotar"],
+ title:["Media3 1.11 RC исправляет опасное поведение KtorDataSource.","Media3 1.11 RC fixes dangerous KtorDataSource behavior.","Media3 1.11 RC corrige un comportamiento peligroso de KtorDataSource.","Media3 1.11 RC corrige um comportamento perigoso do KtorDataSource."],
+ lead:["Источник данных мог загрузить всё тело HTTP-ответа в память до начала нормального потокового воспроизведения.","The source could load the entire HTTP response body into memory before normal streaming playback.","La fuente de datos podía cargar todo el cuerpo de la respuesta HTTP en memoria antes de iniciar la reproducción en streaming.","A fonte de dados podia carregar todo o corpo da resposta HTTP na memória antes de iniciar a reprodução por streaming."],
+ meta:[["RC","Тестировать сейчас","Производительность · память","Средний"],["RC","Test now","Performance · memory","Medium"],["RC","Probar ahora","Rendimiento · memoria","Medio"],["RC","Testar agora","Performance · memória","Médio"]],
+ confirmed:["RC-версия исправляет загрузку всего ответа в KtorDataSource, а также проблемы с перемоткой, foreground service, HLS, DASH и Cast.","The RC fixes full-response loading in KtorDataSource plus issues in seeking, foreground services, HLS, DASH, and Cast.","La versión candidata corrige la carga completa de la respuesta en KtorDataSource y problemas de búsqueda, servicios en primer plano, HLS, DASH y Cast.","A versão candidata corrige o carregamento completo da resposta no KtorDataSource e problemas de busca, serviços em primeiro plano, HLS, DASH e Cast."],
+ body:[
+  ["На больших MP4-файлах, подкастах и длинных аудиозаписях это могло вызывать резкий рост heap, задержку запуска и OOM.","Особое внимание стоит уделить ответам без Content-Length, передаче частями, предварительной загрузке и скачиванию."],
+  ["On large MP4 files, podcasts, and long audio this could cause heap spikes, delayed startup, and OOMs.","Pay particular attention to responses without Content-Length, chunked transfer, and preload/download."],
+  ["Con archivos MP4 grandes, podcasts y audios largos podía provocar picos de uso del heap, demoras al iniciar y errores OOM.","Conviene revisar especialmente las respuestas sin Content-Length, la transferencia por bloques, la precarga y las descargas."],
+  ["Com arquivos MP4 grandes, podcasts e áudios longos, isso podia causar picos de heap, atraso no início e erros OOM.","Vale revisar especialmente respostas sem Content-Length, transferência em blocos, pré-carregamento e downloads."]
+ ],
+ analysis:["HTTP-абстракция сама по себе не гарантирует потоковую обработку; без профилирования памяти такой дефект легко пропустить.","An HTTP abstraction does not guarantee streaming semantics; memory profiling is what exposes this class of defect.","Una abstracción HTTP no garantiza por sí sola el procesamiento en streaming; este tipo de defecto se descubre al perfilar la memoria.","Uma abstração HTTP não garante por si só o processamento por streaming; esse tipo de defeito aparece ao analisar o uso de memória."],
+ migration:[["Изменения кода","Низкие","Регрессионный риск","Средний"],["Code changes","Low","Regression risk","Medium"],["Cambios de código","Bajos","Riesgo de regresión","Medio"],["Mudanças de código","Baixas","Risco de regressão","Médio"]],
+ verdict:["Проверить RC-версию на тестовом окружении и снять профиль heap. Обновлять production после стабильного релиза.","Run the RC on staging and profile the heap. Move production after stable.","Probar la versión candidata en un entorno de pruebas y medir el heap. Actualizar producción cuando llegue la versión estable.","Testar a versão candidata em um ambiente de homologação e analisar o heap. Atualizar a produção após a versão estável."],
+ source:1
+},
+{
+ topic:["Android · Nearby","Android · Nearby","Android · Nearby","Android · Nearby"],
+ status:["Планировать","Plan","Planificar","Planejar"],
+ title:["Nearby Connections перестанет самостоятельно включать Wi-Fi и Bluetooth.","Nearby Connections will stop enabling Wi-Fi and Bluetooth automatically.","Nearby Connections dejará de activar Wi-Fi y Bluetooth automáticamente.","Nearby Connections deixará de ativar Wi-Fi e Bluetooth automaticamente."],
+ lead:["Приложению придётся явно отслеживать готовность Wi-Fi и Bluetooth и возвращение пользователя из системных настроек.","The app must explicitly model radio readiness and the user’s return from Settings.","La app deberá comprobar de forma explícita el estado de Wi-Fi y Bluetooth y el regreso del usuario desde Ajustes.","O app deverá verificar explicitamente o estado do Wi-Fi e do Bluetooth e o retorno do usuário das Configurações."],
+ meta:[["Подтверждено","Планировать","UX · совместимость","Средний"],["Confirmed","Plan","UX · compatibility","Medium"],["Confirmado","Planificar","UX · compatibilidad","Medio"],["Confirmado","Planejar","UX · compatibilidade","Médio"]],
+ confirmed:["Google объявила, что Nearby Connections больше не будет включать необходимые радиомодули от имени приложения.","Google announced that Nearby Connections will no longer enable required radios on behalf of apps.","Google anunció que Nearby Connections dejará de activar las radios necesarias por la aplicación.","Google anunciou que Nearby Connections deixará de ativar os rádios necessários em nome do app."],
+ body:[
+  ["Изменение API небольшое, но добавляет новую точку отказа при первом подключении.","Готовность Wi-Fi и Bluetooth лучше вынести в отдельное состояние и корректно продолжать сценарий после onResume."],
+  ["The API change is small, but it adds a failure point to onboarding.","Model Wi-Fi and Bluetooth readiness explicitly and resume the flow cleanly after onResume."],
+  ["El cambio de API es pequeño, pero agrega un punto de fallo al flujo de incorporación.","Conviene representar el estado de Wi-Fi y Bluetooth de forma explícita y reanudar correctamente el flujo después de onResume."],
+  ["A mudança de API é pequena, mas adiciona um ponto de falha ao fluxo inicial.","Vale representar o estado do Wi-Fi e do Bluetooth de forma explícita e retomar corretamente o fluxo depois de onResume."]
+ ],
+ analysis:["Основные затраты придутся на пользовательский сценарий, а не на миграцию API.","The main cost is product UX rather than API migration.","El costo principal está en la experiencia de usuario, no en la migración del API.","O custo principal está na experiência do usuário, não na migração da API."],
+ migration:[["Изменения кода","Средние","UX-риск","Высокий"],["Code changes","Medium","UX risk","High"],["Cambios de código","Medios","Riesgo UX","Alto"],["Mudanças de código","Médias","Risco UX","Alto"]],
+ verdict:["Добавить проверку Wi-Fi и Bluetooth и восстановление сценария в план работ текущего квартала.","Add radio readiness and flow recovery to the current-quarter backlog.","Agregar la comprobación de Wi-Fi y Bluetooth y la recuperación del flujo al backlog del trimestre.","Adicionar a verificação de Wi-Fi e Bluetooth e a retomada do fluxo ao backlog do trimestre."],
+ source:2
+},
+{
+ topic:["Android Studio","Android Studio","Android Studio","Android Studio"],
+ status:["Внедрять","Act","Implementar","Adotar"],
+ title:["Quail 2 делает поиск утечек памяти частью обычной работы в IDE.","Quail 2 makes memory-leak analysis part of the normal IDE workflow.","Quail 2 incorpora el análisis de fugas de memoria al flujo habitual del IDE.","Quail 2 incorpora a análise de vazamentos de memória ao fluxo normal da IDE."],
+ lead:["Самая практичная часть релиза — более короткий путь от воспроизведения сценария до анализа heap.","The most practical part is a cheaper path from reproducing a scenario to heap analysis.","La parte más práctica es un camino más corto entre reproducir el escenario y analizar el heap.","A parte mais prática é um caminho mais curto entre reproduzir o cenário e analisar o heap."],
+ meta:[["Стабильный релиз","Обновляться","Инструменты · качество","Низкий"],["Stable","Adopt","Tooling · quality","Low"],["Estable","Adoptar","Herramientas · calidad","Bajo"],["Estável","Adotar","Ferramentas · qualidade","Baixo"]],
+ confirmed:["Quail 2 добавляет интеграцию с LeakCanary, локальный анализ heap и несколько параллельных чатов Agent Mode.","Quail 2 adds an integrated LeakCanary workflow, desktop-side heap analysis, and multiple Agent Mode chats.","Quail 2 incorpora un flujo integrado con LeakCanary, análisis local del heap y varios chats de Agent Mode.","Quail 2 incorpora um fluxo integrado com LeakCanary, análise local do heap e vários chats do Agent Mode."],
+ body:[
+  ["В Compose стоит проверять callbacks, удерживающие старый Context, listeners без DisposableEffect и Android Views внутри Compose.","Параллельные агенты пока не обеспечивают полноценную изоляцию через worktree."],
+  ["Compose teams should inspect callbacks retaining old Context instances, listeners without DisposableEffect, and Android Views embedded in Compose.","Parallel agents still lack full worktree isolation."],
+  ["En Compose conviene revisar callbacks que retienen instancias antiguas de Context, listeners sin DisposableEffect y Android Views embebidas.","Los agentes paralelos todavía no ofrecen un aislamiento completo mediante worktrees."],
+  ["No Compose vale revisar callbacks que retêm instâncias antigas de Context, listeners sem DisposableEffect e Android Views embutidas.","Agentes paralelos ainda não oferecem isolamento completo por meio de worktrees."]
+ ],
+ analysis:["Инструмент принесёт пользу, только если станет регулярной практикой команды, а не просто новой кнопкой в IDE.","The tool matters only when it becomes a repeatable team practice.","La herramienta aporta valor cuando se convierte en una práctica repetible del equipo, no solo en un botón nuevo del IDE.","A ferramenta gera valor quando vira uma prática repetível da equipe, não apenas um novo botão na IDE."],
+ migration:[["Изменения кода","Нет","Риск обновления","Низкий"],["Code changes","None","Upgrade risk","Low"],["Cambios de código","Ninguno","Riesgo de actualización","Bajo"],["Mudanças de código","Nenhuma","Risco de atualização","Baixo"]],
+ verdict:["Обновиться и добавить проверку утечек в критерии готовности сложных функций с UI, мультимедиа и картами.","Upgrade and add a leak check to the definition of done for heavy UI, media, and map features.","Actualizar y agregar la revisión de fugas a los criterios de finalización de funciones complejas de interfaz, multimedia y mapas.","Atualizar e incluir a verificação de vazamentos nos critérios de conclusão de recursos complexos de interface, mídia e mapas."],
+ source:3
+},
+{
+ topic:["AndroidX Tracing","AndroidX Tracing","AndroidX Tracing","AndroidX Tracing"],
+ status:["Тестировать","Test","Probar","Testar"],
+ title:["Tracing 2.0 приближает сквозную трассировку производительности к архитектуре приложения.","Tracing 2.0 brings end-to-end performance traces closer to application architecture.","Tracing 2.0 acerca las trazas integrales de rendimiento a la arquitectura de la aplicación.","Tracing 2.0 aproxima o rastreamento de ponta a ponta da arquitetura do aplicativo."],
+ lead:["Трассировка coroutines и токены распространения связывают действие пользователя, repository, сеть, базу данных и кадр интерфейса.","Coroutine tracing and propagation tokens connect user action, repository, network, database, and UI frame.","El tracing de coroutines y los tokens de propagación conectan la acción del usuario, el repositorio, la red, la base de datos y el frame de la interfaz.","O tracing de coroutines e os tokens de propagação conectam a ação do usuário, o repositório, a rede, o banco de dados e o frame da interface."],
+ meta:[["Beta","Пилотировать","Производительность · наблюдаемость","Средний"],["Beta","Pilot","Performance · observability","Medium"],["Beta","Probar en piloto","Rendimiento · observabilidad","Medio"],["Beta","Testar em piloto","Performance · observabilidade","Médio"]],
+ confirmed:["AndroidX Tracing 2.0 развивает внутрипроцессную трассировку с низкими накладными расходами и интеграцию с Perfetto.","AndroidX Tracing 2.0 develops low-overhead in-process tracing and Perfetto integration.","AndroidX Tracing 2.0 amplía el tracing dentro del proceso con bajo costo e integración con Perfetto.","AndroidX Tracing 2.0 amplia o tracing dentro do processo, com baixo custo e integração com o Perfetto."],
+ body:[
+  ["Логи плохо объясняют временные связи: где ожидала coroutine и что израсходовало бюджет кадра.","Одна качественная трасса для запуска, мультимедиа, карт или геозон может оказаться полезнее десятков разрозненных логов."],
+  ["Logs poorly explain timing relationships: where a coroutine waited and what consumed the frame budget.","One good trace for startup, media, maps, or geofencing can outperform dozens of unrelated logs."],
+  ["Los logs explican mal las relaciones temporales: dónde esperó una coroutine y qué consumió el presupuesto del frame.","Una buena traza del inicio, la reproducción multimedia, los mapas o la geolocalización puede resultar más útil que decenas de logs aislados."],
+  ["Logs explicam mal as relações de tempo: onde a coroutine esperou e o que consumiu o orçamento do frame.","Um bom trace da inicialização, da reprodução de mídia, dos mapas ou da geolocalização pode ser mais útil do que dezenas de logs isolados."]
+ ],
+ analysis:["До стабилизации API не стоит строить поверх него тяжёлую внутреннюю абстракцию.","Avoid building a heavy internal abstraction before the API stabilizes.","No conviene crear una abstracción interna compleja antes de que el API se estabilice.","Não vale criar uma abstração interna complexa antes que a API se estabilize."],
+ migration:[["Изменения кода","Средние","API-риск","Средний"],["Code changes","Medium","API risk","Medium"],["Cambios de código","Medios","Riesgo API","Medio"],["Mudanças de código","Médias","Risco API","Médio"]],
+ verdict:["Инструментировать один критичный для производительности сценарий. Пока не оборачивать каждую функцию.","Instrument one performance-critical flow. Do not wrap every function yet.","Instrumentar un flujo crítico para el rendimiento. Todavía no conviene envolver cada función.","Instrumentar um fluxo crítico para a performance. Ainda não vale envolver cada função."],
+ source:4
+},
+{
+ topic:["Android AI","Android AI","IA en Android","IA no Android"],
+ status:["Наблюдать","Watch","Observar","Acompanhar"],
+ title:["Локальный и облачный ИИ становятся отдельным слоем выполнения в Android.","On-device and cloud AI are becoming a distinct Android execution layer.","La IA local y en la nube se convierten en una capa de ejecución propia de Android.","A IA local e na nuvem está se tornando uma camada própria de execução no Android."],
+ lead:["Выбор между локальной и облачной моделью постепенно переходит в зону ответственности SDK.","Routing between local and cloud models is gradually becoming an SDK concern.","La elección entre modelos locales y en la nube empieza a convertirse en una responsabilidad del SDK.","A escolha entre modelos locais e na nuvem está começando a se tornar responsabilidade do SDK."],
+ meta:[["Предпросмотр · Beta","Прототипировать","Архитектура · приватность","Высокий"],["Preview · Beta","Prototype","Architecture · privacy","High"],["Vista previa · Beta","Prototipar","Arquitectura · privacidad","Alto"],["Preview · Beta","Prototipar","Arquitetura · privacidade","Alto"]],
+ confirmed:["Google показывает Prompt API, структурированный вывод, Hybrid Inference и AppFunctions как инструменты системного агента.","Google is demonstrating Prompt API, structured output, Hybrid Inference, and AppFunctions exposed as system-agent tools.","Google muestra Prompt API, resultados estructurados, Hybrid Inference y AppFunctions como herramientas del agente del sistema.","O Google mostra Prompt API, resultados estruturados, Hybrid Inference e AppFunctions como ferramentas do agente do sistema."],
+ body:[
+  ["Практичная архитектура отделяет сценарий использования ИИ от модели и вводит маршрутизатор политик для сети, приватности, стоимости, задержки и языка.","Переход с локальной модели на облачную меняет договорённости о приватности и должен быть явным решением."],
+  ["A useful architecture separates the AI use case from the model and adds a policy router for network, privacy, cost, latency, and language.","On-device-to-cloud fallback changes the privacy contract and should be explicit."],
+  ["Una arquitectura útil separa el caso de uso de IA del modelo e incorpora reglas para decidir según la red, la privacidad, el costo, la latencia y el idioma.","Pasar de un modelo local a uno en la nube cambia el contrato de privacidad y debe ser una decisión explícita."],
+  ["Uma arquitetura útil separa o caso de uso de IA do modelo e incorpora regras para decidir com base em rede, privacidade, custo, latência e idioma.","Passar de um modelo local para a nuvem muda o contrato de privacidade e precisa ser uma decisão explícita."]
+ ],
+ analysis:["Охват устройств и зрелость API пока не позволяют делать этот слой обязательной основой продукта.","Device coverage and API maturity are not sufficient to make this a mandatory product foundation.","La cobertura de dispositivos y la madurez del API todavía no permiten convertir esta capa en una base obligatoria del producto.","A cobertura de dispositivos e a maturidade da API ainda não permitem transformar essa camada em uma base obrigatória do produto."],
+ migration:[["Изменения кода","Высокие","Продуктовый риск","Высокий"],["Code changes","High","Product risk","High"],["Cambios de código","Altos","Riesgo de producto","Alto"],["Mudanças de código","Altas","Risco de produto","Alto"]],
+ verdict:["Прототипировать один конкретный обратимый сценарий. Не добавлять ИИ ради самого ИИ.","Prototype one concrete reversible workflow. Do not add AI for its own sake.","Prototipar un flujo concreto y reversible. No agregar IA solo por agregarla.","Prototipar um fluxo concreto e reversível. Não adicionar IA só por adicionar."],
+ source:5
+},
+{
+ topic:["Swift · React Native","Swift · React Native","Swift · React Native","Swift · React Native"],
+ status:["Без действий","No action","Sin acción","Sem ação"],
+ title:["Неделя без крупного стабильного релиза — тоже полезный сигнал.","A week without a major stable release is useful information too.","Una semana sin un gran lanzamiento estable también aporta información útil.","Uma semana sem um grande lançamento estável também traz uma informação útil."],
+ lead:["SwiftUI и React Native не требуют архитектурной реакции каждую неделю.","SwiftUI and React Native do not require an architectural reaction every week.","SwiftUI y React Native no requieren una reacción arquitectónica todas las semanas.","SwiftUI e React Native não exigem uma reação arquitetural toda semana."],
+ meta:[["Стабильная база","Без действий","Планирование разработки","Низкий"],["Stable baseline","No action","Delivery planning","Low"],["Base estable","Sin acción","Planificación","Bajo"],["Base estável","Sem ação","Planejamento","Baixo"]],
+ confirmed:["Для React Native актуальной стабильной базой остаётся 0.86. В Swift и SwiftUI сопоставимых по масштабу стабильных изменений не вышло.","React Native 0.86 remains the relevant stable baseline. No comparable Swift or SwiftUI stable event landed.","React Native 0.86 sigue siendo la base estable de referencia. No hubo un lanzamiento comparable en Swift o SwiftUI.","React Native 0.86 continua sendo a base estável de referência. Não houve um lançamento comparável em Swift ou SwiftUI."],
+ body:[
+  ["Если проект на React Native уже использует 0.86, не нужно придумывать работу ради активности.","Предварительная версия инструментов Swift полезна для диагностики CI, но не как production-зависимость."],
+  ["If an RN project is already on 0.86, there is no reason to manufacture work.","A Swift preview toolchain is useful for CI diagnostics, not as a production dependency."],
+  ["Si el proyecto de React Native ya usa la versión 0.86, no hay motivo para inventar trabajo.","Una versión preliminar de las herramientas de Swift puede servir para diagnosticar CI, pero no como dependencia de producción."],
+  ["Se o projeto em React Native já usa a versão 0.86, não há motivo para inventar trabalho.","Uma versão preliminar das ferramentas Swift pode ajudar no diagnóstico da CI, mas não deve ser uma dependência de produção."]
+ ],
+ analysis:["Хороший дайджест должен уметь сказать: «Ничего делать не нужно».","A useful digest must be able to say “do nothing.”","Un buen resumen también debe saber decir: «No hay que hacer nada».","Um bom resumo também precisa saber dizer: “Não é preciso fazer nada”."],
+ migration:[["Изменения кода","Нет","Приоритет","Низкий"],["Code changes","None","Priority","Low"],["Cambios de código","Ninguno","Prioridad","Baja"],["Mudanças de código","Nenhuma","Prioridade","Baixa"]],
+ verdict:["Не создавать отдельную инициативу. Поддерживать проекты актуальными и ждать содержательных изменений.","Do not create a separate initiative. Keep projects current and wait for consequential changes.","No crear una iniciativa separada. Mantener proyectos actuales y esperar cambios relevantes.","Não criar iniciativa separada. Manter projetos atuais e aguardar mudanças relevantes."],
+ source:7
+}
+];
+
+const idx={ru:0,en:1,es:2,pt:3};
+const requestedLocale=new URLSearchParams(location.search).get("lang");
+const storedLocale=localStorage.getItem("signal-locale");
+let locale=Object.prototype.hasOwnProperty.call(idx,requestedLocale)?requestedLocale:(Object.prototype.hasOwnProperty.call(idx,storedLocale)?storedLocale:"en");
+let theme=localStorage.getItem("signal-theme")||"dark";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+const setMeta=(selector,value)=>{const element=document.querySelector(selector);if(element)element.setAttribute("content",value)};
+
+function articlesFor(l){
+ const i=idx[l];
+ return articleCore.map(a=>({
+  topic:a.topic[i],status:a.status[i],title:a.title[i],lead:a.lead[i],meta:a.meta[i],
+  confirmed:a.confirmed[i],body:a.body[i],analysis:a.analysis[i],migration:a.migration[i],verdict:a.verdict[i],source:sources[a.source]
+ }));
+}
+function render(){
+ const t=ui[locale],as=articlesFor(locale);
+ document.documentElement.lang=locale;document.documentElement.dataset.theme=theme;$("lang").value=locale;
+ document.title=t.metaTitle;setMeta('meta[name="description"]',t.metaDescription);setMeta('meta[property="og:title"]',t.metaTitle);setMeta('meta[property="og:description"]',t.metaDescription);setMeta('meta[name="twitter:title"]',t.metaTitle);setMeta('meta[name="twitter:description"]',t.metaDescription);
+ const landingBase=locale==="en"?"/":`/${locale}/`;
+ $("brandLink").href=landingBase;$("navServices").href=`${landingBase}#expertise`;$("navCases").href=`${landingBase}#work`;$("navJournal").href=`${landingBase}#journal`;$("navWork").href=`${landingBase}#engagement`;$("ctaLink").href=`${landingBase}#contact`;
+ $("lang").setAttribute("aria-label",t.languageLabel);$("theme").setAttribute("aria-label",t.themeLabel);$("menu").setAttribute("aria-label",t.menuLabel);$("close").setAttribute("aria-label",t.closeLabel);
+ ["issueNo","mobileIssueNo"].forEach(id=>$(id).textContent=t.issueNo);$("decisionKicker").textContent=t.decisionKicker;$("actionKicker").textContent=t.actionKicker;$("sourcesKicker").textContent=t.sourcesKicker;$("footerLocation").textContent=t.footerLocation;
+ $("role").textContent=t.role;["navServices","navCases","navJournal","navWork"].forEach((id,i)=>$(id).textContent=t.nav[i]);
+ $("coverKicker").textContent=t.coverKicker;$("coverTitle").innerHTML=t.coverTitle;$("coverDeck").textContent=t.coverDeck;
+ $("date").textContent=t.date;$("read").textContent=t.read;$("sourcePolicy").textContent=t.sourcePolicy;
+ ["inIssue","mobileIssue","railTitle"].forEach(id=>$(id).textContent=t.inIssue);$("copy").textContent=t.copy;$("print").textContent=t.print;
+ $("decisionHeading").textContent=t.decisionHeading;$("leadStatus").textContent=t.leadStatus;$("leadTitle").textContent=t.leadTitle;$("leadDeck").textContent=t.leadDeck;
+ $("smallStatus1").textContent=t.smallStatus1;$("smallTitle1").textContent=t.smallTitle1;$("smallDeck1").textContent=t.smallDeck1;
+ $("smallStatus2").textContent=t.smallStatus2;$("smallTitle2").textContent=t.smallTitle2;$("smallDeck2").textContent=t.smallDeck2;
+ $("openContents").textContent=t.openContents;$("railNote").textContent=t.railNote;$("actionHeading").textContent=t.actionHeading;$("sourcesHeading").textContent=t.sourcesHeading;
+ $("ctaTitle").textContent=t.ctaTitle;$("ctaCopy").textContent=t.ctaCopy;$("ctaButton").textContent=t.ctaButton;
+
+ $("board").innerHTML=t.decisions.map((d,i)=>`<div class="decision-row"><div class="dnum">${String(i+1).padStart(2,"0")}</div><div class="dtype">${esc(d[0])}</div><div class="dcopy">${esc(d[1])}</div><div>↗</div></div>`).join("");
+ const toc=as.map((a,i)=>`<a href="#article-${i+1}" data-target="article-${i+1}"><span>${String(i+1).padStart(2,"0")}</span><span>${esc(a.title)}</span></a>`).join("");
+ $("railNav").innerHTML=toc;$("mobileNav").innerHTML=toc;
+ $("coverToc").innerHTML=as.map((a,i)=>`<li><a href="#article-${i+1}"><span class="mono">${String(i+1).padStart(2,"0")}</span><span>${esc(a.topic)}</span><span class="s">${esc(a.status)}</span></a></li>`).join("");
+
+ $("articles").innerHTML=as.map((a,i)=>`
+ <article class="article" id="article-${i+1}">
+  <header class="article-head"><div class="label">${String(i+1).padStart(2,"0")} / ${esc(a.topic)}</div><h2>${esc(a.title)}</h2><p class="article-lead">${esc(a.lead)}</p></header>
+  <div class="meta-grid">
+   ${a.meta.map((v,j)=>`<div class="meta"><span class="meta-label">${esc(t.labels[j])}</span><strong class="${j===1?"accent":""}">${esc(v)}</strong></div>`).join("")}
+  </div>
+  <div class="article-body">
+   <div class="panel fact"><div class="panel-label">${esc(t.labels[4])}</div><p>${esc(a.confirmed)}</p></div>
+   <h3>${esc(t.labels[5])}</h3>${a.body.map(p=>`<p>${esc(p)}</p>`).join("")}
+   <div class="panel analysis"><div class="panel-label">${esc(t.labels[5])}</div><p>${esc(a.analysis)}</p></div>
+   <h3>${esc(t.labels[6])}</h3><div class="cost"><div><span>${esc(a.migration[0])}</span><strong>${esc(a.migration[1])}</strong></div><div><span>${esc(a.migration[2])}</span><strong>${esc(a.migration[3])}</strong></div></div>
+   <div class="panel verdict"><div class="panel-label">${esc(t.labels[7])}</div><p><strong>${esc(a.verdict)}</strong></p></div>
+   <a class="source" href="${a.source[2]}" target="_blank" rel="noopener">${esc(t.labels[8])} ↗</a>
+  </div>
+ </article>`).join("");
+
+ $("actionCols").innerHTML=t.actions.map((arr,i)=>`<div class="col"><h3>${esc(t.actionTitles[i])}</h3><ol>${arr.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`).join("");
+ $("sources").innerHTML=sources.map((s,i)=>`<li><a href="${s[2]}" target="_blank" rel="noopener"><span class="mono">${String(i+1).padStart(2,"0")}</span><span>${esc(s[0])}</span><span class="domain">${esc(s[1])} ↗</span></a></li>`).join("");
+ setupObserver();
+}
+let observer;
+function setupObserver(){
+ if(observer)observer.disconnect();
+ const links=[...document.querySelectorAll(".railnav a")];
+ observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove("active"));document.querySelectorAll(`[data-target="${e.target.id}"]`).forEach(a=>a.classList.add("active"))}}),{rootMargin:"-18% 0px -68% 0px"});
+ document.querySelectorAll(".article").forEach(a=>observer.observe(a));
+ document.querySelectorAll("#mobileNav a").forEach(a=>a.onclick=()=> $("mobilePanel").classList.remove("open"));
+}
+$("lang").onchange=e=>{locale=e.target.value;localStorage.setItem("signal-locale",locale);const url=new URL(location.href);url.searchParams.set("lang",locale);history.replaceState(null,"",url);render()};
+$("theme").onclick=()=>{theme=theme==="dark"?"light":"dark";localStorage.setItem("signal-theme",theme);document.documentElement.dataset.theme=theme};
+$("copy").onclick=async()=>{const t=ui[locale],url=new URL(location.href);url.searchParams.set("lang",locale);try{await navigator.clipboard.writeText(url.href);$("copy").textContent=t.copied;setTimeout(()=>$("copy").textContent=t.copy,1400)}catch{$("copy").textContent=url.href}};
+$("menu").onclick=$("openContents").onclick=()=>$("mobilePanel").classList.add("open");$("close").onclick=()=>$("mobilePanel").classList.remove("open");
+addEventListener("scroll",()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;$("progress").style.width=(m?d.scrollTop/m*100:0)+"%"},{passive:true});
+render();
+</script>
+</body></html>

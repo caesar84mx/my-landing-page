@@ -124,6 +124,10 @@ function renderLocale(locale) {
         html = html.replaceAll('href="/case-studies/', `href="/${locale}/case-studies/`);
         html = html.replaceAll('href="/services/', `href="/${locale}/services/`);
     }
+    html = html.replace(
+        'href="/journal/signal-001/?lang=en"',
+        `href="/journal/signal-001/?lang=${locale}"`
+    );
 
     return html;
 }
@@ -553,7 +557,8 @@ const sitemapPaths = [
     '/services/mobile-product-consulting/',
     '/services/full-stack-mobile-app-development/',
     '/services/mobile-app-modernization/',
-    '/services/mobile-technical-lead/'
+    '/services/mobile-technical-lead/',
+    '/journal/signal-001/'
 ];
 for (const caseStudy of Object.values(CASE_STUDIES)) {
     for (const locale of ['es', 'pt', 'ru']) {

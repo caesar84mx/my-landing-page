@@ -10,7 +10,7 @@ const I18N = {
         },
         a11y: {skip: 'Skip to content', language: 'Language'},
         brand: {role: 'Mobile consultant · Full-stack mobile app developer'},
-        nav: {services: 'Services', work: 'Case studies', engagement: 'Ways to work', cta: 'Discuss a project'},
+        nav: {services: 'Services', work: 'Case studies', journal: 'Journal', engagement: 'Ways to work', cta: 'Discuss a project'},
         hero: {
             eyebrow: 'Mobile consulting · End-to-end app development',
             title: 'I take on <em>complex</em> mobile products end to end.',
@@ -103,6 +103,17 @@ const I18N = {
                 link: 'Visit HailMe'
             }
         },
+        journal: {
+            kicker: 'Journal',
+            heading: 'What changed—and what to do about it.',
+            lead: 'A weekly engineering signal on Android and cross-platform development: source-backed changes, their maturity and risk, and a practical decision for the week.',
+            issueLabel: 'Latest issue · 001',
+            date: '27 July 2026 · 10 min read',
+            issueTitle: 'Mobile changes worth making decisions about.',
+            issueLead: 'Kotlin improves Swift export, Media3 fixes a high-risk memory behavior, Nearby Connections changes radio-state handling, and Android’s AI stack starts to look like an execution layer.',
+            read: 'Read issue 001',
+            signalMeta: '8 sources · 7 signals'
+        },
         engagement: {
             kicker: 'Ways to work',
             title: 'Start with the level of ownership you need.',
@@ -154,7 +165,7 @@ const I18N = {
         },
         a11y: {skip: 'Ir al contenido', language: 'Idioma'},
         brand: {role: 'Consultor móvil · Desarrollador full-stack de apps móviles'},
-        nav: {services: 'Servicios', work: 'Casos', engagement: 'Formas de trabajo', cta: 'Hablemos del proyecto'},
+        nav: {services: 'Servicios', work: 'Casos', journal: 'Revista', engagement: 'Formas de trabajo', cta: 'Hablemos del proyecto'},
         hero: {
             eyebrow: 'Consultoría móvil · Desarrollo integral de apps',
             title: 'Me hago cargo de productos móviles <em>complejos</em>, de principio a fin.',
@@ -247,6 +258,17 @@ const I18N = {
                 link: 'Visitar HailMe'
             }
         },
+        journal: {
+            kicker: 'Revista',
+            heading: 'Qué cambió y qué conviene hacer al respecto.',
+            lead: 'Un resumen semanal de ingeniería sobre Android y desarrollo multiplataforma: cambios respaldados por fuentes, su madurez y sus riesgos, y una decisión práctica para la semana.',
+            issueLabel: 'Última edición · 001',
+            date: '27 de julio de 2026 · 10 min de lectura',
+            issueTitle: 'Cambios en el desarrollo móvil que exigen tomar decisiones.',
+            issueLead: 'Kotlin mejora la exportación a Swift, Media3 corrige un problema grave de memoria, Nearby Connections cambia la gestión de Wi-Fi y Bluetooth, y la IA en Android empieza a tomar forma como una capa de ejecución propia.',
+            read: 'Leer la edición 001',
+            signalMeta: '8 fuentes · 7 señales'
+        },
         engagement: {
             kicker: 'Formas de trabajo',
             title: 'Empecemos con el nivel de responsabilidad que necesitas.',
@@ -298,7 +320,7 @@ const I18N = {
         },
         a11y: {skip: 'Ir para o conteúdo', language: 'Idioma'},
         brand: {role: 'Consultor mobile · Desenvolvedor full-stack de apps mobile'},
-        nav: {services: 'Serviços', work: 'Projetos', engagement: 'Formas de trabalho', cta: 'Falar sobre o projeto'},
+        nav: {services: 'Serviços', work: 'Projetos', journal: 'Revista', engagement: 'Formas de trabalho', cta: 'Falar sobre o projeto'},
         hero: {
             eyebrow: 'Consultoria mobile · Desenvolvimento completo de apps',
             title: 'Assumo produtos mobile <em>complexos</em> de ponta a ponta.',
@@ -391,6 +413,17 @@ const I18N = {
                 link: 'Visitar o HailMe'
             }
         },
+        journal: {
+            kicker: 'Revista',
+            heading: 'O que mudou e o que fazer a respeito.',
+            lead: 'Um resumo semanal de engenharia sobre Android e desenvolvimento multiplataforma: mudanças respaldadas por fontes, seu grau de maturidade e risco, e uma decisão prática para a semana.',
+            issueLabel: 'Edição mais recente · 001',
+            date: '27 de julho de 2026 · 10 min de leitura',
+            issueTitle: 'Mudanças no desenvolvimento mobile que exigem decisões.',
+            issueLead: 'Kotlin melhora a exportação para Swift, Media3 corrige um problema grave de memória, Nearby Connections muda o controle de Wi-Fi e Bluetooth, e a IA no Android começa a tomar forma como uma camada própria de execução.',
+            read: 'Ler a edição 001',
+            signalMeta: '8 fontes · 7 sinais'
+        },
         engagement: {
             kicker: 'Formas de trabalho',
             title: 'Comece pelo nível de responsabilidade de que você precisa.',
@@ -442,7 +475,7 @@ const I18N = {
         },
         a11y: {skip: 'Перейти к содержанию', language: 'Язык'},
         brand: {role: 'Мобильный консультант · Full-stack разработчик мобильных приложений'},
-        nav: {services: 'Услуги', work: 'Кейсы', engagement: 'Форматы работы', cta: 'Обсудить проект'},
+        nav: {services: 'Услуги', work: 'Кейсы', journal: 'Журнал', engagement: 'Форматы работы', cta: 'Обсудить проект'},
         hero: {
             eyebrow: 'Мобильный консалтинг · Разработка под ключ',
             title: 'Беру <em>сложные</em> мобильные продукты целиком.',
@@ -534,6 +567,17 @@ const I18N = {
                 text: 'Создал и запустил приложения для Android и iOS и серверную часть, а также отвечал за геозоны, карты, авторизацию, push/SMS/WhatsApp, проверки App Store и Google Play, подрядчиков и требования к рассылкам.',
                 link: 'Открыть HailMe'
             }
+        },
+        journal: {
+            kicker: 'Журнал',
+            heading: 'Что изменилось и что с этим делать.',
+            lead: 'Еженедельный инженерный дайджест об Android и кроссплатформенной разработке: изменения с опорой на первоисточники, оценка их зрелости и рисков и практическое решение на неделю.',
+            issueLabel: 'Свежий выпуск · 001',
+            date: '27 июля 2026 · 10 минут чтения',
+            issueTitle: 'Изменения в мобильной разработке, которые требуют решений.',
+            issueLead: 'Kotlin улучшает экспорт в Swift, Media3 исправляет опасную работу с памятью, Nearby Connections меняет управление Wi-Fi и Bluetooth, а ИИ в Android начинает превращаться в отдельный слой выполнения.',
+            read: 'Читать выпуск 001',
+            signalMeta: '8 источников · 7 сигналов'
         },
         engagement: {
             kicker: 'Форматы работы',
