@@ -252,14 +252,14 @@ ${ogAlternates}
     <meta property="og:url" content="${canonicalUrl}"/>
     <meta property="og:title" content="${escapeAttribute(copy.socialTitle)}"/>
     <meta property="og:description" content="${escapeAttribute(copy.socialDescription)}"/>
-    <meta property="og:image" content="${siteOrigin}/assets/og-v2.png"/>
+    <meta property="og:image" content="${siteOrigin}/assets/og-v3.png"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
     <meta property="og:image:alt" content="${escapeAttribute(localeCopy.socialImageAlt)}"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="${escapeAttribute(copy.socialTitle)}"/>
     <meta name="twitter:description" content="${escapeAttribute(copy.socialDescription)}"/>
-    <meta name="twitter:image" content="${siteOrigin}/assets/og-v2.png"/>
+    <meta name="twitter:image" content="${siteOrigin}/assets/og-v3.png"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
@@ -448,14 +448,14 @@ ${ogAlternates}
     <meta property="og:url" content="${canonicalUrl}"/>
     <meta property="og:title" content="${escapeAttribute(copy.socialTitle)}"/>
     <meta property="og:description" content="${escapeAttribute(copy.socialDescription)}"/>
-    <meta property="og:image" content="${siteOrigin}/assets/og-v2.png"/>
+    <meta property="og:image" content="${siteOrigin}/assets/og-v3.png"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
     <meta property="og:image:alt" content="${escapeAttribute(localeCopy.socialImageAlt)}"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="${escapeAttribute(copy.socialTitle)}"/>
     <meta name="twitter:description" content="${escapeAttribute(copy.socialDescription)}"/>
-    <meta name="twitter:image" content="${siteOrigin}/assets/og-v2.png"/>
+    <meta name="twitter:image" content="${siteOrigin}/assets/og-v3.png"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
