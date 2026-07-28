@@ -90,7 +90,7 @@ a{color:inherit}button,select{font:inherit}.progress{position:fixed;z-index:100;
     <nav class="nav">
       <a id="navServices" href="/#expertise"></a>
       <a id="navCases" href="/#work"></a>
-      <a id="navJournal" class="active" href="/#journal"></a>
+      <a id="navJournal" class="active" href="/journal/?lang=en"></a>
       <a id="navWork" href="/#engagement"></a>
     </nav>
     <div class="actions">
@@ -457,7 +457,7 @@ function render(){
  document.documentElement.lang=locale;document.documentElement.dataset.theme=theme;$("lang").value=locale;
  document.title=t.metaTitle;setMeta('meta[name="description"]',t.metaDescription);setMeta('meta[property="og:title"]',t.metaTitle);setMeta('meta[property="og:description"]',t.metaDescription);setMeta('meta[name="twitter:title"]',t.metaTitle);setMeta('meta[name="twitter:description"]',t.metaDescription);
  const landingBase=locale==="en"?"/":`/${locale}/`;
- $("brandLink").href=landingBase;$("navServices").href=`${landingBase}#expertise`;$("navCases").href=`${landingBase}#work`;$("navJournal").href=`${landingBase}#journal`;$("navWork").href=`${landingBase}#engagement`;$("ctaLink").href=`${landingBase}#contact`;
+ $("brandLink").href=landingBase;$("navServices").href=`${landingBase}#expertise`;$("navCases").href=`${landingBase}#work`;$("navJournal").href=`/journal/?lang=${locale}`;$("navWork").href=`${landingBase}#engagement`;$("ctaLink").href=`${landingBase}#contact`;
  $("lang").setAttribute("aria-label",t.languageLabel);$("theme").setAttribute("aria-label",t.themeLabel);$("menu").setAttribute("aria-label",t.menuLabel);$("close").setAttribute("aria-label",t.closeLabel);
  ["issueNo","mobileIssueNo"].forEach(id=>$(id).textContent=t.issueNo);$("decisionKicker").textContent=t.decisionKicker;$("actionKicker").textContent=t.actionKicker;$("sourcesKicker").textContent=t.sourcesKicker;$("footerLocation").textContent=t.footerLocation;
  $("role").textContent=t.role;["navServices","navCases","navJournal","navWork"].forEach((id,i)=>$(id).textContent=t.nav[i]);

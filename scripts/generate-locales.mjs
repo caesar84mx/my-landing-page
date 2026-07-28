@@ -128,6 +128,10 @@ function renderLocale(locale) {
         'href="/journal/signal-001/?lang=en"',
         `href="/journal/signal-001/?lang=${locale}"`
     );
+    html = html.replaceAll(
+        'href="/journal/?lang=en"',
+        `href="/journal/?lang=${locale}"`
+    );
 
     return html;
 }
@@ -558,6 +562,7 @@ const sitemapPaths = [
     '/services/full-stack-mobile-app-development/',
     '/services/mobile-app-modernization/',
     '/services/mobile-technical-lead/',
+    '/journal/',
     '/journal/signal-001/'
 ];
 for (const caseStudy of Object.values(CASE_STUDIES)) {

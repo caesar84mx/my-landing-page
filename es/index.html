@@ -44,7 +44,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=20260727"/>
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=20260727"/>
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20260727"/>
-    <link rel="stylesheet" href="/css/styles.css?v=20260727-journal1"/>
+    <link rel="stylesheet" href="/css/styles.css?v=20260727-journal2"/>
 
     <script type="application/ld+json">
         {
@@ -130,7 +130,7 @@
         <nav class="main-nav" aria-label="Main navigation">
             <a href="#expertise" data-i18n="nav.services">Servicios</a>
             <a href="#work" data-i18n="nav.work">Casos</a>
-            <a href="#journal" data-i18n="nav.journal">Revista</a>
+            <a href="/journal/?lang=es" data-i18n="nav.journal">Revista</a>
             <a href="#engagement" data-i18n="nav.engagement">Formas de trabajo</a>
         </nav>
         <div class="nav-actions">
@@ -389,9 +389,14 @@
                     <p class="journal-series">MAX.D / SIGNAL</p>
                     <h3 data-i18n="journal.issueTitle">Cambios en el desarrollo móvil que exigen tomar decisiones.</h3>
                     <p data-i18n="journal.issueLead">Kotlin mejora la exportación a Swift, Media3 corrige un problema grave de memoria, Nearby Connections cambia la gestión de Wi-Fi y Bluetooth, y la IA en Android empieza a tomar forma como una capa de ejecución propia.</p>
-                    <a class="button journal-link" href="/journal/signal-001/?lang=es">
-                        <span data-i18n="journal.read">Leer la edición 001</span><span aria-hidden="true">↗</span>
-                    </a>
+                    <div class="journal-actions">
+                        <a class="button journal-link" href="/journal/signal-001/?lang=es">
+                            <span data-i18n="journal.read">Leer la edición 001</span><span aria-hidden="true">↗</span>
+                        </a>
+                        <a class="journal-archive-link" href="/journal/?lang=es">
+                            <span data-i18n="journal.allIssues">Ver todas las ediciones</span><span aria-hidden="true">→</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="journal-signal" aria-hidden="true">
                     <div class="journal-orbit journal-orbit-outer"></div>
@@ -536,6 +541,6 @@
     </div>
 </footer>
 
-<script src="/js/main.js?v=20260727-journal1"></script>
+<script src="/js/main.js?v=20260727-journal2"></script>
 </body>
 </html>

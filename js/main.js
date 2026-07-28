@@ -112,6 +112,7 @@ const I18N = {
             issueTitle: 'Mobile changes worth making decisions about.',
             issueLead: 'Kotlin improves Swift export, Media3 fixes a high-risk memory behavior, Nearby Connections changes radio-state handling, and Android’s AI stack starts to look like an execution layer.',
             read: 'Read issue 001',
+            allIssues: 'Browse all issues',
             signalMeta: '8 sources · 7 signals'
         },
         engagement: {
@@ -267,6 +268,7 @@ const I18N = {
             issueTitle: 'Cambios en el desarrollo móvil que exigen tomar decisiones.',
             issueLead: 'Kotlin mejora la exportación a Swift, Media3 corrige un problema grave de memoria, Nearby Connections cambia la gestión de Wi-Fi y Bluetooth, y la IA en Android empieza a tomar forma como una capa de ejecución propia.',
             read: 'Leer la edición 001',
+            allIssues: 'Ver todas las ediciones',
             signalMeta: '8 fuentes · 7 señales'
         },
         engagement: {
@@ -422,6 +424,7 @@ const I18N = {
             issueTitle: 'Mudanças no desenvolvimento mobile que exigem decisões.',
             issueLead: 'Kotlin melhora a exportação para Swift, Media3 corrige um problema grave de memória, Nearby Connections muda o controle de Wi-Fi e Bluetooth, e a IA no Android começa a tomar forma como uma camada própria de execução.',
             read: 'Ler a edição 001',
+            allIssues: 'Ver todas as edições',
             signalMeta: '8 fontes · 7 sinais'
         },
         engagement: {
@@ -577,6 +580,7 @@ const I18N = {
             issueTitle: 'Изменения в мобильной разработке, которые требуют решений.',
             issueLead: 'Kotlin улучшает экспорт в Swift, Media3 исправляет опасную работу с памятью, Nearby Connections меняет управление Wi-Fi и Bluetooth, а ИИ в Android начинает превращаться в отдельный слой выполнения.',
             read: 'Читать выпуск 001',
+            allIssues: 'Все выпуски',
             signalMeta: '8 источников · 7 сигналов'
         },
         engagement: {

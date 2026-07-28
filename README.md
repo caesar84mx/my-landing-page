@@ -12,6 +12,7 @@ Landing/
 ├── es|pt|ru/           # Pre-rendered localized landing pages
 ├── case-studies/       # Search-focused project case studies
 ├── services/           # Search-focused service pages
+├── journal/            # Journal archive and published issues
 ├── css/
 │   └── styles.css      # All CSS styles and responsive design
 ├── js/
@@ -114,6 +115,17 @@ After changing shared landing content or translations, regenerate and verify the
 node scripts/generate-locales.mjs
 node scripts/generate-locales.mjs --check
 ```
+
+## Publishing Journal Issues
+
+The journal archive lives at `/journal/`. Its entries are defined in `js/journal.js` and are sorted automatically by publication date, newest first, then grouped by year and month.
+
+To publish an issue:
+
+1. Add the issue page under `journal/<issue-slug>/`.
+2. Add its metadata and four localized summaries to `ISSUES` in `js/journal.js`.
+3. Add the canonical route to `sitemapPaths` in `scripts/generate-locales.mjs` and `pages` in `scripts/check-seo.mjs`.
+4. Regenerate localized pages and run the SEO check.
 
 ## Contact Form
 

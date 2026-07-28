@@ -1486,8 +1486,30 @@ em {
     line-height: 1.75;
 }
 
-.journal-link {
+.journal-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
     margin-top: auto;
+}
+
+.journal-link {
+    margin-top: 0;
+}
+
+.journal-archive-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--muted-strong);
+    font-size: 13px;
+    font-weight: 800;
+    transition: color 0.2s ease;
+}
+
+.journal-archive-link:hover {
+    color: var(--acid);
 }
 
 .journal-signal {
@@ -2648,6 +2670,16 @@ html.js .reveal.is-visible {
 
     .journal-link {
         width: 100%;
+    }
+
+    .journal-actions {
+        width: 100%;
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .journal-archive-link {
+        justify-content: center;
     }
 
     .journal-signal {

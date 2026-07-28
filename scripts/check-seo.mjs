@@ -19,6 +19,7 @@ const pages = new Map([
     ['/services/full-stack-mobile-app-development/', 'services/full-stack-mobile-app-development/index.html'],
     ['/services/mobile-app-modernization/', 'services/mobile-app-modernization/index.html'],
     ['/services/mobile-technical-lead/', 'services/mobile-technical-lead/index.html'],
+    ['/journal/', 'journal/index.html'],
     ['/journal/signal-001/', 'journal/signal-001/index.html']
 ]);
 const languageRoutes = new Map([
