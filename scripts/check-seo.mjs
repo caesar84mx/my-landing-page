@@ -6,6 +6,7 @@ import {SERVICES} from './service-locales.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const siteOrigin = 'https://www.mdymnoff-mobile.dev';
+const cloudflareAnalyticsToken = '99740b2332144905a1ca58e02ebec73f';
 const pages = new Map([
     ['/', 'index.html'],
     ['/es/', 'es/index.html'],
@@ -74,12 +75,22 @@ for (const [route, relativeFile] of pages) {
     const canonical = matchOne(html, /<link rel="canonical" href="([^"]+)"\/>/g, 'canonical', relativeFile);
     const openGraphUrl = matchOne(html, /<meta property="og:url" content="([^"]+)"\/>/g, 'og:url', relativeFile);
     const language = matchOne(html, /<html\b[^>]*\slang="([^"]+)"[^>]*>/g, 'html lang', relativeFile);
+    const analyticsScript = matchOne(
+        html,
+        /(<script\b[^>]*\ssrc="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js"[^>]*><\/script>)/g,
+        'Cloudflare Web Analytics script',
+        relativeFile
+    );
 
     report((html.match(/<h1\b/g) || []).length === 1, `${relativeFile}: expected exactly one h1`);
     report(Boolean(title?.trim()), `${relativeFile}: title is empty`);
     report(Boolean(description?.trim()), `${relativeFile}: meta description is empty`);
     report(canonical === `${siteOrigin}${route}`, `${relativeFile}: canonical does not match its route`);
     report(openGraphUrl === canonical, `${relativeFile}: og:url differs from canonical`);
+    report(
+        analyticsScript?.includes(`data-cf-beacon='{"token": "${cloudflareAnalyticsToken}"}'`),
+        `${relativeFile}: incorrect Cloudflare Web Analytics token`
+    );
     report(!titles.has(title), `${relativeFile}: duplicate title`);
     report(!canonicals.has(canonical), `${relativeFile}: duplicate canonical`);
     titles.add(title);
