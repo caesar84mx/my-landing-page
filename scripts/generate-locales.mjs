@@ -250,6 +250,7 @@ function renderLocalizedCase(caseId, locale) {
     <meta name="description" content="${escapeAttribute(copy.seoDescription)}"/>
     <meta name="theme-color" content="#080b12"/>
     <meta name="color-scheme" content="dark"/>
+    <script src="/js/language-routing.js?v=20260729-locale1"></script>
 
     <link rel="canonical" href="${canonicalUrl}"/>
 ${alternateLinks}
@@ -449,6 +450,7 @@ function renderLocalizedService(serviceId, locale) {
     <meta name="description" content="${escapeAttribute(copy.seoDescription)}"/>
     <meta name="theme-color" content="#080b12"/>
     <meta name="color-scheme" content="dark"/>
+    <script src="/js/language-routing.js?v=20260729-locale1"></script>
 
     <link rel="canonical" href="${canonicalUrl}"/>
 ${alternateLinks}

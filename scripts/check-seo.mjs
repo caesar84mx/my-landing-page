@@ -7,6 +7,7 @@ import {SERVICES} from './service-locales.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const siteOrigin = 'https://www.mdymnoff-mobile.dev';
 const cloudflareAnalyticsToken = '99740b2332144905a1ca58e02ebec73f';
+const languageRoutingSrc = '/js/language-routing.js?v=20260729-locale1';
 const pages = new Map([
     ['/', 'index.html'],
     ['/es/', 'es/index.html'],
@@ -81,6 +82,12 @@ for (const [route, relativeFile] of pages) {
         'Cloudflare Web Analytics script',
         relativeFile
     );
+    const languageRoutingScript = matchOne(
+        html,
+        /(<script\ssrc="\/js\/language-routing\.js\?v=20260729-locale1"><\/script>)/g,
+        'language routing script',
+        relativeFile
+    );
 
     report((html.match(/<h1\b/g) || []).length === 1, `${relativeFile}: expected exactly one h1`);
     report(Boolean(title?.trim()), `${relativeFile}: title is empty`);
@@ -90,6 +97,11 @@ for (const [route, relativeFile] of pages) {
     report(
         analyticsScript?.includes(`data-cf-beacon='{"token": "${cloudflareAnalyticsToken}"}'`),
         `${relativeFile}: incorrect Cloudflare Web Analytics token`
+    );
+    report(
+        languageRoutingScript?.includes(`src="${languageRoutingSrc}"`)
+            && html.indexOf(languageRoutingScript) < html.indexOf('</head>'),
+        `${relativeFile}: language routing script must load once inside head`
     );
     report(!titles.has(title), `${relativeFile}: duplicate title`);
     report(!canonicals.has(canonical), `${relativeFile}: duplicate canonical`);
