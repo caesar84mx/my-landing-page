@@ -3,35 +3,69 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://dymnofflabs.com/about/max-dymnoff/",
+      "statusCode": 301
+    },
+    {
+      "source": "/es/",
+      "destination": "https://dymnofflabs.com/es/about/max-dymnoff/",
+      "statusCode": 301
+    },
+    {
+      "source": "/pt/",
+      "destination": "https://dymnofflabs.com/pt/about/max-dymnoff/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/",
+      "destination": "https://dymnofflabs.com/ru/about/max-dymnoff/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/mobile-product-consulting/",
+      "destination": "https://dymnofflabs.com/services/mobile-product-audit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/es/services/mobile-product-consulting/",
+      "destination": "https://dymnofflabs.com/es/services/mobile-product-audit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/pt/services/mobile-product-consulting/",
+      "destination": "https://dymnofflabs.com/pt/services/mobile-product-audit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/ru/services/mobile-product-consulting/",
+      "destination": "https://dymnofflabs.com/ru/services/mobile-product-audit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/:service(full-stack-mobile-app-development|mobile-app-modernization)/",
+      "destination": "https://dymnofflabs.com/#capabilities",
+      "statusCode": 301
+    },
+    {
+      "source": "/:locale(es|pt|ru)/services/:service(full-stack-mobile-app-development|mobile-app-modernization)/",
+      "destination": "https://dymnofflabs.com/:locale/#capabilities",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/:service(mobile-technical-lead|fractional-mobile-lead)/",
+      "destination": "https://dymnofflabs.com/#delivery",
+      "statusCode": 301
+    },
+    {
+      "source": "/:locale(es|pt|ru)/services/:service(mobile-technical-lead|fractional-mobile-lead)/",
+      "destination": "https://dymnofflabs.com/:locale/#delivery",
+      "statusCode": 301
+    },
+    {
       "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "mdymnoff-mobile.dev"
-        }
-      ],
-      "destination": "https://www.mdymnoff-mobile.dev/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/services/fractional-mobile-lead/",
-      "destination": "/services/mobile-technical-lead/",
-      "permanent": true
-    },
-    {
-      "source": "/es/services/fractional-mobile-lead/",
-      "destination": "/es/services/mobile-technical-lead/",
-      "permanent": true
-    },
-    {
-      "source": "/pt/services/fractional-mobile-lead/",
-      "destination": "/pt/services/mobile-technical-lead/",
-      "permanent": true
-    },
-    {
-      "source": "/ru/services/fractional-mobile-lead/",
-      "destination": "/ru/services/mobile-technical-lead/",
-      "permanent": true
+      "destination": "https://dymnofflabs.com/:path*",
+      "statusCode": 301
     }
   ],
   "headers": [
