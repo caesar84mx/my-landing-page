@@ -85,6 +85,46 @@
       "statusCode": 301
     },
     {
+      "source": "/case-studies/hailme/",
+      "destination": "https://dymnofflabs.com/case-studies/hailme/",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/ifit/",
+      "destination": "https://dymnofflabs.com/case-studies/ifit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/clear/",
+      "destination": "https://dymnofflabs.com/case-studies/clear/",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/surfcast/",
+      "destination": "https://dymnofflabs.com/case-studies/surfcast/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:locale(es|pt|ru)/case-studies/hailme/",
+      "destination": "https://dymnofflabs.com/:locale/case-studies/hailme/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:locale(es|pt|ru)/case-studies/ifit/",
+      "destination": "https://dymnofflabs.com/:locale/case-studies/ifit/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:locale(es|pt|ru)/case-studies/clear/",
+      "destination": "https://dymnofflabs.com/:locale/case-studies/clear/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:locale(es|pt|ru)/case-studies/surfcast/",
+      "destination": "https://dymnofflabs.com/:locale/case-studies/surfcast/",
+      "statusCode": 301
+    },
+    {
       "source": "/case-studies/:path*",
       "destination": "https://dymnofflabs.com/case-studies/:path*",
       "statusCode": 301
@@ -97,6 +137,16 @@
     {
       "source": "/journal/",
       "destination": "https://dymnofflabs.com/journal/",
+      "statusCode": 301
+    },
+    {
+      "source": "/journal/signal-001/",
+      "destination": "https://dymnofflabs.com/journal/signal-001/",
+      "statusCode": 301
+    },
+    {
+      "source": "/journal/signal-002/",
+      "destination": "https://dymnofflabs.com/journal/signal-002/",
       "statusCode": 301
     },
     {
