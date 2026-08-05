@@ -57,6 +57,32 @@ const UI = {
 
 const ISSUES = [
     {
+        number: 2,
+        published: '2026-08-03',
+        path: '/journal/signal-002/',
+        minutes: 10,
+        sources: 8,
+        signals: 8,
+        title: {
+            en: 'Mobile delivery changes that call for action.',
+            es: 'Cambios en la entrega de aplicaciones móviles que exigen actuar.',
+            pt: 'Mudanças no processo de entrega mobile que exigem ação.',
+            ru: 'Изменения в выпуске мобильных приложений, которые требуют действий.'
+        },
+        summary: {
+            en: 'Tracing 2.0 reaches RC, Navigation 3 matures, Apple ships 26.6, and Android developer verification becomes a release-operations concern.',
+            es: 'Tracing 2.0 llega a RC, Navigation 3 madura, Apple publica 26.6 y la verificación de desarrolladores Android pasa a ser una cuestión de operaciones de lanzamiento.',
+            pt: 'Tracing 2.0 chega a RC, Navigation 3 amadurece, a Apple lança a versão 26.6 e a verificação de desenvolvedores Android passa a fazer parte das operações de release.',
+            ru: 'Tracing 2.0 доходит до RC, Navigation 3 становится зрелее, Apple выпускает 26.6, а проверка Android-разработчиков становится частью процесса выпуска.'
+        },
+        topics: {
+            en: ['AndroidX Tracing', 'Navigation 3', 'Apple platforms', 'Android delivery', 'Kotlin Multiplatform', 'Ktor'],
+            es: ['AndroidX Tracing', 'Navigation 3', 'Plataformas Apple', 'Entrega Android', 'Kotlin Multiplatform', 'Ktor'],
+            pt: ['AndroidX Tracing', 'Navigation 3', 'Plataformas Apple', 'Entrega Android', 'Kotlin Multiplatform', 'Ktor'],
+            ru: ['AndroidX Tracing', 'Navigation 3', 'Платформы Apple', 'Выпуск Android', 'Kotlin Multiplatform', 'Ktor']
+        }
+    },
+    {
         number: 1,
         published: '2026-07-27',
         path: '/journal/signal-001/',

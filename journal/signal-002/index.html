@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>MAX.D / SIGNAL — Issue 002</title>
+<meta name="description" content="A source-backed mobile engineering brief on Tracing 2.0 RC, Navigation 3, Apple 26.6, and Android developer verification."/>
+<meta name="theme-color" content="#0b0d0c">
+<script src="/js/language-routing.js?v=20260729-locale1"></script>
+<link rel="canonical" href="https://www.mdymnoff-mobile.dev/journal/signal-002/"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=20260727">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=20260727">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=20260727">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Max Dymnoff">
+<meta property="og:url" content="https://www.mdymnoff-mobile.dev/journal/signal-002/"/>
+<meta property="og:title" content="MAX.D / SIGNAL — Issue 002">
+<meta property="og:description" content="Tracing 2.0 RC, Navigation 3, Apple 26.6, Android developer verification, Kotlin Multiplatform, React Native, and Ktor.">
+<meta property="og:image" content="https://www.mdymnoff-mobile.dev/assets/og-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MAX.D / SIGNAL — Issue 002">
+<meta name="twitter:description" content="Tracing 2.0 RC, Navigation 3, Apple 26.6, Android developer verification, Kotlin Multiplatform, React Native, and Ktor.">
+<meta name="twitter:image" content="https://www.mdymnoff-mobile.dev/assets/og-v3.png">
+<style>
+:root{
+  --bg:#0b0d0c;--bg2:#111411;--surface:#171b17;--text:#f1f3ed;--muted:#a0a89d;
+  --dim:#727a70;--line:#30372f;--line2:#4c5649;--accent:#d9ff59;--ink:#10120d;
+  --soft:rgba(217,255,89,.09);--max:1440px;--body:760px;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace
+}
+html[data-theme="light"]{
+  --bg:#ecefe8;--bg2:#e5e9e1;--surface:#f5f7f1;--text:#111410;--muted:#565e53;
+  --dim:#798175;--line:#c6ccc1;--line2:#8c9687;--accent:#455f00;--ink:#f7ffdb;--soft:rgba(69,95,0,.08)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;min-width:320px;color:var(--text);background:
+ linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),var(--bg);
+ background-size:56px 56px;font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}button,select{font:inherit}.progress{position:fixed;z-index:100;inset:0 0 auto;height:3px}.progress span{display:block;width:0;height:100%;background:var(--accent)}
+.header{position:sticky;top:0;z-index:80;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(18px)}
+.header-in{width:min(var(--max),calc(100% - 40px));min-height:78px;margin:auto;display:grid;grid-template-columns:1fr auto auto;gap:28px;align-items:center}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}.mark{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line2);color:var(--accent);font:800 .82rem var(--mono);letter-spacing:-.08em}
+.brand b{display:block;font-size:.9rem}.brand small{display:block;color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
+.nav{display:flex;gap:24px}.nav a{color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:650}.nav a.active{color:var(--text)}.nav a.active:before{content:"●";color:var(--accent);font-size:.55rem;margin-right:7px}
+.actions{display:flex;gap:8px}.lang,.theme,.menu{min-height:38px;border:1px solid var(--line);border-radius:0;color:var(--text);background:var(--surface);cursor:pointer}
+.lang{padding:0 34px 0 12px;font:700 .72rem var(--mono)}.theme,.menu{width:38px}.menu{display:none}
+.shell{width:min(var(--max),calc(100% - 40px));margin:auto}
+.cover{min-height:min(830px,calc(100svh - 78px));display:grid;grid-template-columns:minmax(0,8fr) minmax(290px,4fr);border-inline:1px solid var(--line);overflow:hidden}
+.cover-main{position:relative;min-height:680px;padding:clamp(48px,8vw,116px) clamp(28px,6vw,88px) 54px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.cover-main:before,.cover-main:after{content:"";position:absolute;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);border-radius:50%;width:clamp(360px,52vw,820px);aspect-ratio:1;right:-25%;top:18%}
+.cover-main:after{width:clamp(220px,34vw,540px);right:-10%;top:31%}.dot{position:absolute;right:23%;top:52%;width:10px;height:10px;background:var(--accent);box-shadow:0 0 0 8px var(--soft),0 0 32px var(--accent)}
+.kicker,.eyebrow,.label,.meta-label,.panel-label,.mono{font:700 .72rem/1.25 var(--mono);letter-spacing:.105em;text-transform:uppercase}
+.kicker{position:relative;z-index:2;color:var(--accent)}.live{display:inline-block;width:7px;height:7px;background:var(--accent);margin-right:10px;box-shadow:0 0 0 5px var(--soft)}
+.cover-copy{position:relative;z-index:2;margin-top:auto;padding-top:84px}.cover h1{margin:0;max-width:11ch;font-size:clamp(3.3rem,7.7vw,8.8rem);line-height:.87;letter-spacing:-.075em;text-wrap:balance}.accent{color:var(--accent)}
+.deck{max-width:790px;margin:32px 0 0;color:var(--muted);font-size:clamp(1rem,1.55vw,1.3rem)}
+.cover-foot{position:relative;z-index:2;margin-top:56px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font:650 .7rem/1.5 var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.cover-side{border-left:1px solid var(--line);background:var(--bg2);display:flex;flex-direction:column}.issue-no{position:relative;min-height:330px;padding:30px;border-bottom:1px solid var(--line);overflow:hidden}.issue-no strong{position:absolute;right:-.08em;bottom:-.2em;color:transparent;-webkit-text-stroke:1px var(--line2);font-size:clamp(10rem,24vw,26rem);font-weight:800;line-height:.8;letter-spacing:-.12em}.issue-no span{position:relative;z-index:2;color:var(--muted)}
+.side{padding:29px 30px 34px;display:flex;flex-direction:column;flex:1}.side h2{margin:0 0 24px;color:var(--muted);font:700 .72rem var(--mono);text-transform:uppercase;letter-spacing:.1em}.side ol{list-style:none;margin:0;padding:0}.side li{border-top:1px solid var(--line)}.side a{display:grid;grid-template-columns:32px 1fr auto;gap:10px;padding:14px 0;color:var(--muted);text-decoration:none;font-size:.8rem}.side a:hover{color:var(--text)}.side .s{color:var(--accent);font:700 .63rem var(--mono);text-transform:uppercase}.side-btns{margin-top:auto;padding-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:8px}.btn{min-height:42px;border:1px solid var(--line);background:transparent;color:var(--text);font:700 .67rem var(--mono);text-transform:uppercase;letter-spacing:.06em;cursor:pointer}
+.decision{border:1px solid var(--line);border-top:0;padding:clamp(42px,7vw,90px) clamp(24px,5vw,74px);background:var(--surface)}.section-head{display:grid;grid-template-columns:minmax(170px,3fr) minmax(0,9fr);gap:28px;margin-bottom:45px}.eyebrow{color:var(--accent);padding-top:.7em}.section-head h2{margin:0;font-size:clamp(2.35rem,5.1vw,5.6rem);line-height:.92;letter-spacing:-.06em;max-width:980px}
+.board{border-top:1px solid var(--line2)}.decision-row{display:grid;grid-template-columns:76px minmax(130px,1.8fr) minmax(0,7fr) 28px;gap:22px;align-items:center;min-height:102px;border-bottom:1px solid var(--line)}.decision-row:hover{background:var(--soft)}.dnum{color:var(--dim);font:700 .7rem var(--mono)}.dtype{color:var(--accent);font:750 .73rem var(--mono);letter-spacing:.09em;text-transform:uppercase}.dcopy{font-size:clamp(1rem,1.65vw,1.25rem);font-weight:600;letter-spacing:-.02em}
+.leads{display:grid;grid-template-columns:1.25fr .75fr;border-inline:1px solid var(--line);border-bottom:1px solid var(--line)}.lead,.small-lead{position:relative;min-height:420px;padding:clamp(28px,5vw,62px);display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;overflow:hidden}.lead{border-right:1px solid var(--line);background:var(--bg2)}.small-stack{display:grid;grid-template-rows:1fr 1fr}.small-lead{min-height:210px;padding:30px;border-bottom:1px solid var(--line);background:var(--surface)}.small-lead:last-child{border-bottom:0}.story-meta{display:flex;justify-content:space-between;color:var(--muted);font:700 .68rem var(--mono);letter-spacing:.08em;text-transform:uppercase}.story-meta span:first-child{color:var(--accent)}.story-title{margin:46px 0 20px;max-width:15ch;font-size:clamp(2.3rem,4.7vw,5.1rem);line-height:.93;letter-spacing:-.06em}.small-lead .story-title{margin:28px 0 14px;font-size:clamp(1.7rem,2.65vw,2.65rem)}.story-deck{margin:0;max-width:720px;color:var(--muted)}.arrow{position:absolute;right:25px;bottom:19px;color:var(--accent);font-size:1.6rem}
+.content-grid{display:grid;grid-template-columns:280px minmax(0,1fr);border-inline:1px solid var(--line)}.rail{position:sticky;top:78px;height:calc(100svh - 78px);padding:34px 24px;border-right:1px solid var(--line);background:var(--bg2);overflow:auto}.rail h2{margin:0 0 23px;color:var(--muted);font:700 .69rem var(--mono);text-transform:uppercase;letter-spacing:.1em}.railnav{display:grid}.railnav a{display:grid;grid-template-columns:27px 1fr;gap:9px;padding:9px 8px;color:var(--muted);text-decoration:none;font-size:.75rem;border-left:2px solid transparent}.railnav a.active{color:var(--text);border-left-color:var(--accent);background:var(--soft)}.railnote{margin-top:34px;padding-top:23px;border-top:1px solid var(--line);color:var(--dim);font-size:.72rem}
+.article{padding:clamp(58px,8vw,116px) clamp(24px,7vw,108px);border-bottom:1px solid var(--line)}.article-head,.meta-grid{max-width:1060px;margin-left:auto;margin-right:auto}.label{color:var(--accent);margin-bottom:21px}.article h2{margin:0;max-width:17ch;font-size:clamp(2.55rem,5.1vw,6rem);line-height:.92;letter-spacing:-.066em;text-wrap:balance}.article-lead{max-width:780px;margin:28px 0 0;color:var(--muted);font-size:clamp(1.05rem,1.7vw,1.3rem)}
+.meta-grid{margin-top:54px;margin-bottom:55px;display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}.meta{min-height:86px;padding:16px 17px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:9px}.meta:last-child{border-right:0}.meta-label{color:var(--dim)}.meta strong{font-size:.84rem}.meta strong.accent{color:var(--accent)}
+.article-body{max-width:var(--body);margin:auto;font-size:1.06rem}.article-body p{margin:0 0 1.45em}.article-body h3{margin:2.7em 0 .8em;font-size:clamp(1.5rem,2.5vw,2.1rem);line-height:1.1;letter-spacing:-.04em}.panel{margin:36px 0;padding:25px 27px;border:1px solid var(--line);background:var(--surface)}.panel.fact{border-left:3px solid var(--accent)}.panel.analysis{border-style:dashed;background:var(--soft)}.panel.verdict{color:var(--ink);background:var(--accent);border-color:var(--accent)}.panel-label{margin-bottom:13px;color:var(--muted)}.panel.verdict .panel-label{color:color-mix(in srgb,var(--ink) 65%,transparent)}.panel p:last-child{margin-bottom:0}
+.cost{margin:35px 0;border-top:1px solid var(--line)}.cost div{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--line)}.cost span{color:var(--muted)}.cost strong{text-align:right}.source{display:inline-flex;margin-top:8px;color:var(--accent);font:700 .71rem var(--mono);letter-spacing:.05em;text-transform:uppercase;text-decoration:none}
+.actions-board{border:1px solid var(--line);padding:clamp(48px,7vw,88px) clamp(24px,5vw,72px);background:var(--surface)}.cols{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line2)}.col{padding:27px 27px 8px 0;border-right:1px solid var(--line)}.col+.col{padding-left:27px}.col:last-child{border-right:0}.col h3{margin:0 0 23px;color:var(--accent);font:750 .73rem var(--mono);text-transform:uppercase;letter-spacing:.09em}.col ol{list-style:none;padding:0;margin:0;counter-reset:item}.col li{counter-increment:item;position:relative;padding:13px 0 13px 33px;border-top:1px solid var(--line);color:var(--muted)}.col li:before{content:counter(item,decimal-leading-zero);position:absolute;left:0;top:17px;color:var(--dim);font:700 .62rem var(--mono)}
+.sources{border-inline:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(50px,7vw,86px) clamp(24px,5vw,72px);background:var(--bg2)}.sources ol{list-style:none;padding:0;margin:42px 0 0;border-top:1px solid var(--line2)}.sources li{border-bottom:1px solid var(--line)}.sources a{display:grid;grid-template-columns:52px 1fr auto;gap:19px;align-items:center;min-height:70px;color:var(--muted);text-decoration:none}.sources a:hover{color:var(--text)}.domain{color:var(--accent);font:700 .64rem var(--mono);text-transform:uppercase}
+.cta{position:relative;padding:clamp(70px,10vw,138px) clamp(24px,7vw,98px);border-inline:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}.cta:after{content:"MD";position:absolute;right:-.04em;bottom:-.28em;color:transparent;-webkit-text-stroke:1px var(--line);font-size:clamp(13rem,34vw,35rem);font-weight:850;line-height:1;letter-spacing:-.13em}.cta-in{position:relative;z-index:2;max-width:920px}.cta h2{margin:20px 0 28px;max-width:12ch;font-size:clamp(3rem,7vw,7.8rem);line-height:.89;letter-spacing:-.07em}.cta p{max-width:650px;color:var(--muted);font-size:1.07rem}.primary{display:inline-flex;align-items:center;gap:12px;min-height:52px;margin-top:22px;padding:0 19px;color:var(--ink);background:var(--accent);text-decoration:none;font:750 .73rem var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.footer{width:min(var(--max),calc(100% - 40px));margin:auto;padding:28px 0 44px;display:flex;justify-content:space-between;gap:25px;color:var(--dim);font-size:.73rem}
+.mobilebar,.mobilepanel{display:none}
+@media(max-width:1100px){.nav{display:none}.header-in{grid-template-columns:1fr auto}.menu{display:block}.cover{grid-template-columns:1fr}.cover-side{border-left:0;border-top:1px solid var(--line);display:grid;grid-template-columns:230px 1fr}.issue-no{min-height:260px;border-bottom:0;border-right:1px solid var(--line)}.side ol{columns:2}.content-grid{grid-template-columns:1fr}.rail{display:none}.mobilebar{position:sticky;top:78px;z-index:60;display:flex;justify-content:space-between;align-items:center;min-height:52px;padding:0 20px;border-inline:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}.mobilebar button{border:0;background:transparent;color:var(--text);font:700 .68rem var(--mono);text-transform:uppercase}.mobilepanel.open{position:fixed;inset:130px 20px 20px;z-index:95;display:block;padding:24px;border:1px solid var(--line2);background:var(--bg2);overflow:auto;box-shadow:0 30px 90px #0009}.close{float:right;width:38px;height:38px;border:1px solid var(--line);background:var(--surface);color:var(--text)}}
+@media(max-width:820px){.header-in,.shell,.footer{width:min(100% - 24px,var(--max))}.header-in{min-height:70px}.brand small{display:none}.cover-side{grid-template-columns:1fr}.issue-no{min-height:170px;border-right:0;border-bottom:1px solid var(--line)}.side ol{columns:1}.section-head{grid-template-columns:1fr;gap:12px}.decision-row{grid-template-columns:42px 110px 1fr;gap:12px}.leads{grid-template-columns:1fr}.lead{border-right:0;border-bottom:1px solid var(--line)}.small-stack{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.small-lead:first-child{border-right:1px solid var(--line)}.meta-grid{grid-template-columns:1fr 1fr}.meta:nth-child(2){border-right:0}.meta:nth-child(-n+2){border-bottom:1px solid var(--line)}.cols{grid-template-columns:1fr}.col,.col+.col{padding:26px 0;border-right:0;border-bottom:1px solid var(--line)}.col:last-child{border-bottom:0}.footer{flex-direction:column}}
+@media(max-width:560px){body{background-size:36px 36px}.brand b{display:none}.cover-main{min-height:calc(100svh - 70px);padding:34px 20px 28px}.cover h1{font-size:clamp(3.2rem,17vw,5.7rem)}.cover-foot{flex-direction:column;gap:7px}.side{padding:24px 20px 29px}.decision,.actions-board,.sources{padding-inline:20px}.decision-row{grid-template-columns:34px 1fr;padding:16px 0}.dtype,.dcopy{grid-column:2}.small-stack{grid-template-columns:1fr}.small-lead:first-child{border-right:0;border-bottom:1px solid var(--line)}.lead,.small-lead{min-height:300px;padding:24px 20px}.small-lead{min-height:230px}.article{padding-inline:20px}.article h2{font-size:clamp(2.4rem,13vw,4.3rem)}.meta-grid{grid-template-columns:1fr}.meta,.meta:nth-child(2){min-height:69px;border-right:0;border-bottom:1px solid var(--line)}.meta:last-child{border-bottom:0}.panel{padding:21px 19px}.cost div{grid-template-columns:1fr;gap:4px}.cost strong{text-align:left}.mobilebar{top:70px}.mobilepanel.open{inset:122px 12px 12px}.sources a{grid-template-columns:35px 1fr;padding:14px 0}.domain{grid-column:2}}
+@media print{.header,.cover-side,.rail,.mobilebar,.cta,.footer,.side-btns{display:none!important}body{background:#fff;color:#000}.shell{width:100%}.cover{display:block;min-height:auto}.cover-main{min-height:auto}.content-grid{display:block}.panel.verdict{color:#000;background:#eee}.article{break-inside:avoid}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="progress"><span id="progress"></span></div>
+
+<header class="header">
+  <div class="header-in">
+    <a class="brand" id="brandLink" href="/">
+      <span class="mark">MD</span><span><b>Max Dymnoff</b><small id="role"></small></span>
+    </a>
+    <nav class="nav">
+      <a id="navServices" href="/#expertise"></a>
+      <a id="navCases" href="/#work"></a>
+      <a id="navJournal" class="active" href="/journal/?lang=en"></a>
+      <a id="navWork" href="/#engagement"></a>
+    </nav>
+    <div class="actions">
+      <select class="lang" id="lang" aria-label="Language"><option value="en">EN</option><option value="es">ES</option><option value="pt">PT</option><option value="ru">RU</option></select>
+      <button class="theme" id="theme" aria-label="Theme">◐</button>
+      <button class="menu" id="menu" aria-label="Contents">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="shell">
+  <section class="cover">
+    <div class="cover-main">
+      <span class="dot"></span>
+      <div class="kicker"><span class="live"></span>MAX.D / SIGNAL · <span id="coverKicker"></span></div>
+      <div class="cover-copy">
+        <h1 id="coverTitle"></h1>
+        <p class="deck" id="coverDeck"></p>
+      </div>
+      <div class="cover-foot"><span id="date"></span><span id="read"></span><span id="sourcePolicy"></span></div>
+    </div>
+    <aside class="cover-side">
+      <div class="issue-no"><span class="mono" id="issueNo">Issue / 002</span><strong>02</strong></div>
+      <div class="side">
+        <h2 id="inIssue"></h2><ol id="coverToc"></ol>
+        <div class="side-btns"><button class="btn" id="copy"></button><button class="btn" onclick="print()" id="print"></button></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="decision">
+    <div class="section-head"><div class="eyebrow" id="decisionKicker">Decision board / 01</div><h2 id="decisionHeading"></h2></div>
+    <div class="board" id="board"></div>
+  </section>
+
+  <section class="leads">
+    <a class="lead" href="#article-1"><div class="story-meta"><span>01 / AndroidX Tracing</span><span id="leadStatus"></span></div><div><h2 class="story-title" id="leadTitle"></h2><p class="story-deck" id="leadDeck"></p></div><span class="arrow">↗</span></a>
+    <div class="small-stack">
+      <a class="small-lead" href="#article-2"><div class="story-meta"><span>02 / Navigation 3</span><span id="smallStatus1"></span></div><div><h2 class="story-title" id="smallTitle1"></h2><p class="story-deck" id="smallDeck1"></p></div><span class="arrow">↗</span></a>
+      <a class="small-lead" href="#article-4"><div class="story-meta"><span>04 / Android delivery</span><span id="smallStatus2"></span></div><div><h2 class="story-title" id="smallTitle2"></h2><p class="story-deck" id="smallDeck2"></p></div><span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <div class="mobilebar"><span class="mono" id="mobileIssueNo">Issue / 002</span><button id="openContents"></button></div>
+  <div class="mobilepanel" id="mobilePanel"><button class="close" id="close" aria-label="Close contents">×</button><h2 class="mono" id="mobileIssue"></h2><nav class="railnav" id="mobileNav"></nav></div>
+
+  <section class="content-grid">
+    <aside class="rail"><h2 id="railTitle"></h2><nav class="railnav" id="railNav"></nav><p class="railnote" id="railNote"></p></aside>
+    <div id="articles"></div>
+  </section>
+
+  <section class="actions-board">
+    <div class="section-head"><div class="eyebrow" id="actionKicker">Action list / 02</div><h2 id="actionHeading"></h2></div>
+    <div class="cols" id="actionCols"></div>
+  </section>
+
+  <section class="sources">
+    <div class="section-head"><div class="eyebrow" id="sourcesKicker">Sources / 03</div><h2 id="sourcesHeading"></h2></div>
+    <ol id="sources"></ol>
+  </section>
+
+  <section class="cta">
+    <div class="cta-in"><div class="eyebrow">MAX.D / Mobile engineering</div><h2 id="ctaTitle"></h2><p id="ctaCopy"></p><a class="primary" id="ctaLink" href="/#contact"><span id="ctaButton"></span> ↗</a></div>
+  </section>
+</main>
+<footer class="footer"><span>© Dymnoff Software Labs SAS · Max Dymnoff</span><span id="footerLocation">Montevideo, Uruguay · Remote worldwide</span></footer>
+
+<script src="/journal/signal-002/data.js"></script>
+<script>
+const idx={ru:0,en:1,es:2,pt:3};
+const requestedLocale=new URLSearchParams(location.search).get("lang");
+const storedLocale=localStorage.getItem("signal-locale");
+let locale=Object.prototype.hasOwnProperty.call(idx,requestedLocale)?requestedLocale:(Object.prototype.hasOwnProperty.call(idx,storedLocale)?storedLocale:"en");
+let theme=localStorage.getItem("signal-theme")||"dark";
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;");
+const setMeta=(selector,value)=>{const element=document.querySelector(selector);if(element)element.setAttribute("content",value)};
+
+function articlesFor(l){
+ const i=idx[l];
+ return articleCore.map(a=>({
+  topic:a.topic[i],status:a.status[i],title:a.title[i],lead:a.lead[i],meta:a.meta[i],
+  confirmed:a.confirmed[i],body:a.body[i],analysis:a.analysis[i],migration:a.migration[i],verdict:a.verdict[i],source:sources[a.source]
+ }));
+}
+function render(){
+ const t=ui[locale],as=articlesFor(locale);
+ document.documentElement.lang=locale;document.documentElement.dataset.theme=theme;$("lang").value=locale;
+ document.title=t.metaTitle;setMeta('meta[name="description"]',t.metaDescription);setMeta('meta[property="og:title"]',t.metaTitle);setMeta('meta[property="og:description"]',t.metaDescription);setMeta('meta[name="twitter:title"]',t.metaTitle);setMeta('meta[name="twitter:description"]',t.metaDescription);
+ const landingBase=locale==="en"?"/":`/${locale}/`;
+ $("brandLink").href=landingBase;$("navServices").href=`${landingBase}#expertise`;$("navCases").href=`${landingBase}#work`;$("navJournal").href=`/journal/?lang=${locale}`;$("navWork").href=`${landingBase}#engagement`;$("ctaLink").href=`${landingBase}#contact`;
+ $("lang").setAttribute("aria-label",t.languageLabel);$("theme").setAttribute("aria-label",t.themeLabel);$("menu").setAttribute("aria-label",t.menuLabel);$("close").setAttribute("aria-label",t.closeLabel);
+ ["issueNo","mobileIssueNo"].forEach(id=>$(id).textContent=t.issueNo);$("decisionKicker").textContent=t.decisionKicker;$("actionKicker").textContent=t.actionKicker;$("sourcesKicker").textContent=t.sourcesKicker;$("footerLocation").textContent=t.footerLocation;
+ $("role").textContent=t.role;["navServices","navCases","navJournal","navWork"].forEach((id,i)=>$(id).textContent=t.nav[i]);
+ $("coverKicker").textContent=t.coverKicker;$("coverTitle").innerHTML=t.coverTitle;$("coverDeck").textContent=t.coverDeck;
+ $("date").textContent=t.date;$("read").textContent=t.read;$("sourcePolicy").textContent=t.sourcePolicy;
+ ["inIssue","mobileIssue","railTitle"].forEach(id=>$(id).textContent=t.inIssue);$("copy").textContent=t.copy;$("print").textContent=t.print;
+ $("decisionHeading").textContent=t.decisionHeading;$("leadStatus").textContent=t.leadStatus;$("leadTitle").textContent=t.leadTitle;$("leadDeck").textContent=t.leadDeck;
+ $("smallStatus1").textContent=t.smallStatus1;$("smallTitle1").textContent=t.smallTitle1;$("smallDeck1").textContent=t.smallDeck1;
+ $("smallStatus2").textContent=t.smallStatus2;$("smallTitle2").textContent=t.smallTitle2;$("smallDeck2").textContent=t.smallDeck2;
+ $("openContents").textContent=t.openContents;$("railNote").textContent=t.railNote;$("actionHeading").textContent=t.actionHeading;$("sourcesHeading").textContent=t.sourcesHeading;
+ $("ctaTitle").textContent=t.ctaTitle;$("ctaCopy").textContent=t.ctaCopy;$("ctaButton").textContent=t.ctaButton;
+
+ $("board").innerHTML=t.decisions.map((d,i)=>`<div class="decision-row"><div class="dnum">${String(i+1).padStart(2,"0")}</div><div class="dtype">${esc(d[0])}</div><div class="dcopy">${esc(d[1])}</div><div>↗</div></div>`).join("");
+ const toc=as.map((a,i)=>`<a href="#article-${i+1}" data-target="article-${i+1}"><span>${String(i+1).padStart(2,"0")}</span><span>${esc(a.title)}</span></a>`).join("");
+ $("railNav").innerHTML=toc;$("mobileNav").innerHTML=toc;
+ $("coverToc").innerHTML=as.map((a,i)=>`<li><a href="#article-${i+1}"><span class="mono">${String(i+1).padStart(2,"0")}</span><span>${esc(a.topic)}</span><span class="s">${esc(a.status)}</span></a></li>`).join("");
+
+ $("articles").innerHTML=as.map((a,i)=>`
+ <article class="article" id="article-${i+1}">
+  <header class="article-head"><div class="label">${String(i+1).padStart(2,"0")} / ${esc(a.topic)}</div><h2>${esc(a.title)}</h2><p class="article-lead">${esc(a.lead)}</p></header>
+  <div class="meta-grid">
+   ${a.meta.map((v,j)=>`<div class="meta"><span class="meta-label">${esc(t.labels[j])}</span><strong class="${j===1?"accent":""}">${esc(v)}</strong></div>`).join("")}
+  </div>
+  <div class="article-body">
+   <div class="panel fact"><div class="panel-label">${esc(t.labels[4])}</div><p>${esc(a.confirmed)}</p></div>
+   <h3>${esc(t.labels[5])}</h3>${a.body.map(p=>`<p>${esc(p)}</p>`).join("")}
+   <div class="panel analysis"><div class="panel-label">${esc(t.labels[5])}</div><p>${esc(a.analysis)}</p></div>
+   <h3>${esc(t.labels[6])}</h3><div class="cost"><div><span>${esc(a.migration[0])}</span><strong>${esc(a.migration[1])}</strong></div><div><span>${esc(a.migration[2])}</span><strong>${esc(a.migration[3])}</strong></div></div>
+   <div class="panel verdict"><div class="panel-label">${esc(t.labels[7])}</div><p><strong>${esc(a.verdict)}</strong></p></div>
+   <a class="source" href="${a.source[2]}" target="_blank" rel="noopener">${esc(t.labels[8])} ↗</a>
+  </div>
+ </article>`).join("");
+
+ $("actionCols").innerHTML=t.actions.map((arr,i)=>`<div class="col"><h3>${esc(t.actionTitles[i])}</h3><ol>${arr.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`).join("");
+ $("sources").innerHTML=sources.map((s,i)=>`<li><a href="${s[2]}" target="_blank" rel="noopener"><span class="mono">${String(i+1).padStart(2,"0")}</span><span>${esc(s[0])}</span><span class="domain">${esc(s[1])} ↗</span></a></li>`).join("");
+ setupObserver();
+}
+let observer;
+function setupObserver(){
+ if(observer)observer.disconnect();
+ const links=[...document.querySelectorAll(".railnav a")];
+ observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.remove("active"));document.querySelectorAll(`[data-target="${e.target.id}"]`).forEach(a=>a.classList.add("active"))}}),{rootMargin:"-18% 0px -68% 0px"});
+ document.querySelectorAll(".article").forEach(a=>observer.observe(a));
+ document.querySelectorAll("#mobileNav a").forEach(a=>a.onclick=()=> $("mobilePanel").classList.remove("open"));
+}
+$("lang").onchange=e=>{locale=e.target.value;localStorage.setItem("signal-locale",locale);const url=new URL(location.href);url.searchParams.set("lang",locale);history.replaceState(null,"",url);render()};
+$("theme").onclick=()=>{theme=theme==="dark"?"light":"dark";localStorage.setItem("signal-theme",theme);document.documentElement.dataset.theme=theme};
+$("copy").onclick=async()=>{const t=ui[locale],url=new URL(location.href);url.searchParams.set("lang",locale);try{await navigator.clipboard.writeText(url.href);$("copy").textContent=t.copied;setTimeout(()=>$("copy").textContent=t.copy,1400)}catch{$("copy").textContent=url.href}};
+$("menu").onclick=$("openContents").onclick=()=>$("mobilePanel").classList.add("open");$("close").onclick=()=>$("mobilePanel").classList.remove("open");
+addEventListener("scroll",()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;$("progress").style.width=(m?d.scrollTop/m*100:0)+"%"},{passive:true});
+render();
+</script>
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "99740b2332144905a1ca58e02ebec73f"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body></html>

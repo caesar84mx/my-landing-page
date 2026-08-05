@@ -571,7 +571,8 @@ const sitemapPaths = [
     '/services/mobile-app-modernization/',
     '/services/mobile-technical-lead/',
     '/journal/',
-    '/journal/signal-001/'
+    '/journal/signal-001/',
+    '/journal/signal-002/'
 ];
 for (const caseStudy of Object.values(CASE_STUDIES)) {
     for (const locale of ['es', 'pt', 'ru']) {
